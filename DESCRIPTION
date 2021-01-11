@@ -7,8 +7,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "wrash0806@my.mwsu.edu"
            )
-Description: 
+Description: Experimenting with package down to complete operations management. 
+    MWSU Spring 2021. 
 License: MIT + file LICENSE
+URL: https://bill-ash.com/operationsMgmt/
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
