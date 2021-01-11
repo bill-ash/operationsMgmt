@@ -1,0 +1,25 @@
+---
+title: "Chapter 1"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Chapter 1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Load functions related to Chapter 
+
+This is my setup script for completing homework exercises. 
+
+```{r setup}
+library(operationsMgmt)
+```
+
+
