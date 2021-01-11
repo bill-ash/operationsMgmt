@@ -6,4 +6,4 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-Fall semester 2021.
+Spring semester 2021.

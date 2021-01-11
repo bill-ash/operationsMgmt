@@ -1,0 +1,5 @@
+title: "Operations MGMT. - 3453"
+book_filename: "_main.Rmd"
+delete_merged_file: true
+output_dir: "book_output/"
+clean: ["_bookdown_files/"]
