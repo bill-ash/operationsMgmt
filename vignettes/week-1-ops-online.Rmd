@@ -70,17 +70,17 @@ or cheaper.
 Price always matter >> cost competitive (price)
 - Lower prices do not always mean lower quality. 
 
-Philosophies governing the operations world. 
+### Philosophies governing the operations world
 
-### Faster >> Just in time (JIT)
+#### Faster >> Just in time (JIT)
 
 Dr. Taiichi Ohono - Founder JIT Vice president of production at Toyota. 
 
-### Better >> Total Quality Management(TQM)
+#### Better >> Total Quality Management(TQM)
 
 Dr. Edwards Deming - Philosopher contributor to TQM movement.
 
-### Cheaper >> Cost competitive 
+#### Cheaper >> Cost competitive 
 
 Dr. Eli Goldratt - Father of the Theory of Constraints. 
 - PHD in physics. 
@@ -106,7 +106,7 @@ Operations will apply to all different types of businesses -
 - All organizations 
 
 
-## Manufacturing >> Goods producting systems 
+### Manufacturing >> Goods producing systems 
 
 - Manufacturing 
 - Durable 
@@ -115,7 +115,7 @@ Operations will apply to all different types of businesses -
 - Mining 
 - Agricultural 
 
-## Service Sector 
+### Service Sector 
 
 Everything that is not included in Manufacturing sector.
 
@@ -131,7 +131,9 @@ Everything that is not included in Manufacturing sector.
 ## I/O Model: input output model
 
 ```{r, echo = FALSE}
-nomnoml::nomnoml('[input] --> [process]
+nomnoml::nomnoml('
+#spacing:40
+[input] --> [process]
 [process] --> [output]
 ')
 ```
@@ -145,10 +147,10 @@ nomnoml::nomnoml("
 #direction: right
 #spacing:40
 [input |
-- Raw Material] --> [process WIP]
+- Raw material] --> [process WIP]
 
 [process WIP] --> [output |
-- Final Goods]
+- Final goods]
 
 [process WIP | - In the process of being built
 - Resources factors of production]
@@ -172,11 +174,9 @@ Part of the work in process portion of the input, output model.
 - Land
 - Labor 
 - Capital - good that is used to produce another good 
-- Hammer 
-- Computer 
-- Milking machine 
-- Plant & equipment 
-- Money >> purchases productive resources (not considered a capital
+  - Hammer, computer, useful life greater than 1 year
+  - Plant & equipment 
+  - Money >> purchases productive resources (not considered a capital
 good)
 
 
@@ -184,8 +184,8 @@ good)
 
 Cornerstone of a business or organization.
 
-```{r, include = FALSE}
-nomnoml('
+```{r, echo = FALSE}
+nomnoml::nomnoml('
 #direction: down
         [general manager] --> [operations | Supply side: \n people making products.]
         [general manager] --> [marketing | Demand side: \n Selling of product]
@@ -195,9 +195,10 @@ nomnoml('
 
 
 
-## Just in Time (JIT)
+## Management philosophy 
 
-Management philosophy 
+### Just in Time (JIT)
+
 
 - Smaller warehouses - don't carry as much raw materials or inventory 
 as they used too. 
@@ -209,7 +210,7 @@ are no issues.
 - Stale inventory is marked down - provide an incentive to the customer
 - Goods will be sold for less that their costs in extreme cases 
 
-## Functions of management 
+### Functions of management 
 
 How managers spend their time. 
 
@@ -229,7 +230,7 @@ in the right seats.
 - KPIs - performance 
 
 
-## Productivty 
+### Productivty 
 
 - Key issues for operations today: 
    
@@ -245,7 +246,7 @@ Ties back to technology.
 prevail in an organization. 
 
 
-## Key Issues 
+### Key Issues 
 
 - Productivity = output/ input 
 - Quality - quality of the organization, workforce, and product 
@@ -293,17 +294,18 @@ the type of operations:
 - Exchange - retail and wholesale trade/ banking 
 - Communication/ entertainment - television, music, movies
 
-- Manufacturing vs. Service 
-- Interaction between the buyer and seller 
-- Buyer and seller will have no interaction 
-- Service sector - interaction between buyer and seller (person to 
+- Manufacturing vs. Service - Interaction between buyers and sellers 
+  - Manufacturing: buyer and seller will have no interaction 
+  - Service sector: interaction between buyer and seller (person to 
 person relationship)
 
-- Highly seasonable demand example: 
-Smooth out the sales cycle by building inventory count cyclically 
+
+### Highly seasonable demand example
+
+Smooth out the sales cycle by building inventory counter cyclically 
 to peak demand. 
 
-```{r}
+```{r, echo = FALSE}
 tibble::tibble(
   qty = dnorm(seq(1, 100, 1), 40, 20) * 1000, 
   time = seq(as.Date('2015-02-01'), by = 1, length.out = 100),
@@ -336,4 +338,4 @@ to heating equipment in colder months.
 
 Building inventory - Service sector 
 
-- Sell their time and knowledge. 
+- Knowledge workers sell their time and knowledge. 
