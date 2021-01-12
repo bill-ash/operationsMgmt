@@ -86,13 +86,35 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bill-ash.com/operationsMgmt/">operationsMgmt</a></span><span class="op">)</span></code></pre></div>
-<p>Package functions tutorial.</p>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bill-ash.com/operationsMgmt/">operationsMgmt</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/lpSolve">lpSolve</a></span><span class="op">)</span></code></pre></div>
+<div id="linear-programming-example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#linear-programming-example" class="anchor"></a>Linear programming example</h2>
+<p>Maximize 20B + 30C Constraints – Subject to: B=Bearings C=Channels ~ Departments 3B+2C&lt;=16Machine 1B+3C&lt;=12Plate 2B+2C&lt;=6Polish</p>
+<ul>
+<li>objective.in: Vector of coefficients of objective function</li>
+<li>const.mat: One row per constraint; one column per variable</li>
+<li>const.dir: Vector of character strings giving direction of the constraint</li>
+<li>const.rhs: Vector of numeric constraints for RHS</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">f.type</span> <span class="op">&lt;-</span> <span class="st">'max'</span>
+<span class="va">f.obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span>
+<span class="va">f.con</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">f.dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'&lt;='</span>, <span class="st">'&lt;='</span>, <span class="st">'&lt;='</span><span class="op">)</span>
+<span class="va">f.rhs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">12</span>, <span class="fl">6</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/lpSolve/man/lp.html">lp</a></span><span class="op">(</span><span class="va">f.type</span>, <span class="va">f.obj</span>, <span class="va">f.con</span>, <span class="va">f.dir</span>, <span class="va">f.rhs</span><span class="op">)</span>
+<span class="co">#&gt; Success: the objective function is 90</span></code></pre></div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

@@ -89,13 +89,13 @@
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bill-ash.com/operationsMgmt/">operationsMgmt</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</span>
-<span class="co">#&gt; ✔ ggplot2 3.3.3     ✔ purrr   0.3.4</span>
-<span class="co">#&gt; ✔ tibble  3.0.4     ✔ dplyr   1.0.2</span>
-<span class="co">#&gt; ✔ tidyr   1.1.2     ✔ stringr 1.4.0</span>
-<span class="co">#&gt; ✔ readr   1.4.0     ✔ forcats 0.5.0</span>
+<span class="co">#&gt; ✓ ggplot2 3.3.3     ✓ purrr   0.3.4</span>
+<span class="co">#&gt; ✓ tibble  3.0.4     ✓ dplyr   1.0.2</span>
+<span class="co">#&gt; ✓ tidyr   1.1.2     ✓ stringr 1.4.0</span>
+<span class="co">#&gt; ✓ readr   1.4.0     ✓ forcats 0.5.0</span>
 <span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-<span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span>
-<span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span>
+<span class="co">#&gt; x dplyr::filter() masks stats::filter()</span>
+<span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/nomnoml">nomnoml</a></span><span class="op">)</span></code></pre></div>
 <div id="module-review" class="section level1">
 <h1 class="hasAnchor">
@@ -213,9 +213,9 @@
 <div id="io-model-input-output-model" class="section level2">
 <h2 class="hasAnchor">
 <a href="#io-model-input-output-model" class="anchor"></a>I/O Model: input output model</h2>
-<div id="htmlwidget-0710321d6c0d4136bccd" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0710321d6c0d4136bccd">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n[input] --> [process]\n[process] --> [output]\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-bc94be8587908851b8a6" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bc94be8587908851b8a6">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: right\n#spacing:40\n[input |\n- Raw Material] --> [process WIP]\n\n[process WIP] --> [output |\n- Final Goods]\n\n[process WIP | - In the process of being built\n- Resources factors of production]\n\n#direction:down\n[Feed back loop] --> [input]\n[Feed back loop] --> [process WIP]\n[output] --> [Feed back loop]\n\n[output] --> [consumer (end user)]\n\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="secondary-inputs---factors-of-production-resources" class="section level3">
+<div id="htmlwidget-6979ca56e992b56d103c" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6979ca56e992b56d103c">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n[input] --> [process]\n[process] --> [output]\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-4d5f6e9e6378c3a58bbc" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4d5f6e9e6378c3a58bbc">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: right\n#spacing:40\n[input |\n- Raw Material] --> [process WIP]\n\n[process WIP] --> [output |\n- Final Goods]\n\n[process WIP | - In the process of being built\n- Resources factors of production]\n\n#direction:down\n[Feed back loop] --> [input]\n[Feed back loop] --> [process WIP]\n[output] --> [Feed back loop]\n\n[output] --> [consumer (end user)]\n\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="secondary-inputs---factors-of-production-resources" class="section level3">
 <h3 class="hasAnchor">
 <a href="#secondary-inputs---factors-of-production-resources" class="anchor"></a>Secondary inputs - factors of production / resources</h3>
 <p>Part of the work in process portion of the input, output model.</p>
