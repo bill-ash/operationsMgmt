@@ -1,4 +1,0 @@
-# Operations MGMT - 3453 {-}
-
-This is my preface. 
-

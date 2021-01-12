@@ -33,6 +33,7 @@ Frequently asked questions exam instructions D2L exam instructions final
 exam review sheet final exam list of topics on exam
 
 ``` r
+knitr::kable(
 tibble::tribble(
   ~semester,                    ~Operations.Management,                                ~films,        ~homework,
   "on-line",                            "videolecture",                                    NA,               NA,
@@ -65,21 +66,40 @@ tibble::tribble(
        "15",                  "JimSinegal (film only)",                    "JimSinegalCostco",               NA,
          NA, "Tentativefinal exam 04/24/21  8:00 a.m.",                                    NA,               NA
   )
-#> # A tibble: 29 x 4
-#>    semester Operations.Management      films homework    
-#>    <chr>    <chr>                      <chr> <chr>       
-#>  1 on-line  videolecture               <NA>  <NA>        
-#>  2 Week 1   day1opsonline              <NA>  <NA>        
-#>  3 1        mgmtscivideo               <NA>  <NA>        
-#>  4 1,2      introduction               <NA>  <NA>        
-#>  5 2        bep1                       <NA>  problems 1-3
-#>  6 3        bep2                       <NA>  <NA>        
-#>  7 3        beppart2homework           <NA>  <NA>        
-#>  8 Week 4   Tentative Exam 1  02/02/21 <NA>  <NA>        
-#>  9 4,5      capacity                   <NA>  <NA>        
-#> 10 5.6      location                   <NA>  problems 4-7
-#> # … with 19 more rows
+)
 ```
+
+| semester | Operations.Management                  | films                               | homework       |
+|:---------|:---------------------------------------|:------------------------------------|:---------------|
+| on-line  | videolecture                           | NA                                  | NA             |
+| Week 1   | day1opsonline                          | NA                                  | NA             |
+| 1        | mgmtscivideo                           | NA                                  | NA             |
+| 1,2      | introduction                           | NA                                  | NA             |
+| 2        | bep1                                   | NA                                  | problems 1-3   |
+| 3        | bep2                                   | NA                                  | NA             |
+| 3        | beppart2homework                       | NA                                  | NA             |
+| Week 4   | Tentative Exam 1 02/02/21              | NA                                  | NA             |
+| 4,5      | capacity                               | NA                                  | NA             |
+| 5.6      | location                               | NA                                  | problems 4-7   |
+| 6        | globalsolutions                        | globalsolutions                     | NA             |
+| 7        | patternsoflayout                       | NA                                  | NA             |
+| Week 7   | Tentative Exam 2 02/25/21              | NA                                  | NA             |
+| 8        | ford(film)                             | 100yearsHenryFordAssembly100seconds | NA             |
+| 8        | Work Measurement                       | NA                                  | NA             |
+| 8        | pert                                   | NA                                  | problems 8-9   |
+| 9        | linearprogrammingops                   | NA                                  | problems 10-12 |
+| 10       | productioninventorycontrol             | NA                                  | NA             |
+| 10       | populations                            | NA                                  | NA             |
+| Week 11  | Tentative exam 3 03/23/21              | NA                                  | NA             |
+| 11,12    | masterproductionscheduling             | NA                                  | NA             |
+| 12,13    | eoqreorder                             | NA                                  | problems 13-14 |
+| 13       | MRP                                    | NA                                  | problems 14-17 |
+| 13       | thegoalintro                           | The Goal                            | NA             |
+| Week 14  | Tentative exam 4 04/13/21              | NA                                  | NA             |
+| 15       | Just inTime                            | pushorpull                          | NA             |
+| 15       | drdeming14points                       | deming                              | NA             |
+| 15       | JimSinegal (film only)                 | JimSinegalCostco                    | NA             |
+| NA       | Tentativefinal exam 04/24/21 8:00 a.m. | NA                                  | NA             |
 
 # FAQ
 

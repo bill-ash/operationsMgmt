@@ -43,6 +43,7 @@ final exam review sheet	final exam list of topics on exam
 
 ```{r 'timeline'}
 
+knitr::kable(
 tibble::tribble(
   ~semester,                    ~Operations.Management,                                ~films,        ~homework,
   "on-line",                            "videolecture",                                    NA,               NA,
@@ -75,6 +76,7 @@ tibble::tribble(
        "15",                  "JimSinegal (film only)",                    "JimSinegalCostco",               NA,
          NA, "Tentativefinal exam 04/24/21  8:00 a.m.",                                    NA,               NA
   )
+)
 
 
 

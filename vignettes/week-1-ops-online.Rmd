@@ -1,0 +1,339 @@
+---
+title: "Week 1"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Week 1}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+  
+```{r, include = FALSE}
+  knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+  )
+```
+  
+
+```{r setup}
+library(operationsMgmt)
+library(tidyverse)
+library(nomnoml)
+```
+
+
+# Module review 
+
+## Homework 
+
+**Homework is to be sent to:** patterson.homework@msutexas.edu
+
+## Syllabus overview 
+
+Course content - content map of the semester. 
+
+Video lectures CC >> mgmt-sci-video 
+
+- Software for using program to complete homework. 
+
+BEP >> Break even point. 
+
+Management Science Programs for the IBM Personal Computer 
+
+## Topics covered
+
+- Product - concepts, issues, techniques 
+- Cost, Volume, Profit Analysis 
+- Capacity planning, supply chain management
+- Operations research tools 
+- Linear programming 
+- PERT 
+- Break even analysis 
+- Transportation and inventory controls 
+- Lean manufacturing 
+- Just in time production 
+- Total Quality Management 
+- Theory of constraints 
+
+
+
+# Operations Management (Introdcution video)
+
+## Faster, Better, Cheaper 
+
+People (businesses) need to be able to deliver products faster, better, 
+or cheaper. 
+
+- Developing a competitive advantage 
+
+Price always matter >> cost competitive (price)
+- Lower prices do not always mean lower quality. 
+
+Philosophies governing the operations world. 
+
+### Faster >> Just in time (JIT)
+
+Dr. Taiichi Ohono - Founder JIT Vice president of production at Toyota. 
+
+### Better >> Total Quality Management(TQM)
+
+Dr. Edwards Deming - Philosopher contributor to TQM movement.
+
+### Cheaper >> Cost competitive 
+
+Dr. Eli Goldratt - Father of the Theory of Constraints. 
+- PHD in physics. 
+- Wrote a novel called The Goal 
+
+
+## Operations 
+
+The study of production systems that product goods or provide services. 
+
+- Applies to many different types of businesses (not just manufacturing).
+
+Operations will apply to all different types of businesses - 
+
+- Manufacturing 
+- Health care 
+- Banking 
+- Government 
+- Transportation 
+- Consulting 
+- Education 
+- Retail/ Wholesale 
+- All organizations 
+
+
+## Manufacturing >> Goods producting systems 
+
+- Manufacturing 
+- Durable 
+- Non-durable 
+- Construction 
+- Mining 
+- Agricultural 
+
+## Service Sector 
+
+Everything that is not included in Manufacturing sector.
+
+- Financial 
+- Real estate 
+- Insurance 
+- Health care 
+- Accounting / consulting 
+- Education 
+- Transportation 
+- Other (non-goods producing)
+
+## I/O Model: input output model
+
+```{r, echo = FALSE}
+nomnoml::nomnoml('[input] --> [process]
+[process] --> [output]
+')
+```
+
+
+
+
+```{r, echo = FALSE}
+
+nomnoml::nomnoml("
+#direction: right
+#spacing:40
+[input |
+- Raw Material] --> [process WIP]
+
+[process WIP] --> [output |
+- Final Goods]
+
+[process WIP | - In the process of being built
+- Resources factors of production]
+
+#direction:down
+[Feed back loop] --> [input]
+[Feed back loop] --> [process WIP]
+[output] --> [Feed back loop]
+
+[output] --> [consumer (end user)]
+
+")
+```
+
+
+
+### Secondary inputs - factors of production / resources 
+
+Part of the work in process portion of the input, output model. 
+
+- Land
+- Labor 
+- Capital - good that is used to produce another good 
+- Hammer 
+- Computer 
+- Milking machine 
+- Plant & equipment 
+- Money >> purchases productive resources (not considered a capital
+good)
+
+
+## Organization chart 
+
+Cornerstone of a business or organization.
+
+```{r, include = FALSE}
+nomnoml('
+#direction: down
+        [general manager] --> [operations | Supply side: \n people making products.]
+        [general manager] --> [marketing | Demand side: \n Selling of product]
+        [general manager] --> [finance | Capital budgeting: \n Allocation of resources]
+        ')
+```
+
+
+
+## Just in Time (JIT)
+
+Management philosophy 
+
+- Smaller warehouses - don't carry as much raw materials or inventory 
+as they used too. 
+- Leads to less waste 
+- Smaller more frequent shipments is better/ more efficient
+- Inventory >> Asset on the balance sheet 
+- As long as the inventory has a high velocity (turning over) there 
+are no issues. 
+- Stale inventory is marked down - provide an incentive to the customer
+- Goods will be sold for less that their costs in extreme cases 
+
+## Functions of management 
+
+How managers spend their time. 
+
+- Planning - determining a future course of action 
+- Short term - planning inventory/ production 
+- Long term - capital expenditures (PPE) 
+
+- Organizing - Factors of production - putting together the pieces of 
+the puzzle, land labor and capital. 
+
+- Staffing -  People and seats - making sure you have the right people 
+in the right seats. 
+
+- Directing - day to day planning/ instructions (more or less frequent).
+
+- Controlling -  Comparing the actual results to the plan. 
+- KPIs - performance 
+
+
+## Productivty 
+
+- Key issues for operations today: 
+   
+   `output / input = productivity `
+
+Critical for the economy can we do more with the same give resources. 
+
+- Technology - changed the world and how we do business. 
+- Work methods -technology we use to do our job (tools and techniques). 
+Ties back to technology. 
+- Choice of equipment - comparing equipment - cost benefit analysis
+- Management - JIT, TQM, TOC - new philosophies and principles that
+prevail in an organization. 
+
+
+## Key Issues 
+
+- Productivity = output/ input 
+- Quality - quality of the organization, workforce, and product 
+  - Inversely proportional to output 
+
+- Government Regulations - economic regulations - regulate economic 
+behavior in the marketplace (antitrust, etc.). Management focuses more 
+behavioral regulations. 
+- OSHA (1971) Occupational, safety, and health administration - worker 
+health and safety. 
+- EEOC (1965) Equal, employment, opportunity, commission - looks at 
+discrimination in the work place. Makes it illegal to discriminate 
+in the work place. 
+- EPA (1970) Environmental protection agency - regulates business' 
+impact on the environment. 
+- RRC - Railroad commission - oil and gas production in the state
+of Texas. 
+
+- Liability - make safe products for consumers (seat belts, cars, etc.), 
+professional and service liabilities (doctors, accountants). 
+- De-industrialization - manufacturing has collapsed in the last 
+fifty years. Businesses will operate where it is most economic to 
+operate. 
+
+- Short-Term Focus - US companies more short term focused 
+- Long Term Focus - Japanese more long term focused 
+- Thinks long term is superior philosophy 
+
+- Technology and Automation
+- Globalization - free trade, open trade, and open borders. 
+
+## Classification of Production Systems 
+
+- Degree of standardization - products can be standard (mass produced)
+- Comes out of inventory with no input from the end user. 
+- Custom products - Built to order 
+- Generally cost more and will require some time delay. 
+
+Depending on the type of product being produced will dictate 
+the type of operations: 
+
+- Types of operations 
+- Physical - Goods producing sector 
+- Storage/ transportation - roads, railroads, air, water
+- Exchange - retail and wholesale trade/ banking 
+- Communication/ entertainment - television, music, movies
+
+- Manufacturing vs. Service 
+- Interaction between the buyer and seller 
+- Buyer and seller will have no interaction 
+- Service sector - interaction between buyer and seller (person to 
+person relationship)
+
+- Highly seasonable demand example: 
+Smooth out the sales cycle by building inventory count cyclically 
+to peak demand. 
+
+```{r}
+tibble::tibble(
+  qty = dnorm(seq(1, 100, 1), 40, 20) * 1000, 
+  time = seq(as.Date('2015-02-01'), by = 1, length.out = 100),
+) %>% 
+  ggplot(aes(time, qty)) + 
+  geom_line() + 
+  labs(title = 'Graph of seasonal demand', 
+       subtitle = 'Demand curve', 
+       y = 'QTY', x = 'Time') + 
+  theme_light() + 
+  scale_x_date(date_labels =  '%b.\n%Y') + 
+  geom_hline(yintercept = 14, color= 'red') + 
+  geom_vline(xintercept = as.Date('2015-02-10') + 13, color= 'red') + 
+  geom_vline(xintercept = as.Date('2015-02-10') + 47, color= 'red') + 
+  geom_text(data = tibble(
+    qty = 15, time = as.Date('2015-02-10')), 
+    label = 'Factory\nCapacity', color = 'blue') + 
+  geom_text(data = tibble(
+    qty = c(2, 2, 2),
+    time = seq(as.Date('2015-02-12'), by = 30, length.out = 3)), 
+    label = c('Build inventory', 'Deplete Inventory', 'Build Inventory'))
+```
+
+
+Build products that fit the product cycle ie: (Flexible manufacturing)
+
+- Build cooling equipment in the summer and re-tool (shift production) 
+to heating equipment in colder months. 
+
+
+Building inventory - Service sector 
+
+- Sell their time and knowledge. 
