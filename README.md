@@ -11,9 +11,7 @@ Spring 2021
 Contact Information  
 Instructor: Dr. Mike Patterson, Professor of Management  
 Office: DB 203  
-Office hours: TTh 11:00 a.m-12:30 p.m., W 9-11:00 a.m.  
-Office phone: (940) 397-4710  
-E-mail: <mike.patterson@msutexas.edu>
+Office hours: TTh 11:00 a.m-12:30 p.m., W 9-11:00 a.m.
 
 # EXAMS
 

@@ -22,17 +22,17 @@ library(lpSolve)
 
 ## Linear programming example 
 
-Maximize 20B + 30C
-Constraints -- Subject to: 
-B=Bearings C=Channels ~ Departments
-3B+2C<=16Machine
-1B+3C<=12Plate
-2B+2C<=6Polish
+Maximize 20B + 30C  
+Constraints -- Subject to:   
+B=Bearings C=Channels ~ Departments  
+3B+2C<=16Machine  
+1B+3C<=12Plate  
+2B+2C<=6Polish  
 
-- objective.in: Vector of coefficients of objective function 
-- const.mat: One row per constraint; one column per variable
-- const.dir: Vector of character strings giving direction of the constraint 
-- const.rhs: Vector of numeric constraints for RHS 
+- objective.in: Vector of coefficients of objective function  
+- const.mat: One row per constraint; one column per variable  
+- const.dir: Vector of character strings giving direction of the constraint   
+- const.rhs: Vector of numeric constraints for RHS   
 
 ```{r}
 f.type <- 'max'

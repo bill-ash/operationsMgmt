@@ -91,11 +91,19 @@
 <div id="linear-programming-example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#linear-programming-example" class="anchor"></a>Linear programming example</h2>
-<p>Maximize 20B + 30C Constraints – Subject to: B=Bearings C=Channels ~ Departments 3B+2C&lt;=16Machine 1B+3C&lt;=12Plate 2B+2C&lt;=6Polish</p>
+<p>Maximize 20B + 30C<br>
+Constraints – Subject to:<br>
+B=Bearings C=Channels ~ Departments<br>
+3B+2C&lt;=16Machine<br>
+1B+3C&lt;=12Plate<br>
+2B+2C&lt;=6Polish</p>
 <ul>
-<li>objective.in: Vector of coefficients of objective function</li>
-<li>const.mat: One row per constraint; one column per variable</li>
-<li>const.dir: Vector of character strings giving direction of the constraint</li>
+<li>objective.in: Vector of coefficients of objective function<br>
+</li>
+<li>const.mat: One row per constraint; one column per variable<br>
+</li>
+<li>const.dir: Vector of character strings giving direction of the constraint<br>
+</li>
 <li>const.rhs: Vector of numeric constraints for RHS</li>
 </ul>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
