@@ -11,6 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(tidyverse)
+library(DT)
 ```
 
 # Operations MGMT 3452
@@ -18,7 +20,160 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Using {devtools}, and {pkgdown} to build class infrastructure. 
+Dillard College of Business Administration  
+Spring 2021  
+Contact Information  
+Instructor:	Dr. Mike Patterson, Professor of Management  
+Office:	DB 203  
+Office hours:	TTh 11:00 a.m-12:30 p.m., W 9-11:00 a.m.   
+Office phone:	(940) 397-4710   
+E-mail:	mike.patterson@msutexas.edu    
 
 
+# EXAMS 
+
+Exams will be taken on D2L and will generally be 50-60 multiple choice questions.  The only devices allowed are the computer used for access to D2L and a hand held calculator.  No other materials are allowed.  This includes notes and other electronic devices (phones, tablets etc.).  
+ 
+You cannot move backwards once you leave a page.  Ensure you completely answer all questions before leaving a page before proceeding.  Once the allocated time period expires, you are required to submit your quiz responses.  Any responses entered after the time limit expires will not be submitted.
+
+Sign on to D2L.  Choose Assessments, Tests, Start Quiz
+
+
+# Homework 
+
+**Homework is to be sent to:** patterson.homework@msutexas.edu
+
+
+# Operations Management 	
+
+
+```{r, echo = FALSE}
+knitr::kable(
+tibble::tribble(
+                    ~Module,                                                            ~Description,
+                 "syllabus",                                               "syllabus for this class",
+               "all-slides",                    "complete set of slides for the semester PDF format",
+        "powerpoint_slides",             "complete set of slides for the semester PowerPoint format",
+            "videolectures",        "videotapes of lectures and slides with audio lectures (not CC)",
+          "videolecturesCC",            "videotapes of lectures and slides with audio lectures (CC)",
+              "homeworkops",          "WORD file complete set of homework documents to be completed",
+                    "films",                                "films to be viewed during the semester",
+                  "filmsCC",                           "films to be viewed during the semester (CC)",
+           "course_content", "1 page summary sequence of topics to be covered and examination dates",
+      "Module Descriptions",                                                         "This document",
+                      "FAQ",                                            "Frequently asked questions",
+        "exam instructions",                                                 "D2L exam instructions",
+  "final exam review sheet",                                     "final exam list of topics on exam"
+  )
+)
+
+
+```
+
+# Schedule 
+
+```{r, 'timeline', echo = FALSE}
+knitr::kable(
+tibble::tribble(
+       ~group, ~start,                             ~content,    ~homework,
+   "exam1",    1L,                                     "videolecture",           NA,
+   "exam1",    1L,                                    "day1opsonline",           NA,
+   "exam1",    1L,                                     "mgmtscivideo",           NA,
+   "exam1",    2L,                                     "introduction",           NA,
+   "exam1",    2L,                                             "bep1",   "prbs 1-3",
+   "exam1",    3L,                                             "bep2",           NA,
+   "exam1",    3L,                                 "beppart2homework",           NA,
+   "exam1",    4L,                       "Tentative Exam 1  02/02/21",           NA,
+  "exam 2",    4L,                                         "capacity",           NA,
+  "exam 2",    5L,                                         "location",   "prbs 4-7",
+  "exam 2",    6L,                "globalsolutions - globalsolutions",           NA,
+  "exam 2",    6L,                                 "patternsoflayout",           NA,
+  "exam 2",    7L,                       "Tentative Exam 2  02/25/21",           NA,
+  "exam 3",    8L, "ford(film) - 100yearsHenryFordAssembly100seconds",           NA,
+  "exam 3",    8L,                                 "Work Measurement",           NA,
+  "exam 3",    8L,                                             "pert",   "prbs 8-9",
+  "exam 3",    9L,                             "linearprogrammingops", "prbs 10-12",
+  "exam 3",   10L,                       "productioninventorycontrol",           NA,
+  "exam 3",   10L,                                      "populations",           NA,
+  "exam 3",   11L,                        "Tentative exam 3 03/23/21",           NA,
+  "exam 4",   11L,                       "masterproductionscheduling",           NA,
+  "exam 4",   12L,                                       "eoqreorder", "prbs 13-14",
+  "exam 4",   13L,                                              "MRP", "prbs 14-17",
+  "exam 4",   13L,                          "thegoalintro - The Goal",           NA,
+  "exam 4",   14L,                       "Tentative exam 4  04/13/21",           NA,
+  "exam 5",   15L,                         "Just inTime - pushorpull",           NA,
+  "exam 5",   15L,                        "drdeming14points - deming",           NA,
+  "exam 5",   15L,        "JimSinegal (film only) - JimSinegalCostco",           NA,
+  "exam 5",   15L,          "Tentativefinal exam 04/24/21  8:00 a.m.",           NA
+  ) %>% 
+  dplyr::mutate(end = ifelse(dplyr::lead(start) == start, start, start + 1)) %>% 
+  dplyr::relocate(end, .after = start)
+)
+
+```
+
+# FAQ 
+
+Operations Management Frequently Asked Questions (FAQ)
+
+Homework 
+Homework assignments are due within 2 weeks (1 week in summer school) of the date assigned.  However, students should complete homework assignments as soon as possible.  This is encouraged since the homework assignments are designed to help students understand the material and perform better on exams.
+
+Exams
+Exam date are identified in the syllabus.  All dates are tentative and subject to change.  Updates will be periodically sent to remind students of upcoming exams.  Exams will be taken on D2L and will generally be 50-60 multiple choice questions.  The only devices allowed are the computer used for access to D2L and a hand held calculator.  No other materials are allowed.  This includes notes and other electronic devices (phones, tablets etc.).   
+ Software
+ 
+Management Science Programs for the IBM Personal Computer software programs are available in each of the Dillard computer labs (146, 306, 324, 335).  These programs are found on the Y drive, folder Mike Patterson,  mgmtsci.  The software can also be purchased from the University Bookstore or directly from the publisher Kendall Hunt KendallHunt
+
+
+# Final Exam Review Sheet 
+
+
+- ABC classification
+- annual carry cost
+- average lead time usage
+- bill of material explosion
+- Bills of Material
+- blanket purchase orders
+- bottlenecks
+- break even analysis
+- capacity planning
+- carry cost
+- constraints in linear programming
+- cost volume profit calculations
+- cycle time calculations
+- Deming
+- Deming video 14 points
+- Drum-Buffer-Rope
+- economic order quantity
+- FIFO\LIFO inventory valuation
+- fixed cost and variable cost
+- floor stock
+- Ford films
+- Functional Area of Business
+- Gantt Charts
+- Global Solutions film
+- Goldratt
+- independent\dependent demand
+- Jim Sinegal film
+- Just in Time
+- lead time usage
+- linear programming 
+- Master Production Scheduling
+- Material Requirements Planning
+- Measurements
+- Ohno
+- order cost
+- Pareto Principle     80\20
+- PERT and Critical Path
+- Push-Pull Hewlett Packard film
+- quantity discounts
+- reorder point
+- routings
+- The Goal film
+- Theory of Constraints
+- Total Quality Management
+- traditional school compared to new philosophies 
+- transportation models
+- work measurements
 
