@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 <!-- badges: end -->
-<iframe width="800px" height="1000px" src="inst/course-files/operationsMgmt_syllabus.pdf">
+<iframe width="800px" height="1000px" src="https://github.com/bill-ash/operationsMgmt/blob/master/inst/course-files/operationsMgmt_syllabus.pdf">
 </iframe>
 
 # EXAMS
