@@ -1,25 +1,29 @@
 ---
-title: "operationsMgmt"
+title: "Homework Examples"
 output: rmarkdown::html_vignette
 vignette: >
-%\VignetteIndexEntry{operationsMgmt}
+  %\VignetteIndexEntry{operationsMgmt}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-  ---
+---
+  
   
 ```{r, include = FALSE}
   knitr::opts_chunk$set(
     collapse = TRUE,
     comment = "#>"
-)
+    )
 ```
+
+Working homework assignments using R and python instead of expensive proprietary closed 
+source software. 
 
 # Mgmt-Sci Video 
 
-Working examples from the video in R instead of the proprietary closed source 
-software. 
+Working the examples from the mgmtsci video introducing the Management Science
+Programs for the IBM Personal Computer. 
 
-## Linear programming example 
+## Linear programming (Maximization) 
 
 Solving the example problem in R using the {lpSolve} package.
 
@@ -151,4 +155,6 @@ solution
 
 Maximization of profit or minimization of costs. 
 
+
+# Homework 2 
 
