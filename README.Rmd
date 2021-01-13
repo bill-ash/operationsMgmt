@@ -20,12 +20,11 @@ library(DT)
 <!-- badges: start -->
 <!-- badges: end -->
 
-Dillard College of Business Administration  
-Spring 2021  
-Contact Information  
-Instructor:	Dr. Mike Patterson, Professor of Management  
-Office:	DB 203  
-Office hours:	TTh 11:00 a.m-12:30 p.m., W 9-11:00 a.m.   
+
+<iframe width='800px' height='1000px' src='inst/course-files/operationsMgmt_syllabus.pdf' >
+  
+</iframe>
+
 
 
 # EXAMS 
