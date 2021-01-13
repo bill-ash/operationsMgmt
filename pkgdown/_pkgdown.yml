@@ -7,7 +7,9 @@ authors:
   Bill Ash:
     href: https://bill-ash.com
 
-
+template:
+  params:
+    ganalytics: UA-131681851-1
   
 development:
   mode: auto
