@@ -305,7 +305,7 @@ person relationship)
 Smooth out the sales cycle by building inventory counter cyclically 
 to peak demand. 
 
-```{r, echo = FALSE}
+```{r}
 tibble::tibble(
   qty = dnorm(seq(1, 100, 1), 40, 20) * 1000, 
   time = seq(as.Date('2015-02-01'), by = 1, length.out = 100),
@@ -339,3 +339,4 @@ to heating equipment in colder months.
 Building inventory - Service sector 
 
 - Knowledge workers sell their time and knowledge. 
+

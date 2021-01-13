@@ -17,11 +17,11 @@ library(DT)
 
 # Operations MGMT 3452
 
-Howdy! Follow along while I work through operations management 3452. Below are 
-some snippets I pulled from the syllabus including a course schedule, exam and 
-homework information, and a final exam review sheet. Navigate to the 
-[Get Started](https://www.bill-ash.com/operationsMgmt/articles/operationsMgmt.html)
-tab to see how I work homework problems using R and python. And finally, use my 
+Howdy!  
+Follow along while I work through operations management 3452. Below are snippets from 
+the syllabus which include the course schedule, exam and 
+homework information, and final exam review sheet.    
+Navigate to the [Get Started](https://www.bill-ash.com/operationsMgmt/articles/operationsMgmt.html) tab to see how I work homework problems using R and python. And finally, use my 
 notes for all the course videos at the
 [Articles](https://www.bill-ash.com/operationsMgmt/articles/week-1-ops-online.html)
 tab. Videos will be broken down into sections of their respective week. Each major heading 

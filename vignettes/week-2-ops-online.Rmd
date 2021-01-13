@@ -1,0 +1,279 @@
+---
+title: "Week 2"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Week 2}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(operationsMgmt)
+library(tidyverse)
+library(nomnoml)
+theme_set(theme_light())
+```
+
+
+# Break Even Analysis 
+
+Analyzing revenue and costs 
+
+- TR: Total revenue 
+  - Income generated from normal business operations
+
+- TFC: Total fixed costs 
+  - Fixed costs remain the same regardless of business operations (rent)
+  - Costs that remain the same as output levels change 
+  
+- TVC: Total variable costs 
+  - Costs that change depending on business operations (raw materials)
+  - Costs that fluctuate as output levels change
+
+- VC: Variable cost per unit 
+  - Contribution/ margin - variables costs to produce good or service. 
+  - Likely inversely proportional to output ie: as output increases the variable 
+  cost per unit will likely decrease if economies of scale are achieved. 
+
+|     `TC = Total Fixed Costs + Total Variable Costs`
+
+- TRM: Total Raw Material 
+  - Variable cost - some input for creating/ manufacturing product
+
+- TDL: Total direct labor 
+  - Cost to manufacture a product or produce a good/ service 
+  - People directly involved to produce a product/ service 
+  
+- NP: Net Profit <Loss> 
+```
+  NP = TR - TC
+  
+  Total Revenue = Volume (quantity) * Price 
+  
+  Total Cost = Total Fixed + Total Variable Cost 
+  
+  Net Profit = Total Revenue - Total Costs 
+``` 
+
+
+Total variable costs: The cost to produce a good or service is fixed. 
+- Raw materials 
+
+```{r, fig.cap= 'Total Variable Costs'}
+tibble(Quantity = 1:100, Cost = seq(100, 1000, length.out = 100)) %>% 
+  ggplot(aes(Quantity, Cost)) + 
+  geom_line() + 
+  scale_y_continuous(labels = scales::dollar_format()) + 
+  labs(title = "Total Variable Cost (TVC)", 
+       subtitle = "Fixed cost per unit")
+```
+
+
+Total fixed costs: Costs remain the same regardless of business activities, or 
+output. 
+- Rent 
+- Service agreements 
+
+```{r fig.cap= 'Total Fixed Costs'}
+tibble(Quantity = 1:100, Cost = 4523) %>% 
+  ggplot(aes(Quantity, Cost)) + 
+  geom_line() + 
+  scale_y_continuous(labels = scales::dollar_format()) + 
+  labs(title = "Total Fixed Costs (TFC)"
+       )
+```
+
+Relevant range: In reality, fixed costs are really only fixed within specific bounds 
+or thresholds.  
+Costs will not be absolutely fixed, but more generally can remain fixed up to 
+a certain upper bound creating a stair step chart. 
+- ie: Manufacturing output has increased so significantly, we need to expand into 
+a larger factory. 
+
+## Breaking down fixed and variable costs 
+
+Has undergone changes in recent years. 
+
+Fixed: 
+- Rent 
+- Salaries 
+- Depreciation 
+  - Useful life of long term (capitalized) assets 
+- Property tax 
+- Most expenses 
+
+Variable: 
+- Raw material 
+- Direct labor 
+- Variable factory overhead
+  - Function of how much has been spent on direct labor 
+
+Piece rate pay system - paid on the number of units produced. 
+
+### New Philosophies 
+
+TQM - Total quality management 
+JIT - Just in time production 
+TOC - Theory of constrains 
+
+
+
+Fixed: 
+- Salaries 
+- Property tax 
+- Depreciation 
+- Rent 
+- Direct labor 
+- Most expenses 
+
+Variable: 
+- Raw material: (maybe the only variable according to new philosophies)
+
+Maybe there are some holes in what is fixed vs. variable 
+- Major difference being the definition of variable costs
+- Is labor really a variable cost? 
+  - Production worker building products with a specific time constraint. 
+  
+Tenets of JIT - build only what you can sell! 
+
+```{r}
+# 40 units / hour 
+40 * (10 * 8)
+
+# Next day 50 unit/ hour 
+50 * (10 * 8)
+
+# There is a difference in the cost per unit?
+```
+
+Regardless of whether you produce 40 or 50 units, you are still paid the same wage. 
+
+Next week - whether you are producing products, going through new trainings, or 
+being told to stay home, you are still receiving the same wage. 
+
+Generally, payroll does not fluctuate month to month regardless of business 
+activity/ output. 
+
+Exam: Only true variable cost according to the new philosophies is raw material. 
+Should consider payroll/ direct labor as a fixed cost. 
+
+Major takeaway is that companies will do things in different ways as long as they 
+fit within accounting rules.
+- Managerial: internal decision making 
+- Financial: external reporting governed by financial accounting standards board
+(FASB)
+
+//TODO Throughput accounting? Activity based costing?
+
+## Reviewing charts 
+
+|     ` Total cost = Variable Cost + Fixed costs`
+
+```{r, fig.cap='Total costs'}
+
+tibble(
+  Quantity = 0:100, 
+  TFC = 60, 
+  TVC = Quantity * 1.6, 
+  TC = TFC + TVC
+  ) %>% 
+  tidyr::pivot_longer(cols = c('TFC', 'TVC', 'TC')) %>% 
+  ggplot(aes(Quantity, value, color = name)) + 
+  geom_line() + 
+  labs(title = 'Total Costs', 
+       x = 'Quantity', y = 'Cost') + 
+  scale_y_continuous(label = scales::dollar_format()) + 
+  geom_label(data = . %>% filter(Quantity == max(Quantity)),
+             aes(label = name), position = 'identity') + 
+  theme(legend.position = 'None')
+  
+```
+
+
+
+If the price does not cover the cost of production, the producer/ supplier will 
+lose money. The more you sell the more money you will lose. 
+
+- Wheat framer (agriculture), oil & gas (lift cost/ variable cost)
+
+```{r, fig.cap='Price greater than variable costs'}
+
+tibble(
+  Quantity = 0:100, 
+  TR = Quantity * 2.5,
+  TFC = 60, 
+  TVC = Quantity * 1.5, 
+  TC = TFC + TVC
+  ) %>% 
+  tidyr::pivot_longer(cols = c('TFC', 'TVC', 'TC', 'TR')) %>% 
+  ggplot(aes(Quantity, value, color = name)) + 
+  geom_line() + 
+  geom_label(data = . %>% filter(Quantity == max(Quantity)),
+             aes(label = name), position = 'identity') + 
+  geom_label(aes(47, 160, label = 'Break Even Point')) + 
+  geom_segment(aes(x = 0, y = 150, yend = 150, xend = 60)) + 
+  geom_segment(aes(x = 60, y = 0, yend = 150, xend = 60)) + 
+  labs(title = 'Price > Variable Costs', 
+       subtitle = 'Product or service produces positive cashflow', 
+       x = 'Quantity', y = 'Cost') + 
+  scale_y_continuous(label = scales::dollar_format()) + 
+  theme(legend.position = 'None')
+  
+```
+
+Might be true within a relevant range. As we sell products past the BEP, we will 
+begin to produce positive cashflow. 
+
+
+```{r}
+# Total fixed cost 
+TFC = 6000 
+# Variable costs 
+VC = 5
+# Price
+P = 8 
+output = 1500
+# Total revenue 
+TR = P * output # 12000 
+
+# Total variable cost 
+TVC = VC * output # 7500 
+# Contribution margin
+C = TR - TVC # 4500
+# Total fixed costs 
+TFC = 6000 
+
+# Net loss 
+NP = TR - TVC - TFC # 1500 
+
+```
+
+
+
+Break even point is defined as: 
+The number of units we have to sell to break even:  
+
+|     `BEP (units) = Total Fixed Costs / (Price - Variable Cost per Unit)`
+
+Revenue generated to break even:  
+
+|     `BEP (dollars) = BEP (units) * Price`
+
+
+Margin of Safety: 
+The difference between are total or expected sales, and the revenue that is required
+to break even.   
+
+|     `Margin of Safety = Sales (Total or expected sales) - BEP (dollars)`
+
+
+Contribution margin is defined as: 
+
+|     `` 

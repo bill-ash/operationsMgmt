@@ -65,6 +65,9 @@
 <li>
       <a href="../articles/week-1-ops-online.html">Week 1</a>
     </li>
+    <li>
+      <a href="../articles/week-2-ops-online.html">Week 2</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -222,9 +225,9 @@
 <div id="io-model-input-output-model" class="section level2">
 <h2 class="hasAnchor">
 <a href="#io-model-input-output-model" class="anchor"></a>I/O Model: input output model</h2>
-<div id="htmlwidget-d5ca644ae8c353d6eedc" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d5ca644ae8c353d6eedc">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#spacing:40\n[input] --> [process]\n[process] --> [output]\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-957866d6c9185b3027b3" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-957866d6c9185b3027b3">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: right\n#spacing:40\n[input |\n- Raw material] --> [process WIP]\n\n[process WIP] --> [output |\n- Final goods]\n\n[process WIP | - In the process of being built\n- Resources factors of production]\n\n#direction:down\n[Feed back loop] --> [input]\n[Feed back loop] --> [process WIP]\n[output] --> [Feed back loop]\n\n[output] --> [consumer (end user)]\n\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="secondary-inputs---factors-of-production-resources" class="section level3">
+<div id="htmlwidget-963ca23335408df9568e" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-963ca23335408df9568e">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#spacing:40\n[input] --> [process]\n[process] --> [output]\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-f6859ed07895ccdb825e" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f6859ed07895ccdb825e">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: right\n#spacing:40\n[input |\n- Raw material] --> [process WIP]\n\n[process WIP] --> [output |\n- Final goods]\n\n[process WIP | - In the process of being built\n- Resources factors of production]\n\n#direction:down\n[Feed back loop] --> [input]\n[Feed back loop] --> [process WIP]\n[output] --> [Feed back loop]\n\n[output] --> [consumer (end user)]\n\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="secondary-inputs---factors-of-production-resources" class="section level3">
 <h3 class="hasAnchor">
 <a href="#secondary-inputs---factors-of-production-resources" class="anchor"></a>Secondary inputs - factors of production / resources</h3>
 <p>Part of the work in process portion of the input, output model.</p>
@@ -245,8 +248,8 @@
 <h2 class="hasAnchor">
 <a href="#organization-chart" class="anchor"></a>Organization chart</h2>
 <p>Cornerstone of a business or organization.</p>
-<div id="htmlwidget-da36b37e24cde9d046a0" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-da36b37e24cde9d046a0">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: down\n        [general manager] --> [operations | Supply side: \n people making products.]\n        [general manager] --> [marketing | Demand side: \n Selling of product]\n        [general manager] --> [finance | Capital budgeting: \n Allocation of resources]\n        ","svg":false},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-74b977509e08ca721e2f" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-74b977509e08ca721e2f">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: down\n        [general manager] --> [operations | Supply side: \n people making products.]\n        [general manager] --> [marketing | Demand side: \n Selling of product]\n        [general manager] --> [finance | Capital budgeting: \n Allocation of resources]\n        ","svg":false},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="management-philosophy" class="section level2">
 <h2 class="hasAnchor">
@@ -350,6 +353,28 @@
 <h3 class="hasAnchor">
 <a href="#highly-seasonable-demand-example" class="anchor"></a>Highly seasonable demand example</h3>
 <p>Smooth out the sales cycle by building inventory counter cyclically to peak demand.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  qty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">100</span>, <span class="fl">1</span><span class="op">)</span>, <span class="fl">40</span>, <span class="fl">20</span><span class="op">)</span> <span class="op">*</span> <span class="fl">1000</span>, 
+  time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2015-02-01'</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">1</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span>,
+<span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">time</span>, <span class="va">qty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Graph of seasonal demand'</span>, 
+       subtitle <span class="op">=</span> <span class="st">'Demand curve'</span>, 
+       y <span class="op">=</span> <span class="st">'QTY'</span>, x <span class="op">=</span> <span class="st">'Time'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">scale_x_date</span><span class="op">(</span>date_labels <span class="op">=</span>  <span class="st">'%b.\n%Y'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_hline</span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">14</span>, color<span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_vline</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2015-02-10'</span><span class="op">)</span> <span class="op">+</span> <span class="fl">13</span>, color<span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_vline</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2015-02-10'</span><span class="op">)</span> <span class="op">+</span> <span class="fl">47</span>, color<span class="op">=</span> <span class="st">'red'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_text</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+    qty <span class="op">=</span> <span class="fl">15</span>, time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2015-02-10'</span><span class="op">)</span><span class="op">)</span>, 
+    label <span class="op">=</span> <span class="st">'Factory\nCapacity'</span>, color <span class="op">=</span> <span class="st">'blue'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_text</span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+    qty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,
+    time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2015-02-12'</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">30</span>, length.out <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span>, 
+    label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Build inventory'</span>, <span class="st">'Deplete Inventory'</span>, <span class="st">'Build Inventory'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="week-1-ops-online_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 <p>Build products that fit the product cycle ie: (Flexible manufacturing)</p>
 <ul>

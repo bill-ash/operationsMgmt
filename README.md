@@ -3,9 +3,10 @@
 
 # Operations MGMT 3452
 
-Howdy! Follow along while I work through operations management 3452.
-Below are some snippets I pulled from the syllabus including a course
-schedule, exam and homework information, and a final exam review sheet.
+Howdy!  
+Follow along while I work through operations management 3452. Below are
+snippets from the syllabus which include the course schedule, exam and
+homework information, and final exam review sheet.  
 Navigate to the [Get
 Started](https://www.bill-ash.com/operationsMgmt/articles/operationsMgmt.html)
 tab to see how I work homework problems using R and python. And finally,
