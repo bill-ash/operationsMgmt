@@ -3,10 +3,31 @@
 
 # Operations MGMT 3452
 
+Howdy! Follow along while I work through operations management 3452.
+Below are some snippets I pulled from the syllabus including a course
+schedule, exam and homework information, and a final exam review sheet.
+Navigate to the [Get
+Started](https://www.bill-ash.com/operationsMgmt/articles/operationsMgmt.html)
+tab to see how I work homework problems using R and python. And finally,
+use my notes for all the course videos at the
+[Articles](https://www.bill-ash.com/operationsMgmt/articles/week-1-ops-online.html)
+tab. Videos will be broken down into sections of their respective week.
+Each major heading will be associated with a different course video.
+
+Feel free to contact me with any questions, suggestions, typos, or
+mistakes using the communications tab in D2L.
+
+Good luck this semester!
+
 <!-- badges: start -->
 <!-- badges: end -->
-<iframe width="800px" height="1000px" src="https://github.com/bill-ash/operationsMgmt/blob/master/inst/course-files/operationsMgmt_syllabus.pdf">
-</iframe>
+
+Dillard College of Business Administration  
+Spring 2021  
+Contact Information  
+Instructor: Dr. Mike Patterson, Professor of Management  
+Office: DB 203  
+Office hours: TTh 11:00 a.m-12:30 p.m., W 9-11:00 a.m.
 
 # EXAMS
 
@@ -47,37 +68,37 @@ Sign on to D2L. Choose Assessments, Tests, Start Quiz
 
 # Schedule
 
-| group  | start | end | content                                          | homework   |
-|:-------|------:|----:|:-------------------------------------------------|:-----------|
-| exam1  |     1 |   1 | videolecture                                     | NA         |
-| exam1  |     1 |   1 | day1opsonline                                    | NA         |
-| exam1  |     1 |   2 | mgmtscivideo                                     | NA         |
-| exam1  |     2 |   2 | introduction                                     | NA         |
-| exam1  |     2 |   3 | bep1                                             | prbs 1-3   |
-| exam1  |     3 |   3 | bep2                                             | NA         |
-| exam1  |     3 |   4 | beppart2homework                                 | NA         |
-| exam1  |     4 |   4 | Tentative Exam 1 02/02/21                        | NA         |
-| exam 2 |     4 |   5 | capacity                                         | NA         |
-| exam 2 |     5 |   6 | location                                         | prbs 4-7   |
-| exam 2 |     6 |   6 | globalsolutions - globalsolutions                | NA         |
-| exam 2 |     6 |   7 | patternsoflayout                                 | NA         |
-| exam 2 |     7 |   8 | Tentative Exam 2 02/25/21                        | NA         |
-| exam 3 |     8 |   8 | ford(film) - 100yearsHenryFordAssembly100seconds | NA         |
-| exam 3 |     8 |   8 | Work Measurement                                 | NA         |
-| exam 3 |     8 |   9 | pert                                             | prbs 8-9   |
-| exam 3 |     9 |  10 | linearprogrammingops                             | prbs 10-12 |
-| exam 3 |    10 |  10 | productioninventorycontrol                       | NA         |
-| exam 3 |    10 |  11 | populations                                      | NA         |
-| exam 3 |    11 |  11 | Tentative exam 3 03/23/21                        | NA         |
-| exam 4 |    11 |  12 | masterproductionscheduling                       | NA         |
-| exam 4 |    12 |  13 | eoqreorder                                       | prbs 13-14 |
-| exam 4 |    13 |  13 | MRP                                              | prbs 14-17 |
-| exam 4 |    13 |  14 | thegoalintro - The Goal                          | NA         |
-| exam 4 |    14 |  15 | Tentative exam 4 04/13/21                        | NA         |
-| exam 5 |    15 |  15 | Just inTime - pushorpull                         | NA         |
-| exam 5 |    15 |  15 | drdeming14points - deming                        | NA         |
-| exam 5 |    15 |  15 | JimSinegal (film only) - JimSinegalCostco        | NA         |
-| exam 5 |    15 |  NA | Tentativefinal exam 04/24/21 8:00 a.m.           | NA         |
+| Exam   | WeekStart | WeekEnd | Content                                          | HomeWork   |
+|:-------|----------:|--------:|:-------------------------------------------------|:-----------|
+| exam1  |         1 |       1 | videolecture                                     | NA         |
+| exam1  |         1 |       1 | day1opsonline                                    | NA         |
+| exam1  |         1 |       2 | mgmtscivideo                                     | NA         |
+| exam1  |         2 |       2 | introduction                                     | NA         |
+| exam1  |         2 |       3 | bep1                                             | prbs 1-3   |
+| exam1  |         3 |       3 | bep2                                             | NA         |
+| exam1  |         3 |       4 | beppart2homework                                 | NA         |
+| exam1  |         4 |       4 | Tentative Exam 1 02/02/21                        | NA         |
+| exam 2 |         4 |       5 | capacity                                         | NA         |
+| exam 2 |         5 |       6 | location                                         | prbs 4-7   |
+| exam 2 |         6 |       6 | globalsolutions - globalsolutions                | NA         |
+| exam 2 |         6 |       7 | patternsoflayout                                 | NA         |
+| exam 2 |         7 |       8 | Tentative Exam 2 02/25/21                        | NA         |
+| exam 3 |         8 |       8 | ford(film) - 100yearsHenryFordAssembly100seconds | NA         |
+| exam 3 |         8 |       8 | Work Measurement                                 | NA         |
+| exam 3 |         8 |       9 | pert                                             | prbs 8-9   |
+| exam 3 |         9 |      10 | linearprogrammingops                             | prbs 10-12 |
+| exam 3 |        10 |      10 | productioninventorycontrol                       | NA         |
+| exam 3 |        10 |      11 | populations                                      | NA         |
+| exam 3 |        11 |      11 | Tentative exam 3 03/23/21                        | NA         |
+| exam 4 |        11 |      12 | masterproductionscheduling                       | NA         |
+| exam 4 |        12 |      13 | eoqreorder                                       | prbs 13-14 |
+| exam 4 |        13 |      13 | MRP                                              | prbs 14-17 |
+| exam 4 |        13 |      14 | thegoalintro - The Goal                          | NA         |
+| exam 4 |        14 |      15 | Tentative exam 4 04/13/21                        | NA         |
+| exam 5 |        15 |      15 | Just inTime - pushorpull                         | NA         |
+| exam 5 |        15 |      15 | drdeming14points - deming                        | NA         |
+| exam 5 |        15 |      15 | JimSinegal (film only) - JimSinegalCostco        | NA         |
+| exam 5 |        15 |      NA | Tentativefinal exam 04/24/21 8:00 a.m.           | NA         |
 
 # FAQ
 

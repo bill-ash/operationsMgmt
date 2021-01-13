@@ -2,25 +2,26 @@
 title: "operationsMgmt"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{operationsMgmt}
+%\VignetteIndexEntry{operationsMgmt}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
----
-
+  ---
+  
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
+  knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>"
 )
 ```
 
-```{r setup}
-library(operationsMgmt)
-library(lpSolve)
-```
+# Mgmt-Sci Video 
 
+Working examples from the video in R instead of the proprietary closed source 
+software. 
 
 ## Linear programming example 
+
+Solving the example problem in R using the {lpSolve} package.
 
 Maximize 20B + 30C  
 Constraints -- Subject to:   
@@ -31,10 +32,12 @@ B=Bearings C=Channels ~ Departments
 
 - objective.in: Vector of coefficients of objective function  
 - const.mat: One row per constraint; one column per variable  
-- const.dir: Vector of character strings giving direction of the constraint   
+- const.dir: Vector of character strings giving direction of the constraint  
 - const.rhs: Vector of numeric constraints for RHS   
 
 ```{r}
+library(lpSolve)
+
 f.type <- 'max'
 f.obj <- c(20, 30)
 f.con <- matrix(c(3, 2, 1, 3, 2, 2), nrow = 3, byrow = TRUE)
@@ -42,4 +45,110 @@ f.dir <- c('<=', '<=', '<=')
 f.rhs <- c(16, 12, 6)
 
 lp(f.type, f.obj, f.con, f.dir, f.rhs)
+
 ```
+
+
+
+## Project Evaluation Review Technique (PERT)
+
+Examining the critical path. 
+3 events (nodes)
+1 time estimate per event (edges)
+
+Diagramming the problem in R using {visNetwork}.
+
+```{r}
+library(visNetwork)
+library(tibble)
+
+list(
+  nodes = tibble(
+    id = 1:3, 
+    label = paste('Node', 1:3), 
+    shape = 'ellipse'
+  ), 
+  edges = tibble(
+    from = c(1,2,1), to = c(2,3,3),
+    label = c(8, 3, 14),
+    font.color = c("red", "blue", "green"), 
+    font.size = c(20,20, 20))
+) %>% 
+  {visNetwork(
+    nodes = .[[1]],edges =  .[[2]], 
+    main = 'Example 2 PERT: MgmtSciVideo', width = '100%')} %>% 
+  visEdges(
+    shadow = TRUE,
+    arrows =list(to = list(enabled = TRUE, scaleFactor = 1)),
+    color = list(color = "lightblue", highlight = "red"))
+
+```
+
+
+The above example has a critical path from 1 >> 3. 
+The standard deviation cannot be calculate because of scalar time estimates.
+Expected completion is 14. 
+
+## Linear programming (Transportation Model) 
+
+Solving the transportation model example problem using the {lpSolve} package with 
+some assumptions. 
+
+Unbalanced problem
+3X5 Matrix 
+Assuming capacity cannot be exceeded and demand must be satisfied. 
+
+[Link](http://www.supplychaindataanalytics.com/solving-bronsons-transport-problem-with-lp-transport-in-r-using-lpsolve/) to helpful blog post discussing a possible solution.
+
+```{r}
+
+library(lpSolve)
+
+# specifying cost matrix 
+cost.mat <- matrix(nrow=3,ncol=5)
+cost.mat[1,] <- c(5.6, 12, 14.5, 11, 0)
+cost.mat[2,] <- c(11, 6.5, 4, 5, 0)
+cost.mat[3,] <- c(100, 9, 5.5, 100, 0)
+
+# this is a minimization problem
+direction = "min"
+
+# capacity may not be exceeded
+row.signs <- rep("<=",3)
+row.rhs <- c(7250,10150,4350)
+
+# demand must be satisfied
+col.signs <- rep(">=",5)
+col.rhs <- c(8700,5800,2900,2175, 2175)
+
+solution <- lp.transport(
+  cost.mat = cost.mat,
+  direction = direction,
+  row.signs = row.signs,
+  row.rhs = row.rhs,
+  col.signs = col.signs,
+  col.rhs = col.rhs
+  )
+
+cols_ <- c('NY', 'ATL', 'HOU', 'LA', 'DUMMY')
+rows_ <- c('RC', 'SAL', 'WEST')
+
+answer <- solution$solution 
+rownames(answer) <- rows_
+colnames(answer) <- cols_
+
+answer %>% 
+  data.frame() %>% 
+  knitr::kable()
+```
+
+Shipping cost for the problem: 
+
+```{r}
+solution
+```
+
+
+Maximization of profit or minimization of costs. 
+
+

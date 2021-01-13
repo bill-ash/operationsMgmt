@@ -23,7 +23,7 @@ library(nomnoml)
 ```
 
 
-# Module review 
+# Module review (day-1-ops-online video)
 
 ## Homework 
 
@@ -58,7 +58,7 @@ Management Science Programs for the IBM Personal Computer
 
 
 
-# Operations Management (Introdcution video)
+# Operations Management (Introduction video)
 
 ## Faster, Better, Cheaper 
 
