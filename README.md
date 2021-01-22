@@ -3,7 +3,8 @@
 
 # Operations MGMT 3452
 
-Howdy!  
+Howdy!
+
 Follow along while I work through operations management 3452. Below are
 snippets from the syllabus which include the course schedule, exam and
 homework information, and final exam review sheet.  

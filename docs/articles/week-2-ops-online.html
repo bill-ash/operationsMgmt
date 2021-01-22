@@ -68,6 +68,9 @@
     <li>
       <a href="../articles/week-2-ops-online.html">Week 2</a>
     </li>
+    <li>
+      <a href="../articles/week-3-ops-online.html">Week 3</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -97,70 +100,57 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bill-ash.com/operationsMgmt/">operationsMgmt</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</span>
-<span class="co">#&gt; ✓ ggplot2 3.3.3     ✓ purrr   0.3.4</span>
-<span class="co">#&gt; ✓ tibble  3.0.4     ✓ dplyr   1.0.2</span>
-<span class="co">#&gt; ✓ tidyr   1.1.2     ✓ stringr 1.4.0</span>
-<span class="co">#&gt; ✓ readr   1.4.0     ✓ forcats 0.5.0</span>
-<span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-<span class="co">#&gt; x dplyr::filter() masks stats::filter()</span>
-<span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/nomnoml">nomnoml</a></span><span class="op">)</span>
 <span class="fu">theme_set</span><span class="op">(</span><span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div id="break-even-analysis" class="section level1">
+<div id="break-even-analysis-bep1" class="section level1">
 <h1 class="hasAnchor">
-<a href="#break-even-analysis" class="anchor"></a>Break Even Analysis</h1>
+<a href="#break-even-analysis-bep1" class="anchor"></a>Break Even Analysis (bep1)</h1>
 <p>Analyzing revenue and costs</p>
-<ul>
-<li>TR: Total revenue
+<p>TR: Total revenue</p>
 <ul>
 <li>Income generated from normal business operations</li>
 </ul>
-</li>
-<li>TFC: Total fixed costs
+<p>TFC: Total fixed costs</p>
 <ul>
 <li>Fixed costs remain the same regardless of business operations (rent)</li>
 <li>Costs that remain the same as output levels change</li>
 </ul>
-</li>
-<li>TVC: Total variable costs
+<p>TVC: Total variable costs</p>
 <ul>
 <li>Costs that change depending on business operations (raw materials)</li>
 <li>Costs that fluctuate as output levels change</li>
 </ul>
-</li>
-<li>VC: Variable cost per unit
+<p>VC: Variable cost per unit</p>
 <ul>
 <li>Contribution/ margin - variables costs to produce good or service.</li>
 <li>Likely inversely proportional to output ie: as output increases the variable cost per unit will likely decrease if economies of scale are achieved.</li>
 </ul>
-</li>
-</ul>
 <div class="line-block">    <code>TC = Total Fixed Costs + Total Variable Costs</code>
 </div>
-<ul>
-<li>TRM: Total Raw Material
+<p>TRM: Total Raw Material</p>
 <ul>
 <li>Variable cost - some input for creating/ manufacturing product</li>
 </ul>
-</li>
-<li>TDL: Total direct labor
+<p>TDL: Total direct labor</p>
 <ul>
 <li>Cost to manufacture a product or produce a good/ service</li>
 <li>People directly involved to produce a product/ service</li>
 </ul>
-</li>
-<li>NP: Net Profit <loss></loss>
-</li>
+<p>NP: Net Profit <loss></loss></p>
+<pre><code>NP = TR - TC
+
+Total Revenue = Volume (quantity) * Price 
+
+Total Cost = Total Fixed + Total Variable Cost 
+
+Net Profit = Total Revenue - Total Costs </code></pre>
+<div id="total-variable-costs" class="section level3">
+<h3 class="hasAnchor">
+<a href="#total-variable-costs" class="anchor"></a>Total variable costs:</h3>
+<p>The cost to produce a good or service is fixed.</p>
+<ul>
+<li>Raw materials</li>
 </ul>
-<pre><code>  NP = TR - TC
-  
-  Total Revenue = Volume (quantity) * Price 
-  
-  Total Cost = Total Fixed + Total Variable Cost 
-  
-  Net Profit = Total Revenue - Total Costs </code></pre>
-<p>Total variable costs: The cost to produce a good or service is fixed. - Raw materials</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>Quantity <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>, Cost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">1000</span>, length.out <span class="op">=</span> <span class="fl">100</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Quantity</span>, <span class="va">Cost</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
@@ -168,41 +158,85 @@
   <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org//reference/label_dollar.html">dollar_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Total Variable Cost (TVC)"</span>, 
        subtitle <span class="op">=</span> <span class="st">"Fixed cost per unit"</span><span class="op">)</span></code></pre></div>
-<div class="figure">
+<div class="figure" style="text-align: center">
 <img src="week-2-ops-online_files/figure-html/unnamed-chunk-2-1.png" alt="Total Variable Costs" width="700"><p class="caption">
 Total Variable Costs
 </p>
 </div>
-<p>Total fixed costs: Costs remain the same regardless of business activities, or output. - Rent - Service agreements</p>
+</div>
+<div id="total-fixed-costs" class="section level3">
+<h3 class="hasAnchor">
+<a href="#total-fixed-costs" class="anchor"></a>Total fixed costs:</h3>
+<p>Costs remain the same regardless of business activities, or output.</p>
+<ul>
+<li>Rent</li>
+<li>Service agreements</li>
+</ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>Quantity <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>, Cost <span class="op">=</span> <span class="fl">4523</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Quantity</span>, <span class="va">Cost</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org//reference/label_dollar.html">dollar_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Total Fixed Costs (TFC)"</span>
-       <span class="op">)</span></code></pre></div>
-<div class="figure">
+  <span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
 <img src="week-2-ops-online_files/figure-html/unnamed-chunk-3-1.png" alt="Total Fixed Costs" width="700"><p class="caption">
 Total Fixed Costs
 </p>
 </div>
-<p>Relevant range: In reality, fixed costs are really only fixed within specific bounds or thresholds.<br>
-Costs will not be absolutely fixed, but more generally can remain fixed up to a certain upper bound creating a stair step chart. - ie: Manufacturing output has increased so significantly, we need to expand into a larger factory.</p>
+<p>Relevant range: In reality, fixed costs are really only fixed within specific bounds or thresholds.</p>
+<p>Costs will not be absolutely fixed, but more generally can remain fixed up to a certain upper bound creating a stair step chart.</p>
+<ul>
+<li>ie: Manufacturing output has increased so significantly, we need to expand into a larger factory.</li>
+</ul>
+</div>
 <div id="breaking-down-fixed-and-variable-costs" class="section level2">
 <h2 class="hasAnchor">
 <a href="#breaking-down-fixed-and-variable-costs" class="anchor"></a>Breaking down fixed and variable costs</h2>
 <p>Has undergone changes in recent years.</p>
-<p>Fixed: - Rent - Salaries - Depreciation - Useful life of long term (capitalized) assets - Property tax - Most expenses</p>
-<p>Variable: - Raw material - Direct labor - Variable factory overhead - Function of how much has been spent on direct labor</p>
+<p>Fixed costs:</p>
+<ul>
+<li>Rent</li>
+<li>Salaries</li>
+<li>Depreciation</li>
+<li>Useful life of long term (capitalized) assets<br>
+</li>
+<li>Property tax</li>
+<li>Most expenses</li>
+</ul>
+<p>Variable costs:</p>
+<ul>
+<li>Raw material</li>
+<li>Direct labor</li>
+<li>Variable factory overhead</li>
+<li>Function of how much has been spent on direct labor</li>
+</ul>
 <p>Piece rate pay system - paid on the number of units produced.</p>
 <div id="new-philosophies" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-philosophies" class="anchor"></a>New Philosophies</h3>
-<p>TQM - Total quality management JIT - Just in time production TOC - Theory of constrains</p>
-<p>Fixed: - Salaries - Property tax - Depreciation - Rent - Direct labor - Most expenses</p>
-<p>Variable: - Raw material: (maybe the only variable according to new philosophies)</p>
-<p>Maybe there are some holes in what is fixed vs. variable - Major difference being the definition of variable costs - Is labor really a variable cost? - Production worker building products with a specific time constraint.</p>
+<p>TQM: Total quality management JIT: Just in time production TOC: Theory of constrains</p>
+<p>Fixed costs:</p>
+<ul>
+<li>Salaries</li>
+<li>Property tax</li>
+<li>Depreciation</li>
+<li>Rent</li>
+<li>Direct labor</li>
+<li>Most expenses</li>
+</ul>
+<p>Variable costs:</p>
+<ul>
+<li>Raw material: (maybe the only variable under new regime)</li>
+</ul>
+<p>Maybe there are some holes in what is fixed vs. variable</p>
+<ul>
+<li>Major difference being the definition of variable costs</li>
+<li>Is labor really a variable cost?</li>
+<li>Production worker building products with a specific time constraint.</li>
+</ul>
 <p>Tenets of JIT - build only what you can sell!</p>
+<p>Regardless of whether you produce 40 or 50 units, you are still paid the same wage.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 40 units / hour </span>
 <span class="fl">40</span> <span class="op">*</span> <span class="op">(</span><span class="fl">10</span> <span class="op">*</span> <span class="fl">8</span><span class="op">)</span>
@@ -213,27 +247,34 @@ Costs will not be absolutely fixed, but more generally can remain fixed up to a 
 <span class="co">#&gt; [1] 4000</span>
 
 <span class="co"># There is a difference in the cost per unit?</span></code></pre></div>
-<p>Regardless of whether you produce 40 or 50 units, you are still paid the same wage.</p>
-<p>Next week - whether you are producing products, going through new trainings, or being told to stay home, you are still receiving the same wage.</p>
+<p>Next week - whether you are producing products, going through new training, or being told to stay home, you are still receiving the same wage.</p>
 <p>Generally, payroll does not fluctuate month to month regardless of business activity/ output.</p>
-<p>Exam: Only true variable cost according to the new philosophies is raw material. Should consider payroll/ direct labor as a fixed cost.</p>
-<p>Major takeaway is that companies will do things in different ways as long as they fit within accounting rules. - Managerial: internal decision making - Financial: external reporting governed by financial accounting standards board (FASB)</p>
+<p><strong>Exam: Only true variable cost according to the new philosophies is raw material. Should consider payroll/ direct labor as a fixed cost.</strong></p>
+<p>Major takeaway is that companies will do things in different ways as long as they fit within accounting rules.</p>
+<ul>
+<li>Managerial accounting: internal decision making</li>
+<li>Financial accounting: external reporting governed by financial accounting standards board (FASB)</li>
+</ul>
 <p>//TODO Throughput accounting? Activity based costing?</p>
 </div>
 </div>
 <div id="reviewing-charts" class="section level2">
 <h2 class="hasAnchor">
 <a href="#reviewing-charts" class="anchor"></a>Reviewing charts</h2>
-<div class="line-block">    <code>Total cost = Variable Cost + Fixed costs</code>
-</div>
+<div id="total-cost-variable-cost-fixed-costs" class="section level3">
+<h3 class="hasAnchor">
+<a href="#total-cost-variable-cost-fixed-costs" class="anchor"></a><code>Total cost = Variable Cost + Fixed costs</code>
+</h3>
+<p>If the price does not cover the cost of production, the producer/ supplier will lose money. The more you sell the more money you will lose.</p>
+<ul>
+<li>Wheat framer (agriculture), oil &amp; gas (lift cost/ variable cost)</li>
+</ul>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
   Quantity <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">100</span>, 
   TFC <span class="op">=</span> <span class="fl">60</span>, 
   TVC <span class="op">=</span> <span class="va">Quantity</span> <span class="op">*</span> <span class="fl">1.6</span>, 
-  TC <span class="op">=</span> <span class="va">TFC</span> <span class="op">+</span> <span class="va">TVC</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span> 
+  TC <span class="op">=</span> <span class="va">TFC</span> <span class="op">+</span> <span class="va">TVC</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'TFC'</span>, <span class="st">'TVC'</span>, <span class="st">'TC'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Quantity</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">name</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
@@ -243,43 +284,53 @@ Costs will not be absolutely fixed, but more generally can remain fixed up to a 
   <span class="fu">geom_label</span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Quantity</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Quantity</span><span class="op">)</span><span class="op">)</span>,
              <span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">'None'</span><span class="op">)</span></code></pre></div>
-<div class="figure">
+<div class="figure" style="text-align: center">
 <img src="week-2-ops-online_files/figure-html/unnamed-chunk-5-1.png" alt="Total costs" width="700"><p class="caption">
 Total costs
 </p>
 </div>
-<p>If the price does not cover the cost of production, the producer/ supplier will lose money. The more you sell the more money you will lose.</p>
-<ul>
-<li>Wheat framer (agriculture), oil &amp; gas (lift cost/ variable cost)</li>
-</ul>
+</div>
+<div id="break-even-point-bep" class="section level3">
+<h3 class="hasAnchor">
+<a href="#break-even-point-bep" class="anchor"></a>Break Even Point (BEP)</h3>
+<p>The point at which revenue will cover fixed costs and variable costs related to manufacturing a product.</p>
+<p>Might be true within a relevant range. As we sell products past the BEP, we will begin to produce positive cash flow.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
   Quantity <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">100</span>, 
-  TR <span class="op">=</span> <span class="va">Quantity</span> <span class="op">*</span> <span class="fl">2.5</span>,
-  TFC <span class="op">=</span> <span class="fl">60</span>, 
-  TVC <span class="op">=</span> <span class="va">Quantity</span> <span class="op">*</span> <span class="fl">1.5</span>, 
-  TC <span class="op">=</span> <span class="va">TFC</span> <span class="op">+</span> <span class="va">TVC</span>
-  <span class="op">)</span> <span class="op">%&gt;%</span> 
+  price <span class="op">=</span> <span class="fl">4</span>,
+  cost <span class="op">=</span> <span class="fl">2.5</span>, 
+  TR <span class="op">=</span> <span class="va">Quantity</span> <span class="op">*</span> <span class="va">price</span>,
+  TFC <span class="op">=</span> <span class="fl">90</span>, 
+  TVC <span class="op">=</span> <span class="va">Quantity</span> <span class="op">*</span> <span class="va">cost</span>, 
+  TC <span class="op">=</span> <span class="va">TFC</span> <span class="op">+</span> <span class="va">TVC</span>, 
+  BEP_q <span class="op">=</span> <span class="va">TFC</span> <span class="op">/</span> <span class="op">(</span><span class="va">price</span> <span class="op">-</span> <span class="va">cost</span><span class="op">)</span>,
+  BEP_d <span class="op">=</span> <span class="va">BEP_q</span> <span class="op">*</span> <span class="va">price</span>
+<span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'TFC'</span>, <span class="st">'TVC'</span>, <span class="st">'TC'</span>, <span class="st">'TR'</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Quantity</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">name</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_label</span><span class="op">(</span>data <span class="op">=</span> <span class="va">.</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Quantity</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Quantity</span><span class="op">)</span><span class="op">)</span>,
-             <span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">'identity'</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_label</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="fl">47</span>, <span class="fl">160</span>, label <span class="op">=</span> <span class="st">'Break Even Point'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_segment</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fl">150</span>, yend <span class="op">=</span> <span class="fl">150</span>, xend <span class="op">=</span> <span class="fl">60</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_segment</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">60</span>, y <span class="op">=</span> <span class="fl">0</span>, yend <span class="op">=</span> <span class="fl">150</span>, xend <span class="op">=</span> <span class="fl">60</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_label</span><span class="op">(</span>
+    data <span class="op">=</span> <span class="va">.</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Quantity</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Quantity</span><span class="op">)</span><span class="op">)</span>,
+    <span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="va">name</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">'identity'</span>
+  <span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_label</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BEP_q</span><span class="op">)</span><span class="op">-</span><span class="fl">15</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BEP_d</span><span class="op">)</span> <span class="op">+</span> <span class="fl">14</span>, label <span class="op">=</span> <span class="st">'Break Even Point'</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_segment</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BEP_d</span><span class="op">)</span>, yend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BEP_d</span><span class="op">)</span>, xend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BEP_q</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_segment</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BEP_q</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0</span>, yend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BEP_d</span><span class="op">)</span>, xend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">BEP_q</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Price &gt; Variable Costs'</span>, 
        subtitle <span class="op">=</span> <span class="st">'Product or service produces positive cashflow'</span>, 
        x <span class="op">=</span> <span class="st">'Quantity'</span>, y <span class="op">=</span> <span class="st">'Cost'</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">scale_y_continuous</span><span class="op">(</span>label <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org//reference/label_dollar.html">dollar_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">'None'</span><span class="op">)</span></code></pre></div>
-<div class="figure">
+<div class="figure" style="text-align: center">
 <img src="week-2-ops-online_files/figure-html/unnamed-chunk-6-1.png" alt="Price greater than variable costs" width="700"><p class="caption">
 Price greater than variable costs
 </p>
 </div>
-<p>Might be true within a relevant range. As we sell products past the BEP, we will begin to produce positive cashflow.</p>
+</div>
+<div id="calculating-net-income" class="section level3">
+<h3 class="hasAnchor">
+<a href="#calculating-net-income" class="anchor"></a>Calculating net income</h3>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Total fixed cost </span>
 <span class="va">TFC</span> <span class="op">=</span> <span class="fl">6000</span> 
@@ -300,18 +351,32 @@ Price greater than variable costs
 
 <span class="co"># Net loss </span>
 <span class="va">NP</span> <span class="op">=</span> <span class="va">TR</span> <span class="op">-</span> <span class="va">TVC</span> <span class="op">-</span> <span class="va">TFC</span> <span class="co"># 1500 </span></code></pre></div>
-<p>Break even point is defined as: The number of units we have to sell to break even:</p>
+</div>
+<div id="bep-cont-" class="section level3">
+<h3 class="hasAnchor">
+<a href="#bep-cont-" class="anchor"></a>BEP cont.</h3>
+<p>Break even point is defined as: The number of units we have to sell to cover outlays:</p>
 <div class="line-block">    <code>BEP (units) = Total Fixed Costs / (Price - Variable Cost per Unit)</code>
 </div>
 <p>Revenue generated to break even:</p>
 <div class="line-block">    <code>BEP (dollars) = BEP (units) * Price</code>
 </div>
-<p>Margin of Safety: The difference between are total or expected sales, and the revenue that is required to break even.</p>
+<p>Margin of Safety:</p>
+<ul>
+<li>The difference between total or expected sales, and the revenue that is required to break even.</li>
+</ul>
 <div class="line-block">    <code>Margin of Safety = Sales (Total or expected sales) - BEP (dollars)</code>
 </div>
 <p>Contribution margin is defined as:</p>
-<div class="line-block">    ``</div>
+<div class="line-block">    <code>contribution margin ratio = (total revenue - variable costs) / total revenue</code><br>
+    <code>contribution margin = Price per product - variable cost per product</code>
 </div>
+</div>
+</div>
+</div>
+<div id="break-even-analysis-bep2" class="section level1">
+<h1 class="hasAnchor">
+<a href="#break-even-analysis-bep2" class="anchor"></a>Break Even Analysis (bep2)</h1>
 </div>
   </div>
 

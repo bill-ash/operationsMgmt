@@ -68,6 +68,9 @@
     <li>
       <a href="../articles/week-2-ops-online.html">Week 2</a>
     </li>
+    <li>
+      <a href="../articles/week-3-ops-online.html">Week 3</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -97,15 +100,8 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bill-ash.com/operationsMgmt/">operationsMgmt</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</span>
-<span class="co">#&gt; ✓ ggplot2 3.3.3     ✓ purrr   0.3.4</span>
-<span class="co">#&gt; ✓ tibble  3.0.4     ✓ dplyr   1.0.2</span>
-<span class="co">#&gt; ✓ tidyr   1.1.2     ✓ stringr 1.4.0</span>
-<span class="co">#&gt; ✓ readr   1.4.0     ✓ forcats 0.5.0</span>
-<span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span>
-<span class="co">#&gt; x dplyr::filter() masks stats::filter()</span>
-<span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/nomnoml">nomnoml</a></span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/nomnoml">nomnoml</a></span><span class="op">)</span>
+<span class="fu">theme_set</span><span class="op">(</span><span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div id="module-review-day-1-ops-online-video" class="section level1">
 <h1 class="hasAnchor">
 <a href="#module-review-day-1-ops-online-video" class="anchor"></a>Module review (day-1-ops-online video)</h1>
@@ -154,7 +150,10 @@
 <ul>
 <li>Developing a competitive advantage</li>
 </ul>
-<p>Price always matter &gt;&gt; cost competitive (price) - Lower prices do not always mean lower quality.</p>
+<p>Price always matter &gt;&gt; cost competitive (price)</p>
+<ul>
+<li>Lower prices do not always mean lower quality.</li>
+</ul>
 <div id="philosophies-governing-the-operations-world" class="section level3">
 <h3 class="hasAnchor">
 <a href="#philosophies-governing-the-operations-world" class="anchor"></a>Philosophies governing the operations world</h3>
@@ -178,7 +177,7 @@
 <div id="operations" class="section level2">
 <h2 class="hasAnchor">
 <a href="#operations" class="anchor"></a>Operations</h2>
-<p>The study of production systems that product goods or provide services.</p>
+<p>The study of production systems that produce goods or provide services.</p>
 <ul>
 <li>Applies to many different types of businesses (not just manufacturing).</li>
 </ul>
@@ -194,9 +193,10 @@
 <li>Retail/ Wholesale</li>
 <li>All organizations</li>
 </ul>
-<div id="manufacturing-goods-producing-systems" class="section level3">
+<div id="manufacturing" class="section level3">
 <h3 class="hasAnchor">
-<a href="#manufacturing-goods-producing-systems" class="anchor"></a>Manufacturing &gt;&gt; Goods producing systems</h3>
+<a href="#manufacturing" class="anchor"></a>Manufacturing</h3>
+<p>Goods producing systems typically classified as durable and non-durable goods. Ie: Hard goods such as large capital expenditures vs everyday purchases (soft goods).</p>
 <ul>
 <li>Manufacturing</li>
 <li>Durable</li>
@@ -209,7 +209,7 @@
 <div id="service-sector" class="section level3">
 <h3 class="hasAnchor">
 <a href="#service-sector" class="anchor"></a>Service Sector</h3>
-<p>Everything that is not included in Manufacturing sector.</p>
+<p>Everything that is not included in the Manufacturing sector (knowledge work).</p>
 <ul>
 <li>Financial</li>
 <li>Real estate</li>
@@ -225,22 +225,22 @@
 <div id="io-model-input-output-model" class="section level2">
 <h2 class="hasAnchor">
 <a href="#io-model-input-output-model" class="anchor"></a>I/O Model: input output model</h2>
-<div id="htmlwidget-963ca23335408df9568e" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-963ca23335408df9568e">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#spacing:40\n[input] --> [process]\n[process] --> [output]\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-f6859ed07895ccdb825e" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f6859ed07895ccdb825e">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: right\n#spacing:40\n[input |\n- Raw material] --> [process WIP]\n\n[process WIP] --> [output |\n- Final goods]\n\n[process WIP | - In the process of being built\n- Resources factors of production]\n\n#direction:down\n[Feed back loop] --> [input]\n[Feed back loop] --> [process WIP]\n[output] --> [Feed back loop]\n\n[output] --> [consumer (end user)]\n\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="secondary-inputs---factors-of-production-resources" class="section level3">
+<div id="htmlwidget-058facbb25f01b221fcf" style="width:400px;height:200px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-058facbb25f01b221fcf">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#spacing:20\n[input] --> [process]\n[process] --> [output]\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-b51eee981ce1ddc22992" style="width:400px;height:500px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b51eee981ce1ddc22992">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: right\n#spacing:40\n[input |\n- Raw material] --> [process WIP]\n\n[process WIP] --> [output |\n- Final goods]\n\n[process WIP | - In the process of being built\n- Resources/ factors of production]\n\n#direction:down\n[Feed back loop] --> [input]\n[Feed back loop] --> [process WIP]\n[output] --> [Feed back loop]\n\n[output] --> [consumer (end user)]\n\n","svg":false},"evals":[],"jsHooks":[]}</script><div id="secondary-inputs-factors-of-production-resources" class="section level3">
 <h3 class="hasAnchor">
-<a href="#secondary-inputs---factors-of-production-resources" class="anchor"></a>Secondary inputs - factors of production / resources</h3>
+<a href="#secondary-inputs-factors-of-production-resources" class="anchor"></a>Secondary inputs: factors of production/ resources</h3>
 <p>Part of the work in process portion of the input, output model.</p>
 <ul>
 <li>Land</li>
 <li>Labor</li>
-<li>Capital - good that is used to produce another good
+<li>Capital - Equipment that is used to produce another good
 <ul>
 <li>Hammer, computer, useful life greater than 1 year</li>
-<li>Plant &amp; equipment</li>
-<li>Money &gt;&gt; purchases productive resources (not considered a capital good)</li>
+<li>Plant &amp; equipment (PP&amp;E)</li>
 </ul>
 </li>
+<li>Money &gt;&gt; purchases productive resources (not considered a capital good)</li>
 </ul>
 </div>
 </div>
@@ -248,8 +248,8 @@
 <h2 class="hasAnchor">
 <a href="#organization-chart" class="anchor"></a>Organization chart</h2>
 <p>Cornerstone of a business or organization.</p>
-<div id="htmlwidget-74b977509e08ca721e2f" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-74b977509e08ca721e2f">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: down\n        [general manager] --> [operations | Supply side: \n people making products.]\n        [general manager] --> [marketing | Demand side: \n Selling of product]\n        [general manager] --> [finance | Capital budgeting: \n Allocation of resources]\n        ","svg":false},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6c944d3f8679ac9d8c14" style="width:500px;height:400px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6c944d3f8679ac9d8c14">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n#direction: down\n        [general manager] --> [operations | Supply side: \n people making products.]\n        [general manager] --> [marketing | Demand side: \n Selling of product]\n        [general manager] --> [finance | Capital budgeting: \n Allocation of resources]\n        ","svg":false},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="management-philosophy" class="section level2">
 <h2 class="hasAnchor">
@@ -291,11 +291,16 @@
 <p><code>output / input = productivity</code></p>
 </li>
 </ul>
-<p>Critical for the economy can we do more with the same give resources.</p>
+<p>Critical for the economy: how can we do more with the same given inputs/ resources.</p>
+<p>Example:</p>
+<div class="line-block">    <code>(standard labor hours / amount of time worked) * 100 = efficiency</code>
+</div>
+<div class="line-block">    <code>(total output / total hours) = labor productivity</code>
+</div>
 <ul>
-<li>Technology - changed the world and how we do business.</li>
-<li>Work methods -technology we use to do our job (tools and techniques). Ties back to technology.</li>
-<li>Choice of equipment - comparing equipment - cost benefit analysis</li>
+<li>Technology: changed the world and how we do business.</li>
+<li>Work methods: technology we use to do our job (tools and techniques). Ties back to technology.</li>
+<li>Choice of equipment: comparing equipment - cost benefit analysis</li>
 <li>Management - JIT, TQM, TOC - new philosophies and principles that prevail in an organization.</li>
 </ul>
 </div>
@@ -303,25 +308,23 @@
 <h3 class="hasAnchor">
 <a href="#key-issues" class="anchor"></a>Key Issues</h3>
 <ul>
-<li><p>Productivity = output/ input</p></li>
-<li>
-<p>Quality - quality of the organization, workforce, and product</p>
+<li>Productivity = output/ input</li>
+<li>Quality: quality of the organization, workforce, and product
 <ul>
 <li>Inversely proportional to output</li>
 </ul>
 </li>
-<li><p>Government Regulations - economic regulations - regulate economic behavior in the marketplace (antitrust, etc.). Management focuses more behavioral regulations.</p></li>
-<li><p>OSHA (1971) Occupational, safety, and health administration - worker health and safety.</p></li>
-<li><p>EEOC (1965) Equal, employment, opportunity, commission - looks at discrimination in the work place. Makes it illegal to discriminate in the work place.</p></li>
-<li><p>EPA (1970) Environmental protection agency - regulates business’ impact on the environment.</p></li>
-<li><p>RRC - Railroad commission - oil and gas production in the state of Texas.</p></li>
-<li><p>Liability - make safe products for consumers (seat belts, cars, etc.), professional and service liabilities (doctors, accountants).</p></li>
-<li><p>De-industrialization - manufacturing has collapsed in the last fifty years. Businesses will operate where it is most economic to operate.</p></li>
-<li><p>Short-Term Focus - US companies more short term focused</p></li>
-<li><p>Long Term Focus - Japanese more long term focused</p></li>
-<li><p>Thinks long term is superior philosophy</p></li>
-<li><p>Technology and Automation</p></li>
-<li><p>Globalization - free trade, open trade, and open borders.</p></li>
+<li>Government/ economic regulations: regulate economic behavior in the marketplace (antitrust, etc.). Management focuses more behavioral regulations.</li>
+<li>OSHA (1971) Occupational, safety, and health administration: worker health and safety.</li>
+<li>EEOC (1965) Equal, employment, opportunity, commission: looks at discrimination in the work place. Makes it illegal to discriminate in the work place.</li>
+<li>EPA (1970) Environmental protection agency: regulates business’ impact on the environment.</li>
+<li>(RRC) Railroad commission: oil and gas production in the state of Texas.</li>
+<li>Liability: make safe products for consumers (seat belts, cars, etc.), professional and service liabilities (doctors, accountants).</li>
+<li>De-industrialization: manufacturing has collapsed in the last fifty years. Businesses will operate where it is most economic to operate.</li>
+<li>Short-Term Focus - US companies more short term focused</li>
+<li>Long Term Focus - Japanese more long term focused</li>
+<li>Technology and Automation</li>
+<li>Globalization - free trade, open trade, and open borders.</li>
 </ul>
 </div>
 </div>
@@ -375,7 +378,7 @@
     qty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>,
     time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2015-02-12'</span><span class="op">)</span>, by <span class="op">=</span> <span class="fl">30</span>, length.out <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span>, 
     label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Build inventory'</span>, <span class="st">'Deplete Inventory'</span>, <span class="st">'Build Inventory'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="week-1-ops-online_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<p><img src="week-1-ops-online_files/figure-html/unnamed-chunk-5-1.png" width="700" style="display: block; margin: auto;"></p>
 <p>Build products that fit the product cycle ie: (Flexible manufacturing)</p>
 <ul>
 <li>Build cooling equipment in the summer and re-tool (shift production) to heating equipment in colder months.</li>

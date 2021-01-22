@@ -11,15 +11,21 @@ vignette: >
 ```{r, include = FALSE}
   knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.align = 'center'
   )
-```
-  
-
-```{r setup}
 library(operationsMgmt)
 library(tidyverse)
 library(nomnoml)
+theme_set(theme_light())
+```
+  
+
+```{r setup, eval = FALSE}
+library(operationsMgmt)
+library(tidyverse)
+library(nomnoml)
+theme_set(theme_light())
 ```
 
 
@@ -68,6 +74,7 @@ or cheaper.
 - Developing a competitive advantage 
 
 Price always matter >> cost competitive (price)
+
 - Lower prices do not always mean lower quality. 
 
 ### Philosophies governing the operations world
@@ -89,7 +96,7 @@ Dr. Eli Goldratt - Father of the Theory of Constraints.
 
 ## Operations 
 
-The study of production systems that product goods or provide services. 
+The study of production systems that produce goods or provide services. 
 
 - Applies to many different types of businesses (not just manufacturing).
 
@@ -106,7 +113,10 @@ Operations will apply to all different types of businesses -
 - All organizations 
 
 
-### Manufacturing >> Goods producing systems 
+### Manufacturing 
+
+Goods producing systems typically classified as durable and non-durable goods. Ie: 
+Hard goods such as large capital expenditures vs everyday purchases (soft goods). 
 
 - Manufacturing 
 - Durable 
@@ -117,7 +127,7 @@ Operations will apply to all different types of businesses -
 
 ### Service Sector 
 
-Everything that is not included in Manufacturing sector.
+Everything that is not included in the Manufacturing sector (knowledge work).
 
 - Financial 
 - Real estate 
@@ -130,18 +140,18 @@ Everything that is not included in Manufacturing sector.
 
 ## I/O Model: input output model
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.align='center'}
 nomnoml::nomnoml('
-#spacing:40
+#spacing:20
 [input] --> [process]
 [process] --> [output]
-')
+', width = 400, height = 200)
 ```
 
 
 
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.center = TRUE}
 
 nomnoml::nomnoml("
 #direction: right
@@ -153,7 +163,7 @@ nomnoml::nomnoml("
 - Final goods]
 
 [process WIP | - In the process of being built
-- Resources factors of production]
+- Resources/ factors of production]
 
 #direction:down
 [Feed back loop] --> [input]
@@ -162,21 +172,22 @@ nomnoml::nomnoml("
 
 [output] --> [consumer (end user)]
 
-")
+", width = 400, height = 500)
 ```
 
 
 
-### Secondary inputs - factors of production / resources 
+### Secondary inputs: factors of production/ resources 
 
 Part of the work in process portion of the input, output model. 
 
 - Land
 - Labor 
-- Capital - good that is used to produce another good 
+- Capital - Equipment that is used to produce another good 
   - Hammer, computer, useful life greater than 1 year
-  - Plant & equipment 
-  - Money >> purchases productive resources (not considered a capital
+  - Plant & equipment (PP&E)
+  
+- Money >> purchases productive resources (not considered a capital
 good)
 
 
@@ -190,7 +201,7 @@ nomnoml::nomnoml('
         [general manager] --> [operations | Supply side: \n people making products.]
         [general manager] --> [marketing | Demand side: \n Selling of product]
         [general manager] --> [finance | Capital budgeting: \n Allocation of resources]
-        ')
+        ', height = 400, width = 500)
 ```
 
 
@@ -198,7 +209,6 @@ nomnoml::nomnoml('
 ## Management philosophy 
 
 ### Just in Time (JIT)
-
 
 - Smaller warehouses - don't carry as much raw materials or inventory 
 as they used too. 
@@ -236,12 +246,18 @@ in the right seats.
    
    `output / input = productivity `
 
-Critical for the economy can we do more with the same give resources. 
+Critical for the economy: how can we do more with the same given inputs/ resources.
 
-- Technology - changed the world and how we do business. 
-- Work methods -technology we use to do our job (tools and techniques). 
+Example: 
+
+|     `(standard labor hours / amount of time worked) * 100 = efficiency`  
+
+|     `(total output / total hours) = labor productivity`
+
+- Technology: changed the world and how we do business. 
+- Work methods: technology we use to do our job (tools and techniques). 
 Ties back to technology. 
-- Choice of equipment - comparing equipment - cost benefit analysis
+- Choice of equipment: comparing equipment - cost benefit analysis
 - Management - JIT, TQM, TOC - new philosophies and principles that
 prevail in an organization. 
 
@@ -249,32 +265,27 @@ prevail in an organization.
 ### Key Issues 
 
 - Productivity = output/ input 
-- Quality - quality of the organization, workforce, and product 
+- Quality: quality of the organization, workforce, and product 
   - Inversely proportional to output 
 
-- Government Regulations - economic regulations - regulate economic 
-behavior in the marketplace (antitrust, etc.). Management focuses more 
-behavioral regulations. 
-- OSHA (1971) Occupational, safety, and health administration - worker 
+- Government/ economic regulations: regulate economic behavior in the marketplace 
+(antitrust, etc.). Management focuses more behavioral regulations. 
+- OSHA (1971) Occupational, safety, and health administration: worker 
 health and safety. 
-- EEOC (1965) Equal, employment, opportunity, commission - looks at 
+- EEOC (1965) Equal, employment, opportunity, commission: looks at 
 discrimination in the work place. Makes it illegal to discriminate 
 in the work place. 
-- EPA (1970) Environmental protection agency - regulates business' 
+- EPA (1970) Environmental protection agency: regulates business' 
 impact on the environment. 
-- RRC - Railroad commission - oil and gas production in the state
+- (RRC) Railroad commission: oil and gas production in the state
 of Texas. 
-
-- Liability - make safe products for consumers (seat belts, cars, etc.), 
+- Liability: make safe products for consumers (seat belts, cars, etc.), 
 professional and service liabilities (doctors, accountants). 
-- De-industrialization - manufacturing has collapsed in the last 
+- De-industrialization: manufacturing has collapsed in the last 
 fifty years. Businesses will operate where it is most economic to 
 operate. 
-
 - Short-Term Focus - US companies more short term focused 
 - Long Term Focus - Japanese more long term focused 
-- Thinks long term is superior philosophy 
-
 - Technology and Automation
 - Globalization - free trade, open trade, and open borders. 
 
