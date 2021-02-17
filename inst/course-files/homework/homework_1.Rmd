@@ -1,0 +1,208 @@
+---
+title: "Homework 1"
+author: "Bill Ash (5555WRA)"
+date: "2/2/2021"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+# Operations Break-Even Examples using software
+
+Formula for calculating break even point 
+
+|   `BEP_Unit = FixedCost / (SellingPrice - VariableCost)` 
+|   `ContributionMargin = (TotalRevenue - VariableCosts) / TotalRevenue` 
+|   `BEP_Dollar = FixedCost / ContributionMargin`
+|   `BEP_Dollar = BEP_Unit * SellingPrice` 
+
+## BEP Functions
+
+```{r}
+# BEP Unit 
+bep_unit <- function(fixed_cost, selling_price, variable_cost) {
+  paste0('Break Even Point Units: ', 
+         scales::comma(
+           fixed_cost / (selling_price - variable_cost), accuracy = .01
+         )
+  )
+}
+# BEP Revenue
+bep_rev <- function(fixed_cost, selling_price='', variable_cost='', cm = NULL) {
+  
+  if (is.null(cm)) { 
+    cm <- ((selling_price - variable_cost) / selling_price)
+  }
+  
+  paste0('Break Even Point: ', 
+         scales::dollar(
+           fixed_cost / cm , accuracy = .01
+         )
+  )
+}
+```
+
+
+
+### Problem 1 
+
+```
+1. The Beta Manufacturing Company produces
+stepladders that sell for $27 each. The production
+capacity is limited to 48,000 units per year. Fixed
+costs are $50,000 and variable costs are $12 per
+item. Compute the break even point in number of
+stepladders. How many items must be sold to
+provide a profit of $20,000 What is allocation of
+fixed costs per stepladder at 75 percent capacity?
+```
+
+```{r}
+price = 27
+capacity = 48000
+variable_cost_unit = 12
+total_fixed_cost = 50000 
+expected_profit = 20000
+```
+
+### Answer 1    
+
+Compute the break even point in number of
+stepladders:   
+
+>`r bep_unit(total_fixed_cost, price, variable_cost_unit)`
+
+How many items must be sold to
+provide a profit of $20,000:     
+
+>`r bep_unit(sum(total_fixed_cost, expected_profit), price, variable_cost_unit)`
+
+What is allocation of fixed costs per stepladder at 75 percent capacity?  
+
+>`r scales::dollar(total_fixed_cost / (capacity * .75), accuracy=.01)` Fixed cost
+per unit. 
+
+### Problem 2   
+
+```
+2. A firm produces four models of tool sets. The fixed costs are
+$42,000 and the other data are as follows: 
+
+Model     Qty    Price  Variable Cost     Sales  Revenue
+S     4,000     $20   6         $80,000
+T     5,000     32    8        $160,000
+U     1,000     60    20         $60,000
+V     2,000     50    18         $100,000
+
+- Total $400,000
+
+Determine the break even in dollars
+
+What is the Margin of Safety if Sales =$75,000?
+```
+
+```{r fig.cap='Table 2'}
+prob_2 <- tibble::tribble(
+  ~Model, ~Qty, ~Price, ~Variable_Cost, ~Sales_Revenue,
+  'S', 4000, 20, 6, 80000,
+  'T', 5000, 32, 8, 160000,
+  'U', 1000, 60, 20, 60000,
+  'V', 2000, 50, 18, 100000
+)
+fixed_costs = 42000
+total_rev = 400000
+knitr::kable(prob_2)
+```
+
+```{r}
+cm_2 <- prob_2 %>% 
+  mutate(
+    cm = (Price - Variable_Cost) / Price, 
+    relative_sales = Sales_Revenue / total_rev,
+    total = cm * relative_sales
+  ) %>% 
+  summarise(cm = sum(total))
+```
+
+#### Answer 2:        
+
+
+
+Determine the break even in dollars:   
+
+> `r bep_rev(fixed_costs, cm = cm_2$cm)`  
+
+What is the Margin of Safety if Sales = $75,000?  
+  
+>$15,000
+
+
+
+### Problem 3   
+
+```
+3. The Clutch Engineering Company is proposing to locate
+a branch office in one of two West Coast locations, A or B.
+These two sites have quite different estimated operating
+costs:
+                            A        B
+Engineering labor cost     $15/hr. $16/
+Materials and supplies    2.40/hr. $1.80/
+- (tied to engineering hours)
+Variable overhead         5.50/hr. 4.40/hr.
+Total annual fixed cost   $150,000 $190,000
+Price to customers.       $30 $30
+
+Consider the hourly costs to be variable costs.
+
+a. Compute the break even for both locations.
+
+b. At what level of output (number of hours) are you in
+different to the location?
+```
+
+```{r}
+prob_3 <- tibble::tibble(
+  product = c('a', 'b'),
+  v_labor_cost = c(15, 16), 
+  v_materials = c(2.40,  1.80), 
+  v_variable_overhead = c(5.50, 4.40), 
+  total_fixed_cost = c(150000, 190000), 
+  price = c(30,  30)
+) 
+
+knitr::kable(prob_3)
+```
+
+```{r}
+resp <- prob_3 %>% 
+  rowwise() %>% 
+  mutate(variable_costs = sum(across(starts_with('v_'), sum)))
+```
+
+
+#### Answer 3      
+
+
+
+
+>A: `r bep_unit(resp[1, 'total_fixed_cost'][[1]],resp[1, 'price'][[1]], resp[1, 'variable_costs'][[1]] )`
+
+  
+>B: `r bep_unit(resp[2, 'total_fixed_cost'][[1]],resp[2, 'price'][[1]], resp[2, 'variable_costs'][[1]] )`
+
+
+
+Indifference:    
+
+>`150,000 + 22.9x = 190,000 + 22.2x`    
+`0.7x = 40,000`    
+57,142 hours  
+
+Bill Ash 
