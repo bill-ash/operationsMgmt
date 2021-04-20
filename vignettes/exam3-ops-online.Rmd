@@ -263,3 +263,64 @@ list(
 
 
 Things with more critical paths will be more vulnerable to delaying the project.  
+
+
+# Linear Programming (video: linearprogrammingops)
+
+- Decision Making Under Certainty: value are known and there is no variation 
+- Objectives: goals (objective functions- maximization, loss functions) 
+- Decision Variables: which products are we going to produce 
+- Constraints: Theory of constrains - anything that limits performance (capacity)
+- Linear Relationships Between the Variables - keeps us out of calculus 
+
+
+## Problem Example
+
+Company makes two products - activity based costing - throughput 
+
+We want to maximize contribution - what is the selling price minus the cost to 
+make the product. 
+
+Maximize: 2car+2truck
+Subject to: 
+- 2car+1truck<=400 Mold department 
+- 1car+2truck<=600 Paint department 
+- 1car+1truck<=500 Pack department 
+
+You can't use more time that you don't have. 
+
+
+```{r}
+setup <- tibble::tibble(
+  product = c('car', 'truck'), 
+  mold = c(2, 1), 
+  paint = c(1, 2), 
+  pack = c(1, 1), 
+  
+) %>% 
+  gather('department', 'time', -product) %>% 
+  left_join(
+    tibble::tibble(
+  capacity = c(400, 600, 500), 
+  department = c('mold', 'paint', 'pack')
+)) %>% 
+  dplyr::mutate(
+    output = capacity / time
+  ) %>% tibble::rowid_to_column() 
+
+setup %>% 
+  spread(product, output, fill = 0) %>% 
+  ggplot(aes(car, truck), fill = product) + 
+  geom_path() + 
+  labs(title = 'Everything in the shaded region is workable') + 
+  facet_wrap(vars(department))
+
+```
+
+
+The best possible combinations are the corner points - all of one product or a 
+combination of both that achieves the maximum profit (corner point). 
+
+The recommended solution will be the combination that achieves the maximum output. 
+
+Leave off at 37:36. 
