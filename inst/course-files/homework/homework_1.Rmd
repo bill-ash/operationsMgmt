@@ -1,5 +1,5 @@
 ---
-title: "Homework 1"
+title: "MGMT-3453-X20: Homework 1"
 author: "Bill Ash (5555WRA)"
 date: "2/2/2021"
 output:
@@ -14,6 +14,7 @@ library(tidyverse)
 ```
 
 # Operations Break-Even Examples using software
+
 
 Formula for calculating break even point 
 
@@ -93,21 +94,9 @@ per unit.
 ```
 2. A firm produces four models of tool sets. The fixed costs are
 $42,000 and the other data are as follows: 
-
-Model     Qty    Price  Variable Cost     Sales  Revenue
-S     4,000     $20   6         $80,000
-T     5,000     32    8        $160,000
-U     1,000     60    20         $60,000
-V     2,000     50    18         $100,000
-
-- Total $400,000
-
-Determine the break even in dollars
-
-What is the Margin of Safety if Sales =$75,000?
 ```
 
-```{r fig.cap='Table 2'}
+```{r echo = FALSE} 
 prob_2 <- tibble::tribble(
   ~Model, ~Qty, ~Price, ~Variable_Cost, ~Sales_Revenue,
   'S', 4000, 20, 6, 80000,
@@ -115,12 +104,23 @@ prob_2 <- tibble::tribble(
   'U', 1000, 60, 20, 60000,
   'V', 2000, 50, 18, 100000
 )
-fixed_costs = 42000
-total_rev = 400000
 knitr::kable(prob_2)
 ```
 
-```{r}
+
+```
+- Total $400,000
+
+Determine the break even in dollars
+
+What is the Margin of Safety if Sales =$75,000?
+```
+
+
+```{r fig.cap='Table 2'}
+fixed_costs = 42000
+total_rev = 400000
+
 cm_2 <- prob_2 %>% 
   mutate(
     cm = (Price - Variable_Cost) / Price, 
