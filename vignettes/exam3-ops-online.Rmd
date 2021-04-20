@@ -1,0 +1,265 @@
+---
+title: "Exam 3"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Week 3}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>", 
+  fig.align = 'center'
+)
+library(operationsMgmt)
+library(tidyverse)
+theme_set(theme_light())
+```
+
+```{r setup}
+library(operationsMgmt)
+library(tidyverse)
+theme_set(theme_light())
+```
+
+
+# Work Measurement (video: workmeasurement)
+
+Knowing how long a project or task will take to complete. 
+
+## Measuring Performance New V Old
+
+### Traditional Approach 
+
+Both 
+- Planning & Scheduling: On time delivery is important 
+- Budgeting: performance to budget - financial planning 
+- You can only budget once you have a plan and a schedule in place
+- Performance measurement: 
+- Time standards 
+- Efficiency 
+- Cost accounting standards 
+- job order & product costing 
+
+### New Philosophies 
+
+- Performance measurement 
+- Efficiency: New philosophy says to not bother looking at the output. Focus 
+on what the schedule calls requires. 
+- Cost accounting principles & efficiency do not help make better decisions. 
+- Thru put accounting - the only true variable cost is raw materials 
+
+
+
+## Standard Time 
+
+The amount of time it should take a normal qualified worker at a normal place 
+to complete a spcific task. 
+
+### Time study 
+
+1. Stop watch studies - process shop 
+
+- Observed time: OT = sum(x) / n (simple average)
+- Normal time (Performance rate): NT = OT * PR 
+- Standard time (Allowance factor): ST = NT * (1+AF)
+
+Purpose of time study is to: 
+
+- Eliminate unnecessary work 
+- Improve process (Find the bottle neck- look for the weakest point)
+- Standardize methods - standardize the procedure and standardize the product. 
+Successful product won't change much over time, brands will introduce new 
+or derivatives of existing products. 
+- Develop the time standards - feeds into master production schedule
+- Reduce risk of injury 
+
+```{r}
+# Worker is a bit faster than average (Performance Rate)
+PR = 1.10 
+# Allowance factor 
+AF = .15 
+ObservedTime = mean(runif(10, 0, 10))
+
+NormalTime = ObservedTime * PR
+StandardTime = NormalTime * (1 + AF)
+```
+
+
+1. Historical times - building a home; referred to standard elemental times  
+- How long does it normally take to complete?
+
+1. Work sampling - non repetitive office jobs where the work is unique 
+- ratio- delay studies
+- analysis of non-repetitive jobs - Ask someone to keep track of what they are 
+doing from day to day. 
+- Helps to know what a job actually is! 
+
+
+#### Compensation - related to work sampling - input to compensation
+
+- Time base systems 
+- Hourly & salary compensation - time based systems allows to match what the
+market. 
+
+- Output based - incentive based or a sales type job
+
+** Emphasizes that quotas and output targets are not good because they do not 
+take into consideration quality ** 
+
+
+# Project Evaluation Review Technique (PERT) Critical Path Method (CPM) (pert)
+
+Project management: tools are very similar to one another - essentialy the
+same used to manage Projects.
+
+Project types: 
+
+- Mass production - standardized products 
+- Job shops - mix of both 
+- Projects - custom projects (houses, bridges, computer network, audit)
+
+Project evaluation Review Technique 
+
+
+## Project management (projects)
+
+- Graphical display PERT diagrams 
+- Estimate the time length 
+- Identify milestones - important events 
+- How long an activity can be delayed without delaying the project 
+
+### Critical path 
+
+Series of events that takes the longest amount of time - will determine how 
+long the project will take. 
+
+The task from node 1 to node 3 is the longest task. Both activity from 1 to 2, 
+and activity from 1 to 3 occur at the same time. The activity from node 2 to 3
+can not begin until the activity from node 1 to 2 is completed. 
+
+```{r}
+# Project evaluation review technique
+library(visNetwork)
+library(tibble)
+
+list(
+  nodes = tibble(
+    id = 1:3, 
+    label = id,
+    shape = 'ellipse'
+  ), 
+  edges = tibble(
+    from = c(1,2,1), 
+    to = c(2,3,3),
+    label = c(8, 3, 14)
+  )
+) %>% 
+  {
+    visNetwork(
+      nodes = .[[1]], edges =  .[[2]], 
+      main = 'PERT')
+  } %>% 
+  visEdges(
+    arrows =list(to = list(enabled = TRUE, scaleFactor = 1)),
+    color = list(color = "lightblue", highlight = "red"))
+
+```
+
+
+Generally minimum time units are hours. 
+
+```{r}
+# Calculate TE time estimates for measuring critical paths 
+
+# Most optimistic time 
+a=4
+# Most pesimistic time 
+b = 10
+# Best guess 
+m = 7 
+TimeEstimate = (a + 4*m + b) / 6
+```
+
+
+Critical path is based on the normal distribution.
+
+Central limit theorem - as the sample size increase, the distibution will look 
+like the normal distribution. 
+
+Critical path is the longest route to completing the proejct - the activity or 
+objective that will require the most attention. 
+
+A - since it is the only beginning event, it must be on the critical path. 
+K - since it is the only ending event, it must be on the critical path. 
+
+
+Nodes 
+
+te time estimate for each point 
+
+EF (TE): Expected completion for that particular point in the project - when will 
+I expect to be at various specific points throughout the project. 
+- It is calculated by adding the cumulative time of the first node, plus 
+the time it takes to get to the next node. 
+
+1 -3-> 2 [[3]]
+2 -5-> 4 [[8]]
+- Calculated by adding 3 + 5 == 8 (EF value for node 2->5)
+- If the ending node has more than one preceding nodes, use the largest value
+since the next activity can not begin until all preceding activities are 
+finished. 
+
+LF (TL): Latest expected completion time that will not delay the project 
+- Start at the bottom and work backwards 
+- You project is on schedule as long as you are not taking any more time than 
+necessary to complete the critical path. 
+- Look at ending nodes and choose the activity with the critical path (activity
+that requires the most time). 
+
+SLACK: LF - EF == SLACK  - How much time you have until you delay the entire 
+project. 
+
+CP - Is the most important/ significant event on the critical path 
+- Near critical path events require just as much attention
+
+### PERT Project evaluation review technique
+
+Multiple beginning and ending events 
+
+
+```{r}
+
+list(
+  nodes = tibble(
+    id = letters[1:12], 
+    label = id,
+    shape = 'ellipse'
+  ), 
+  edges = dplyr::bind_rows(
+    tibble(
+      from = c('a', 'b', 'b', 'c', 'f', 'f', 'g', 'g', 'h', 'h', 'j'),
+      to = c('b', 'c', 'd', 'e', 'g', 'h', 'i', 'j', 'i', 'j', 'k'),
+      label = c(15, 12, 12, 6, 8, 8, 8, 8, 9, 9, 14), 
+    ), 
+    tibble(
+      from = c('d', 'e', 'i', 'k'),
+      to = c('k','k','k', 'l'),
+      label = c(5,3,7), 
+    )
+  )
+) %>% 
+  {
+    visNetwork(
+      nodes = .[[1]], edges =  .[[2]], 
+      main = 'PERT')
+  } %>% 
+  visEdges(
+    arrows =list(to = list(enabled = TRUE, scaleFactor = 1)),
+    color = list(color = "lightblue", highlight = "red"))
+```
+
+
+Things with more critical paths will be more vulnerable to delaying the project.  

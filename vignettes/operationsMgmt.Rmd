@@ -15,8 +15,8 @@ vignette: >
     )
 ```
 
-Working homework assignments using R and python instead of expensive proprietary closed 
-source software. 
+Working homework assignments using R and python instead of expensive proprietary
+closed source software. 
 
 # Mgmt-Sci Video 
 
