@@ -66,10 +66,10 @@ Build inventory counter cyclically to demand or match inputs with demand
 
 - Turn on extra capacity to meet demand (overtime)
 - Risks: 
-  - Carry costs for inventory 
-  - Selling unsold inventory - might sell at a loss if not able to meet demand
-  
-  
+- Carry costs for inventory 
+- Selling unsold inventory - might sell at a loss if not able to meet demand
+
+
 ## Capacity Planning 
 
 
@@ -79,15 +79,15 @@ Build inventory counter cyclically to demand or match inputs with demand
 ## MAster Production schedule 
 
 - What, how, and when are we going to produce different products 
-  - Done continiously and planned for weeks or month 
-  
+- Done continiously and planned for weeks or month 
+
 ## Factors for determining capacity 
 
 - Demand: guides design plans for how small or big to build capacity  
-  - Match demand with capacity
+- Match demand with capacity
 - Facility layout
 - Inputs: Look at inputs and how product will flow through the facility 
-  - Material - customers: raw materials or people 
+- Material - customers: raw materials or people 
 - Resources: people machines 
 
 Mapping out how resources flow through the desgin process 
@@ -280,15 +280,15 @@ Alternatives
 Industrial belt  - great lakes region 
 
 - Raw materials: Input output - being close to your raw materials 
-  - Customers: being close to your customers 
+- Customers: being close to your customers 
 - Markets: Markets for raw materials and markets for your customers 
-  - Build your products close to your customers 
+- Build your products close to your customers 
 - Resources: factors of production (costs)
-  - What is the cost of land and labor 
-  - Labor is cheaper in Texas compared to New York 
-  - Land and equipment will be cheaper in someplace than others 
-  
-  
+- What is the cost of land and labor 
+- Labor is cheaper in Texas compared to New York 
+- Land and equipment will be cheaper in someplace than others 
+
+
 ### Labor factors 
 
 - Costs 
@@ -341,62 +341,63 @@ Opponents
 
 - Free rider - receive the benefits but not paying the dues. 
 
- right-to-work laws prohibit union security agreements, or agreements between employers and labor unions, that govern the extent to which an established union can require employees' membership, payment of union dues, or fees as a condition of employment, either before or after hiring. 
- 
- 
- ### Other regional factors 
- 
- - Climate - weather conditions 
- - Taxes - public services 
- - Energy - 
- - Transportation - Airport, roads, bridges, railways 
- 
- ## Multi- national company 
- 
- Facilites/ Operations in more than one country 
- 
- Types of operations: 
- 
- - Production
- - Sales 
- - Administrative 
- 
- 
- ## International trade issues 
- 
- Tariffs and quotas (protectionism)
- 
- - Tariff - a tax imposed a country on an imported good 
- - Quota - limit imposed by a country on the quantity of goods that can be 
- imported 
- 
- Both tarries and quotas will in general raise prices and result 
- in fewer options for consumers. 
- 
- ## Multi National Locations 
- 
- Becuase of markets 
- 
- - Free trade - NAFTA 
- - Comparative advantage coffee vs. wheat and grain (specialization)
- 
+right-to-work laws prohibit union security agreements, or agreements between 
+employers and labor unions, that govern the extent to which an established union can require employees' membership, payment of union dues, or fees as a condition of employment, either before or after hiring. 
+
+
+### Other regional factors 
+
+- Climate - weather conditions 
+- Taxes - public services 
+- Energy - 
+- Transportation - Airport, roads, bridges, railways 
+
+## Multi- national company 
+
+Facilites/ Operations in more than one country 
+
+Types of operations: 
+
+- Production
+- Sales 
+- Administrative 
+
+
+## International trade issues 
+
+Tariffs and quotas (protectionism)
+
+- Tariff - a tax imposed a country on an imported good 
+- Quota - limit imposed by a country on the quantity of goods that can be 
+imported 
+
+Both tarries and quotas will in general raise prices and result 
+in fewer options for consumers. 
+
+## Multi National Locations 
+
+Because of markets 
+
+- Free trade - NAFTA 
+- Comparative advantage coffee vs. wheat and grain (specialization)
+
 - Other issues: 
-  - Exchange rates - fluctuations 
-  - Political stability - is the government stable?
-  - Tax system - how complicated is it
- 
- 
- ### Community Factors important for business 
- 
- - Taxes 
- - Zoning - what we can and can't do with property 
-  - Single family zoning - no retail stores/ apartments 
- - Education - public private 
- - Transportation 
-  - air ports 
-  - truck 
-  - railroad  
-  - water 
+- Exchange rates - fluctuations 
+- Political stability - is the government stable?
+- Tax system - how complicated is it
+
+
+### Community Factors important for business 
+
+- Taxes 
+- Zoning - what we can and can't do with property 
+- Single family zoning - no retail stores/ apartments 
+- Education - public private 
+- Transportation 
+- air ports 
+- truck 
+- railroad  
+- water 
 - Religious diversity 
 - Qulaity of public safety 
 - Size of comminity 
@@ -479,22 +480,22 @@ material
 
 - Process layout (Most organizations) - people and machines categorized 
 into departments. 
-  - Intermittent layout (may sit in a buffer) 
-  - Job shop - common type - more common for custom products 
+- Intermittent layout (may sit in a buffer) 
+- Job shop - common type - more common for custom products 
 
 - Product layout - assembly line 
-  - Continuous movement through a factory 
+- Continuous movement through a factory 
 
 - Fixed Positions - special projects 
-  - Product is built on location (homes) 
-  
+- Product is built on location (homes) 
+
 
 ## Process Layout - job shops 
 
 Worker skill level is moderate to high - more skills required 
 
 - FLexible: Able to handle a wide variety of products 
-  - Custom built to your needs 
+- Custom built to your needs 
 - General purpose - generalists capable of doing many different things 
 - Different departments - can continue working through bottle necks or 
 break downs. 

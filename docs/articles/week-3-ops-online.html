@@ -63,6 +63,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/exam3-ops-online.html">Exam 3</a>
+    </li>
+    <li>
       <a href="../articles/week-1-ops-online.html">Week 1</a>
     </li>
     <li>
@@ -84,7 +87,7 @@
 
       
 
-      </header><script src="week-3-ops-online_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
+      </header><script src="week-3-ops-online_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Week 3</h1>
@@ -99,11 +102,480 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bill-ash.com/operationsMgmt/">operationsMgmt</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="fu">theme_set</span><span class="op">(</span><span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div id="capacity-capacity" class="section level1">
 <h1 class="hasAnchor">
 <a href="#capacity-capacity" class="anchor"></a>Capacity (capacity)</h1>
+<p>Design capacity - what the product/ process designed to preform at in ideal conditions.</p>
+<p>Effective capacity - what is the real world operating conditions where the process/design/product is profitable.</p>
+<ul>
+<li>Normal operating conditions</li>
+</ul>
+<p>Actual capacity - what is the output that occurs.</p>
+<div id="measurement" class="section level2">
+<h2 class="hasAnchor">
+<a href="#measurement" class="anchor"></a>Measurement</h2>
+<p>Cost world: more traditional cost accounting based equations</p>
+<ul>
+<li>Don’t use these equations (alone) to measure the effectiveness or value of an employee or process.</li>
+</ul>
+<p>efficiency = actual output / effective capacity (normal operating conditions) utilization = actual output / design capacity</p>
+<p>Utilization - percent of machine being used output / (max designed output)</p>
+<ul>
+<li>Does not take into consideration quality.</li>
+<li>No quality and assurance component.</li>
+</ul>
+</div>
+<div id="constant-demand" class="section level2">
+<h2 class="hasAnchor">
+<a href="#constant-demand" class="anchor"></a>Constant Demand</h2>
+<p>Build JIT to meet demand with some protective or excess capacity.</p>
+<p>Stock what you think you will sell.</p>
+</div>
+<div id="seasonal-demand" class="section level2">
+<h2 class="hasAnchor">
+<a href="#seasonal-demand" class="anchor"></a>Seasonal Demand</h2>
+<p>Build inventory counter cyclically to demand or match inputs with demand</p>
+<ul>
+<li>Turn on extra capacity to meet demand (overtime)</li>
+<li>Risks:</li>
+<li>Carry costs for inventory</li>
+<li>Selling unsold inventory - might sell at a loss if not able to meet demand</li>
+</ul>
+</div>
+<div id="capacity-planning" class="section level2">
+<h2 class="hasAnchor">
+<a href="#capacity-planning" class="anchor"></a>Capacity Planning</h2>
+</div>
+<div id="aggregate-planning" class="section level2">
+<h2 class="hasAnchor">
+<a href="#aggregate-planning" class="anchor"></a>Aggregate Planning</h2>
+</div>
+<div id="master-production-schedule" class="section level2">
+<h2 class="hasAnchor">
+<a href="#master-production-schedule" class="anchor"></a>MAster Production schedule</h2>
+<ul>
+<li>What, how, and when are we going to produce different products</li>
+<li>Done continiously and planned for weeks or month</li>
+</ul>
+</div>
+<div id="factors-for-determining-capacity" class="section level2">
+<h2 class="hasAnchor">
+<a href="#factors-for-determining-capacity" class="anchor"></a>Factors for determining capacity</h2>
+<ul>
+<li>Demand: guides design plans for how small or big to build capacity<br>
+</li>
+<li>Match demand with capacity</li>
+<li>Facility layout</li>
+<li>Inputs: Look at inputs and how product will flow through the facility</li>
+<li>Material - customers: raw materials or people</li>
+<li>Resources: people machines</li>
+</ul>
+<p>Mapping out how resources flow through the desgin process</p>
+</div>
+<div id="theory-of-constraints" class="section level2">
+<h2 class="hasAnchor">
+<a href="#theory-of-constraints" class="anchor"></a>Theory of Constraints</h2>
+<p>Dr. Eli Goldratt</p>
+<p>Big impact on production planning and wrote a book called The Goal (novel).</p>
+</div>
+<div id="balanced-line" class="section level2">
+<h2 class="hasAnchor">
+<a href="#balanced-line" class="anchor"></a>Balanced Line</h2>
+<p>All stations perform their given work in the exact same amount of time.</p>
+<p>All workers are dependent on one another</p>
+<ul>
+<li>Finished goods</li>
+<li>Work in process</li>
+</ul>
+<p>Output gap will increase the total work in process</p>
+</div>
+<div id="unbalanced-line" class="section level2">
+<h2 class="hasAnchor">
+<a href="#unbalanced-line" class="anchor"></a>Unbalanced Line</h2>
+<p>The time for each operation is not the same - The line can only move as fast as the slowest operation - The design takes the sum of all operations - Buffer will be less as the time in operation takes longer</p>
+<div id="identifyign-bottle-necks-herby" class="section level3">
+<h3 class="hasAnchor">
+<a href="#identifyign-bottle-necks-herby" class="anchor"></a>Identifyign bottle necks (herby)</h3>
+<p>[6] -&gt; [4] - Will have no or low buffer because the last station will wait for the first station to complete work</p>
+<p>[4] -&gt; [6] Will need a higher buffer because the second station will not complete work as quickly as the first.</p>
+<p>Dealing with bottle necks:</p>
+</div>
+<div id="drum-buffer-rope-theory-of-constraints-approach" class="section level3">
+<h3 class="hasAnchor">
+<a href="#drum-buffer-rope-theory-of-constraints-approach" class="anchor"></a>Drum-buffer-rope (Theory of Constraints Approach)</h3>
+<ul>
+<li>Put the process at the beginning of the work flow - controls the pace for the entire work flow.</li>
+<li>Off-load or outsource the bottle neck (add resources/ capacity)</li>
+</ul>
+<p>Drum: bottle neck - constrain - herby</p>
+<ul>
+<li>Get everyone to move at the same pace scheduling is controlled by the bottleneck.</li>
+</ul>
+</div>
+<div id="statistics---dependence-independence" class="section level3">
+<h3 class="hasAnchor">
+<a href="#statistics---dependence-independence" class="anchor"></a>Statistics - dependence/ independence</h3>
+<p>Depndence - How each operation is dependedt on the preceeding operation in supply chaing management Independence - the operation is not related or dependent on another operaiton</p>
+<p>TOC Approach to shceduling</p>
+<p>plant WIP = sum(qtyinbuffers)</p>
+<p>What is measured output is what is delivered at the last workstation at the end of the measurement period.</p>
+<p>Work in process is the sum of all the work in process.</p>
+<p>Work in process will go up over time and the promised delevires will fall behind - driven by the weakest link.</p>
+</div>
+<div id="improve-a-production-line" class="section level3">
+<h3 class="hasAnchor">
+<a href="#improve-a-production-line" class="anchor"></a>Improve a production line</h3>
+<p>Input:</p>
+<p>[6] [4] [7] [10] [8]</p>
+<p>Product cost = labor + resources + over head - Cut the amount of labor and removed some costs - Has the actual labor cost actually gone down? Traditional sense yes - real work no.</p>
+<ul>
+<li>Traditional cost world ignores that the system can only move as fast as slowest operation.</li>
+</ul>
+<p>We will only real save time by reduing the bottle neck in the real world. [7] [6] [7] [9] [8]</p>
+<ul>
+<li>minus one from the bottle neck</li>
+<li>We increased our throughput by increasing the pace of the slowest operation.</li>
+</ul>
+</div>
+<div id="two-types-of-time" class="section level3">
+<h3 class="hasAnchor">
+<a href="#two-types-of-time" class="anchor"></a>Two types of time</h3>
+<ul>
+<li>Setup time - preparation time - time it takes to setup a machine</li>
+<li>Saving 50 minutes at a non bottle neck point compared to saving two minutes at a bottle neck is superior.</li>
+</ul>
+</div>
+<div id="product-costs" class="section level3">
+<h3 class="hasAnchor">
+<a href="#product-costs" class="anchor"></a>Product Costs</h3>
+<p>Traditional: - Product cost = Raw material + Direct labor + factory overhead</p>
+<p>New Philosophies: (Theory of contains, Just in Time, Total Quality Mgmt)</p>
+<p>Product cost = raw material (variable costs)</p>
+</div>
+<div id="problem-example" class="section level3">
+<h3 class="hasAnchor">
+<a href="#problem-example" class="anchor"></a>Problem example</h3>
+<p>per unit == variable cost If we consider labor to be fixed, the cost of labor is fixed and what it would be calculated at if we operate at 100% cpaacity</p>
+<p>If there is any kind of decline - it reduces output or revenue but will not effect costs. The productivity drops but the associated costs do not.</p>
+<p>1,200 * .98 -&gt; two percent decline Will not effect costs - paid out as if completed 120%</p>
+</div>
+<div id="problem-capacity-number-of-machines" class="section level3">
+<h3 class="hasAnchor">
+<a href="#problem-capacity-number-of-machines" class="anchor"></a>Problem Capacity (Number of machines)</h3>
+<p>Routing is the sequence and the time it takes to produce a product.</p>
+<p>Divided by the number of hours you are running your factory on.</p>
+<p>Total number of hours / number of hours (period) == Number of machines</p>
+<ul>
+<li>How many machines (capcity) we need to meet demand.</li>
+<li>Lot/batch - how many we produce/ process at a given time.</li>
+</ul>
+<p>Number of Setups = Quantity need for each process / batch size(ROUND UP)</p>
+<p>Calculate the number of setups Calculate the time in machine (batch) Total time for machine</p>
+<p>Total Time for machine per unit * number of products = Total time</p>
+<p>total time / time running machine per month == Number of machine needed</p>
+</div>
+<div id="problem-capacity-2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#problem-capacity-2" class="anchor"></a>Problem Capacity 2</h3>
+<p>Setup time is not mentioned == no setup time</p>
+<p>(percent of time) load on machine / available capacity number of units * time required / capacity (in hours) == load - Required machine = load / available capacity</p>
+<p>3,000 units * .17 hours / 160 hours capacity = 3.2 # Need 4 machine</p>
+<div id="utilization" class="section level4">
+<h4 class="hasAnchor">
+<a href="#utilization" class="anchor"></a>Utilization</h4>
+<p>If it’s only able to be utilized 80% of the time but workers are 105% efficient:</p>
+<p>3,000 units * .17 hours / 160 * .08 * 1.05 = 3.8 # need 4 machines</p>
+</div>
+<div id="scrap-means-not-every-unit-is-useable" class="section level4">
+<h4 class="hasAnchor">
+<a href="#scrap-means-not-every-unit-is-useable" class="anchor"></a>Scrap means not every unit is useable</h4>
+<p>If the scrap rate is 7%</p>
+<p>3000/.93 == Number of units we need to start into production 3226 (ROUND UP!!)</p>
+<p>(3,226 include scrap factor) * .17 hours / hours in production 160 * .08 * 1.05 = 4.08 machines ## round up to 5</p>
+</div>
+</div>
+</div>
+</div>
+<div id="location" class="section level1">
+<h1 class="hasAnchor">
+<a href="#location" class="anchor"></a>Location</h1>
+<p>Existing facility and increase the capacity by expanding - Increase the size and add capacity</p>
+<div id="location-process" class="section level2">
+<h2 class="hasAnchor">
+<a href="#location-process" class="anchor"></a>Location process</h2>
+<p>Determine the criteria Critical factors Alternatives</p>
+<div id="regional-factors" class="section level3">
+<h3 class="hasAnchor">
+<a href="#regional-factors" class="anchor"></a>Regional Factors</h3>
+<p>Industrial belt - great lakes region</p>
+<ul>
+<li>Raw materials: Input output - being close to your raw materials</li>
+<li>Customers: being close to your customers</li>
+<li>Markets: Markets for raw materials and markets for your customers</li>
+<li>Build your products close to your customers</li>
+<li>Resources: factors of production (costs)</li>
+<li>What is the cost of land and labor</li>
+<li>Labor is cheaper in Texas compared to New York</li>
+<li>Land and equipment will be cheaper in someplace than others</li>
+</ul>
+</div>
+<div id="labor-factors" class="section level3">
+<h3 class="hasAnchor">
+<a href="#labor-factors" class="anchor"></a>Labor factors</h3>
+<ul>
+<li>Costs</li>
+<li>Availability</li>
+<li>Productivity</li>
+<li>Union strength</li>
+</ul>
+</div>
+</div>
+<div id="robert-kaplan---author---activty-based-costing" class="section level2">
+<h2 class="hasAnchor">
+<a href="#robert-kaplan---author---activty-based-costing" class="anchor"></a>Robert Kaplan - Author - Activty Based Costing</h2>
+<p>Relevance Lost: The rise and fall of management accounting</p>
+<p>History of cost accounting. Traditional labor base accounting is not as relevant as it was in the past.</p>
+<p>ABC - Activity based costing - most labor has been automated by machines.</p>
+<ul>
+<li>Activity base management drives cost</li>
+</ul>
+</div>
+<div id="components-of-costs" class="section level2">
+<h2 class="hasAnchor">
+<a href="#components-of-costs" class="anchor"></a>Components of Costs</h2>
+<ul>
+<li>Raw material, Direct Labor, Overhead</li>
+</ul>
+<p>1920 -1930 - Raw material - 45-50% - DL - 45-50% - Overhead - &lt; 10%</p>
+<p>Today: - Raw material - 35-40% - DL - &lt;10% - Overhead - &lt; 50-55%</p>
+</div>
+<div id="taft-hartley-act-1947" class="section level2">
+<h2 class="hasAnchor">
+<a href="#taft-hartley-act-1947" class="anchor"></a>Taft Hartley Act 1947</h2>
+<p>Anti trust bill that limited the power of labor unions.</p>
+<p>Section 14B:</p>
+<ul>
+<li>Authorized stats to enact ‘right to work’ laws</li>
+<li>If the union was voted in the union becomes the represented body for the employees.</li>
+<li>Right to work - whether you need to pay fee to be apart of the employee union.</li>
+</ul>
+<p>Supporters</p>
+<ul>
+<li>Freedom of choice - choice to join a union or not</li>
+</ul>
+<p>Opponents</p>
+<ul>
+<li>Free rider - receive the benefits but not paying the dues.</li>
+</ul>
+<p>right-to-work laws prohibit union security agreements, or agreements between employers and labor unions, that govern the extent to which an established union can require employees’ membership, payment of union dues, or fees as a condition of employment, either before or after hiring.</p>
+<div id="other-regional-factors" class="section level3">
+<h3 class="hasAnchor">
+<a href="#other-regional-factors" class="anchor"></a>Other regional factors</h3>
+<ul>
+<li>Climate - weather conditions</li>
+<li>Taxes - public services</li>
+<li>Energy -</li>
+<li>Transportation - Airport, roads, bridges, railways</li>
+</ul>
+</div>
+</div>
+<div id="multi--national-company" class="section level2">
+<h2 class="hasAnchor">
+<a href="#multi--national-company" class="anchor"></a>Multi- national company</h2>
+<p>Facilites/ Operations in more than one country</p>
+<p>Types of operations:</p>
+<ul>
+<li>Production</li>
+<li>Sales</li>
+<li>Administrative</li>
+</ul>
+</div>
+<div id="international-trade-issues" class="section level2">
+<h2 class="hasAnchor">
+<a href="#international-trade-issues" class="anchor"></a>International trade issues</h2>
+<p>Tariffs and quotas (protectionism)</p>
+<ul>
+<li>Tariff - a tax imposed a country on an imported good</li>
+<li>Quota - limit imposed by a country on the quantity of goods that can be imported</li>
+</ul>
+<p>Both tarries and quotas will in general raise prices and result in fewer options for consumers.</p>
+</div>
+<div id="multi-national-locations" class="section level2">
+<h2 class="hasAnchor">
+<a href="#multi-national-locations" class="anchor"></a>Multi National Locations</h2>
+<p>Because of markets</p>
+<ul>
+<li><p>Free trade - NAFTA</p></li>
+<li><p>Comparative advantage coffee vs. wheat and grain (specialization)</p></li>
+<li><p>Other issues:</p></li>
+<li><p>Exchange rates - fluctuations</p></li>
+<li><p>Political stability - is the government stable?</p></li>
+<li><p>Tax system - how complicated is it</p></li>
+</ul>
+<div id="community-factors-important-for-business" class="section level3">
+<h3 class="hasAnchor">
+<a href="#community-factors-important-for-business" class="anchor"></a>Community Factors important for business</h3>
+<ul>
+<li>Taxes</li>
+<li>Zoning - what we can and can’t do with property</li>
+<li>Single family zoning - no retail stores/ apartments</li>
+<li>Education - public private</li>
+<li>Transportation</li>
+<li>air ports</li>
+<li>truck</li>
+<li>railroad<br>
+</li>
+<li>water</li>
+<li>Religious diversity</li>
+<li>Qulaity of public safety</li>
+<li>Size of comminity</li>
+<li>Site availability</li>
+</ul>
+</div>
+<div id="industrial-parks" class="section level3">
+<h3 class="hasAnchor">
+<a href="#industrial-parks" class="anchor"></a>Industrial parks</h3>
+<p>Segregating industry from residential - gives a community an advantage in attracting new business.</p>
+<p>Factory and work force are already in place.</p>
+</div>
+<div id="break-even-analysis-for-locaiton" class="section level3">
+<h3 class="hasAnchor">
+<a href="#break-even-analysis-for-locaiton" class="anchor"></a>Break even analysis for locaiton</h3>
+<p>Location - Total fixed costs - Variable cost per unit</p>
+<p>BEP = Fixed cost of operations / Variable Costs</p>
+<p>If we plan to exceed the expected units, we should go with the lower variable cost option. The greater the variable cost will be more expensive if the expected units is greater.</p>
+<p>Solve for the indifference point and if the expected units is greater what is planned, go with the lower variable cost option.</p>
+</div>
+<div id="transportation-problem-2x2-matrix" class="section level3">
+<h3 class="hasAnchor">
+<a href="#transportation-problem-2x2-matrix" class="anchor"></a>Transportation problem 2x2 matrix</h3>
+<p>From/to - Rows = supply points - Cols = demand / destination points</p>
+<p>Rows &amp;&amp; Cols are equal == Balance problem</p>
+<p>What is the shipping schedule that we minimize the shipping costs? - Classic cost minimization problem - Linear programming</p>
+</div>
+<div id="unbalance-problem" class="section level3">
+<h3 class="hasAnchor">
+<a href="#unbalance-problem" class="anchor"></a>Unbalance problem</h3>
+<p>An unbalanced problem means that there is no enough capacity to meet demand.</p>
+<p>Demand &gt; Supply - add a dummy row that is equal to the imbalance.</p>
+<p>Demand &lt; Supply - add a dummy column to represent another customer - This means that you are building inventory or you don’t produce the capacity and reduce production</p>
+<ul>
+<li>Laying people off</li>
+</ul>
+<p>supply - rows (locations shipping points ) demand - columns (customers)</p>
+</div>
+</div>
+</div>
+<div id="global-solutions-film" class="section level1">
+<h1 class="hasAnchor">
+<a href="#global-solutions-film" class="anchor"></a>Global Solutions Film</h1>
+<p>Product Cost = Raw material + labor + OH does not work in today’s world.</p>
+<p>Dr. Kaplan - ABC - Activity based costing school - relevance lost Activity based costing</p>
+<ul>
+<li>Managing costs</li>
+</ul>
+<p>Dr. Goldfratt - Theory of Constraints</p>
+<p>The only true product cost is variable cost.</p>
+<p>Throughput = Total Revenue minus total raw material - same thing as margin</p>
+<p>Operating expense (fixed cost) = everything we spend money on except raw material</p>
+</div>
+<div id="patterns-of-layout" class="section level1">
+<h1 class="hasAnchor">
+<a href="#patterns-of-layout" class="anchor"></a>Patterns of Layout</h1>
+<ul>
+<li><p>Process layout (Most organizations) - people and machines categorized into departments.</p></li>
+<li><p>Intermittent layout (may sit in a buffer)</p></li>
+<li><p>Job shop - common type - more common for custom products</p></li>
+<li><p>Product layout - assembly line</p></li>
+<li><p>Continuous movement through a factory</p></li>
+<li><p>Fixed Positions - special projects</p></li>
+<li><p>Product is built on location (homes)</p></li>
+</ul>
+<div id="process-layout---job-shops" class="section level2">
+<h2 class="hasAnchor">
+<a href="#process-layout---job-shops" class="anchor"></a>Process Layout - job shops</h2>
+<p>Worker skill level is moderate to high - more skills required</p>
+<ul>
+<li><p>FLexible: Able to handle a wide variety of products</p></li>
+<li><p>Custom built to your needs</p></li>
+<li><p>General purpose - generalists capable of doing many different things</p></li>
+<li><p>Different departments - can continue working through bottle necks or break downs.</p></li>
+<li><p>Work routing- sequence and timing for each operation (instructions)</p></li>
+<li><p>Scheduling: defined by production schedule</p></li>
+<li><p>Bills of material - List of all the parts</p></li>
+<li><p>Material movement through the shop is generally slow</p></li>
+<li><p>Every order could be new or customized - project managers will determine how a product/ project should be executed</p></li>
+</ul>
+</div>
+<div id="product-layout" class="section level2">
+<h2 class="hasAnchor">
+<a href="#product-layout" class="anchor"></a>Product layout</h2>
+<p>Lowest cost per unit</p>
+<ul>
+<li>High rate of output - need to sell a lot of products to offset high capital costs.</li>
+<li>Low training cost</li>
+<li>Routing, bill of material, don’t change frequently</li>
+<li>Large investment in capital equipment</li>
+<li>Must have demand to justify capital expense</li>
+<li>Vulnerable to work shutdowns</li>
+<li>Rate of output is inflexible (big ship small rudder)</li>
+<li>Does not handle variety - fixed/ rigid output</li>
+<li>Human relations problems</li>
+<li>Work comes to the worker - work station is fixed</li>
+</ul>
+</div>
+<div id="fixed-position-projects" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fixed-position-projects" class="anchor"></a>Fixed position (projects)</h2>
+<p>Large complex and often unique products: homes, airports, bridges, etc.</p>
+<ul>
+<li>Equipment is portable</li>
+<li>Worker comes to the work</li>
+<li>Duplicate tooling</li>
+<li>More responsibility on the worker</li>
+<li>Labor skills are high</li>
+<li>High cost</li>
+<li>Time to build is longer</li>
+</ul>
+</div>
+<div id="balanced-line-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#balanced-line-1" class="anchor"></a>Balanced line</h2>
+<p>[5][5][5][5][5]</p>
+<p>Even on a balanced line you are still going to fall behind</p>
+<ul>
+<li>WIP process levels will increase</li>
+<li>Statistical fluctuations - there will be some variance</li>
+<li>Statistically dependent events - departments do not work in isolation</li>
+</ul>
+<p>Cycle Time = time interval between units coming off the line Longest task time = minimum possible cycle time ( the longest task in the process) Sum of task times = maximum cycle time Daily capacity = operating time / cycle time</p>
+<div id="dont-build-if-youre-not-going-to-sell-it" class="section level3">
+<h3 class="hasAnchor">
+<a href="#dont-build-if-youre-not-going-to-sell-it" class="anchor"></a>Don’t build if you’re not going to sell it</h3>
+<p>Operating time = 480 minutes Cycle time = 1 minute (longest task) Daily capacity = 480 / 1 = 480 units</p>
+</div>
+<div id="minimum-number-of-work-stations" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minimum-number-of-work-stations" class="anchor"></a>Minimum Number of Work Stations</h3>
+<p>N = Desired Output * Sum(task time) / Operating time</p>
+<p>ROUND UP! Can’t have 1.2 work stations</p>
+<p>Cycle time = Operating Time / Desired Output</p>
+<p>Minimum Work Stations = Desired Output * Sum of task Time / Operating Time</p>
+<p>CHOOSE THE LONGEST TASK TIME FIRST! Rule in industry - Tie Breaker - Choose the task that requires the most time</p>
+<p>(Dependendent work stations)</p>
+<p>Keep in mind what the cumulative capacity/ Time is for a particular cycle time. Each work station has a time component that must not be exceeded.</p>
+<ul>
+<li>Cannot exceed cycle time</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="location-vehicles" class="section level1">
+<h1 class="hasAnchor">
+<a href="#location-vehicles" class="anchor"></a>Location Vehicles</h1>
+<p>Ford F-series most popular Best selling car: Honda civic and Camry Corolla best selling world wide W</p>
 </div>
   </div>
 

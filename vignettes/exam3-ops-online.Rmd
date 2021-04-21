@@ -2,7 +2,7 @@
 title: "Exam 3"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Week 3}
+  %\VignetteIndexEntry{Exam 3}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -247,7 +247,7 @@ list(
     tibble(
       from = c('d', 'e', 'i', 'k'),
       to = c('k','k','k', 'l'),
-      label = c(5,3,7), 
+      label = c(5, 3, 7, 7), 
     )
   )
 ) %>% 
@@ -263,6 +263,8 @@ list(
 
 
 Things with more critical paths will be more vulnerable to delaying the project.  
+
+- It is rare that a project will have more than one critical path in reality
 
 
 # Linear Programming (video: linearprogrammingops)
@@ -323,4 +325,4 @@ combination of both that achieves the maximum profit (corner point).
 
 The recommended solution will be the combination that achieves the maximum output. 
 
-Leave off at 37:36. 
+

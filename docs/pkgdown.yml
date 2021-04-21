@@ -1,12 +1,13 @@
-pandoc: 2.11.3.2
+pandoc: '2.13'
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
+  exam3-ops-online: exam3-ops-online.html
   operationsMgmt: operationsMgmt.html
   week-1-ops-online: week-1-ops-online.html
   week-2-ops-online: week-2-ops-online.html
   week-3-ops-online: week-3-ops-online.html
-last_built: 2021-01-25T03:10Z
+last_built: 2021-04-21T23:25Z
 urls:
   reference: https://bill-ash.com/operationsMgmt//reference
   article: https://bill-ash.com/operationsMgmt//articles
