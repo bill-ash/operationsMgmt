@@ -18,12 +18,6 @@ library(tidyverse)
 theme_set(theme_light())
 ```
 
-```{r setup}
-library(operationsMgmt)
-library(tidyverse)
-theme_set(theme_light())
-```
-
 
 # Work Measurement (video: workmeasurement)
 
@@ -31,42 +25,49 @@ Knowing how long a project or task will take to complete.
 
 ## Measuring Performance New V Old
 
-### Traditional Approach 
+### Both approaches advocate: 
 
-Both 
 - Planning & Scheduling: On time delivery is important 
 - Budgeting: performance to budget - financial planning 
 - You can only budget once you have a plan and a schedule in place
 - Performance measurement: 
 - Time standards 
+
+### Traditional Approach 
+
+Everything is costed according to a schedule and incentives are used to drive 
+efficiency (quotas). 
+
 - Efficiency 
 - Cost accounting standards 
 - job order & product costing 
 
 ### New Philosophies 
 
-- Performance measurement 
-- Efficiency: New philosophy says to not bother looking at the output. Focus 
-on what the schedule calls requires. 
+Emphasis on quality over quantity. Raw materials are the only true variable 
+cost. 
+
+- Performance measurement: Must consider output/ quality of good produced. 
+- Efficiency: New philosophy says to not bother looking at the quantity of output. 
+Focus on what the schedule calls requires. 
 - Cost accounting principles & efficiency do not help make better decisions. 
-- Thru put accounting - the only true variable cost is raw materials 
+- Thru-put accounting: the only true variable cost is raw materials 
 
 
 
 ## Standard Time 
 
 The amount of time it should take a normal qualified worker at a normal place 
-to complete a spcific task. 
+to complete a specific task. 
 
 ### Time study 
 
-1. Stop watch studies - process shop 
-
+1. *Stop watch studies*: useful for mass production or process shop 
 - Observed time: OT = sum(x) / n (simple average)
 - Normal time (Performance rate): NT = OT * PR 
 - Standard time (Allowance factor): ST = NT * (1+AF)
 
-Purpose of time study is to: 
+Purpose of *time study* is to: 
 
 - Eliminate unnecessary work 
 - Improve process (Find the bottle neck- look for the weakest point)
@@ -88,10 +89,12 @@ StandardTime = NormalTime * (1 + AF)
 ```
 
 
-1. Historical times - building a home; referred to standard elemental times  
+2. *Historical times*: project work - building a home; referred to standard 
+elemental times  
 - How long does it normally take to complete?
 
-1. Work sampling - non repetitive office jobs where the work is unique 
+3. *Work sampling*: project work - non repetitive office jobs where the work
+is unique.
 - ratio- delay studies
 - analysis of non-repetitive jobs - Ask someone to keep track of what they are 
 doing from day to day. 
@@ -103,7 +106,6 @@ doing from day to day.
 - Time base systems 
 - Hourly & salary compensation - time based systems allows to match what the
 market. 
-
 - Output based - incentive based or a sales type job
 
 ** Emphasizes that quotas and output targets are not good because they do not 
@@ -121,17 +123,15 @@ Project types:
 - Job shops - mix of both 
 - Projects - custom projects (houses, bridges, computer network, audit)
 
-Project evaluation Review Technique 
 
-
-## Project management (projects)
+## Project management (projects) PERT
 
 - Graphical display PERT diagrams 
 - Estimate the time length 
 - Identify milestones - important events 
 - How long an activity can be delayed without delaying the project 
 
-### Critical path 
+### Critical path method CPM
 
 Series of events that takes the longest amount of time - will determine how 
 long the project will take. 
@@ -278,10 +278,37 @@ Things with more critical paths will be more vulnerable to delaying the project.
 
 ## Problem Example
 
-Company makes two products - activity based costing - throughput 
+Company makes two products: activity based costing.
+
+- Theory of constraints approach: throughput - costing is done only using the 
+inputs that can be tied directly to the output ie: raw materials.
+
 
 We want to maximize contribution - what is the selling price minus the cost to 
-make the product. 
+make the product. What is the proper mix of products. 
+
+```{r}
+# inputs 
+setup <- tibble::tibble(
+  product = c('car', 'truck'), 
+  mold = c(2, 1), 
+  paint = c(1, 2), 
+  pack = c(1, 1), 
+  
+) %>% 
+  gather('department', 'time', -product) %>% 
+  left_join(
+    tibble::tibble(
+      capacity = c(400, 600, 500), 
+      department = c('mold', 'paint', 'pack')
+    )) %>% 
+  dplyr::mutate(
+    output = capacity / time
+  ) %>% tibble::rowid_to_column() 
+
+setup
+```
+
 
 Maximize: 2car+2truck
 Subject to: 
@@ -293,23 +320,6 @@ You can't use more time that you don't have.
 
 
 ```{r}
-setup <- tibble::tibble(
-  product = c('car', 'truck'), 
-  mold = c(2, 1), 
-  paint = c(1, 2), 
-  pack = c(1, 1), 
-  
-) %>% 
-  gather('department', 'time', -product) %>% 
-  left_join(
-    tibble::tibble(
-  capacity = c(400, 600, 500), 
-  department = c('mold', 'paint', 'pack')
-)) %>% 
-  dplyr::mutate(
-    output = capacity / time
-  ) %>% tibble::rowid_to_column() 
-
 setup %>% 
   spread(product, output, fill = 0) %>% 
   ggplot(aes(car, truck), fill = product) + 
@@ -325,4 +335,312 @@ combination of both that achieves the maximum profit (corner point).
 
 The recommended solution will be the combination that achieves the maximum output. 
 
+SLACK variable - your constraints will always be less than or equal to the maximum
+capacity allowed for a specific process or activity. Slack is the residual capacity 
+between what is required and the max capacity. Not all activities will have slack. 
 
+- Slack variables will always be constraints <= 
+- You cannot have slack if there is a minimum requirement. 
+
+### Maximization Example 3 Products
+
+We want to maximize the contribution given a list of products. Anything problem 
+that contains three or more products cannot be graphed so we will solve using an 
+equation. 
+
+Contribution for each product: 
+
+```{r}
+library(lpSolve)
+# Product C provides the highest contribution 
+A = 2.4
+B = 2.5
+C = 3.0
+```
+
+Next we set up our constraints - the requirements to produce one unit of a given 
+product. 
+
+Subject to: 
+Each coefficient is the required units it takes to produce the given product. 
+
+```{r}
+# Mill: has a max capacity of 1200 
+# 12A + 10B + 8C <= 1200
+mill_constraint =  c(12, 10, 8) 
+# Inspect
+# 5A + 4B + 4C <= 900
+inspect_constraint =  c(5, 4, 4)
+# Drill
+# 10A + 8B + 16C <= 1440
+drill_constraint = c(10, 8, 16)
+```
+
+
+```{r}
+# Problem setup 
+f.type <- 'max'
+# contribution of each product 
+f.products <- c(A, B, C) 
+# Requirements for each department
+f.constraints <- matrix(
+  c(mill_constraint, inspect_constraint, drill_constraint), nrow = 3, byrow = TRUE
+)
+# Constraints will always be <= for maximazation 
+f.direction <- c('<=', '<=', '<=')
+# Capacity per department 
+f.capacity <- c(1200, 900, 1440)
+
+resp = lp(f.type, f.products, f.constraints, f.direction, f.capacity)
+# Answer 0A + 80B + 50C 
+# Payoff: 350 in contribution 
+resp$solution
+resp$constraints
+resp
+```
+
+We can calculate there will be *380 slack* in the inspection department: 
+
+```{r}
+inspect_req = 50 * 4 + 80 * 4 
+# Inspection capacity - solution requirements
+SLACK = 900 - inspect_req
+SLACK 
+```
+
+
+### Diet problem two different constraints 
+
+Using minimum and maximum constraints. Solving for the number of pounds of 
+each product that gives the lowest cost and meets a caloric, starch, and protein
+requirements. 
+
+```{r echo=FALSE}
+knitr::include_graphics('../inst/course-files/linear-programming-problem.png')
+```
+
+
+
+Contribution: 
+We want to minimize the contribution to our spend.
+
+```{r}
+FOOD_A = .75
+FOOD_B = .15
+```
+
+Subject to (requirements): 
+Capacity or requirements for each input starch, protein, calories, pounds product 
+a. 
+
+```{r}
+# Starch 200A + 700B <= 1400
+starch = c(200, 700)
+# Protein 400A + 100B >= 400 
+protein = c(400, 100)
+# Maximum product a in lbs 1A <= 2
+lbs_a = c(2, 0)
+# Calories 600A + 900B <= 3600
+# Calories 600A + 900B >= 1800
+upper_calorie = c(600, 900)
+lower_calorie = c(600, 900)
+
+# Capacity for each 
+capacity_starch = 1400
+min_protein = 400 
+capacity_a = 2
+capacity_calorie = 3600
+min_calorie = 1800 
+```
+
+Solving the promblem: 
+
+```{r}
+library(lpSolve)
+
+# Minimization problem 
+direction = "min"
+# Contribution for each product towards total spend 
+p.contribution = c(FOOD_A, FOOD_B)
+# Capacity/ min of each product 
+p.products = matrix(
+  c(starch, protein, lbs_a, upper_calorie, lower_calorie), nrow = 5, byrow = TRUE
+)
+# Direction - is it min or max 
+p.direction = c('<=', '>=', '<=', '<=', '>=')
+# Capacity right hand side 
+p.capacity = c(capacity_starch, min_protein, capacity_a, capacity_calorie, min_calorie)
+
+resp_food = lp(
+  direction = direction, objective.in = p.contribution, 
+  const.mat = p.products, const.dir = p.direction, const.rhs = p.capacity
+)
+# Answer: 0.5384 pound A, 1.8461 pounds B will give the least expensive required meal. 
+# Contribution will be the total cost in this scenario: 0.68076
+# We can calculate the slack and surplus for each variable by multiplying the 
+# payoff coefficient variable for the answer by the product matrix coefficient, and 
+# subtracting from the capacity or limit. 
+resp_food$solution
+resp_food
+```
+
+Surplus variables: 
+
+- If the inequality is greater than or equal to then it is a surplus variable. 
+
+
+### Example 4 Multi product/ constraint 
+
+Multiple products same as above. 
+
+```{r echo=FALSE}
+knitr::include_graphics('../inst/course-files/linear-programming-4.2.png')
+```
+
+```{r echo=FALSE}
+knitr::include_graphics('../inst/course-files/linear-programming-4.1.png')
+```
+
+The key here is that the maximum number of products that can be sold of product
+three by sales is 80. This is a normal constraint just like each other capacity
+limit. 
+
+Contribution or payoff for each of the products: Maximization - achieve the best
+product mix that will give the highest profit. 
+
+```{r}
+# Contribution 
+X1 = 20
+X2 = 6
+X3 = 8
+```
+
+
+Constrains: Subject to (requirements): 
+Constraint matrix 
+
+```{r}
+# milling 8X1 + 2X2 + 3X3 <= 800
+milling = c(8, 2, 3)
+# lathe 4X1 + 3X2 + 0X3 <= 480
+lathe = c(4, 3, 0)
+# grinder 2X1 + 0X2 + 1X3 <= 320
+grinder = c(2, 0, 1)
+# x3_produxtion 0X1 + 0X2 + 1X3 <= 80
+x3_production = c(0, 0, 1)
+```
+
+Capacity for each unity, activity, constraint. `But the sales potential for X3
+is limited to 80 units per week.` 
+
+- We need to add a capacity that limits the production of X3. 
+
+```{r}
+cap_milling = 800
+cap_lathe = 480
+cap_grinder = 320
+cap_x3 = 80
+```
+
+Solve the problem
+
+```{r}
+library(lpSolve)
+# Maximize profit 
+z.direction = 'max'
+# Contribution of each product 
+z.contribution = c(X1, X2, X3)
+# Subject to capacity matrix 
+z.subject_to = matrix(
+  c(milling, lathe, grinder, x3_production), nrow = 4, byrow = TRUE
+)
+z.directions = c('<=', '<=', '<=', '<=')
+z.capacity = c(cap_milling, cap_lathe, cap_grinder, cap_x3)
+
+z.resp = lp(
+  direction = z.direction, objective.in = z.contribution, 
+  const.mat = z.subject_to, const.dir = z.directions, const.rhs = z.capacity
+)
+# Answer: Production is 45X1, 100X2, and 80X3 which will produce a payoff of 
+# 2,140. 
+z.resp$solution
+z.resp
+
+```
+
+
+### Problem 12 
+
+```{r echo=FALSE}
+knitr::include_graphics('../inst/course-files/linear-programming-12.1.png')
+```
+
+
+```{r echo=FALSE}
+knitr::include_graphics('../inst/course-files/linear-programming-12.2.png')
+```
+
+The problem is asking what is the correct combination of drinks that will produce 
+the highest payoff. There is a capacity on one type of drink, Martinis. The 
+contribution of all drinks is the same, 2.50. 
+
+```{r}
+library(lpSolve)
+# Contribution is 2.50 for all drinks
+drink.direction = 'max'
+
+# Subject to: capacity for each input 
+gin = 120
+bourbon = 108
+vermouth = 60
+scotch = 72
+vodka = 48
+Martini = 60
+
+# not all drinks require an input - transpose 
+# need the ingredients as parts of each output, a drink. 
+drink.matrix = matrix(
+  c(
+    # S,     M,    AB,  SD,  KC,  SR
+    c(0,   1.5,  0,   0,   0,   2), # gin
+    c(0,   0,    0,   2,   2,   0), # bourbon
+    c(0,   .25,  0,   0,   1,   0), # vermouth
+    c(2,   0,    1.5, 0,   0,   .5), # scotch
+    c(0,   0,    1.5, 0,   0,   1), # vodka
+    c(0,   1,    0,   0,   0,   0) # Martini
+  ), nrow = 6, byrow = TRUE
+)
+
+# Contribution is 2.50 
+drink.contribution = rep(2.50, 6)
+
+# Direction - capacity <=
+drink.direction_capacity = rep('<=', 6)
+
+# Drink capacity - right hand side 
+# [spirits, drinks]
+# g, b, v, s, v
+drink.capacity = c(gin, bourbon, vermouth, scotch, vodka, Martini)
+
+drink.resp = lp(
+  direction = drink.direction, objective.in = drink.contribution, 
+  const.mat = drink.matrix, const.dir = drink.direction_capacity, 
+  const.rhs = drink.capacity
+)
+# The payoff is 426.47 - 
+drink.resp
+drink.resp$solution
+```
+
+
+
+Should always be able to calculate the slack variable. 
+
+If a constraint is that the solution must equal four ounces, then take the sum 
+of all inputs `=` to four. 
+
+|     `A + B + C + D = 4` 
+
+
+
+# Product Inventory Control (video: productinventorycontrol)

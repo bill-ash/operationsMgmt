@@ -101,10 +101,6 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bill-ash.com/operationsMgmt/">operationsMgmt</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="fu">theme_set</span><span class="op">(</span><span class="fu">theme_light</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div id="work-measurement-video-workmeasurement" class="section level1">
 <h1 class="hasAnchor">
 <a href="#work-measurement-video-workmeasurement" class="anchor"></a>Work Measurement (video: workmeasurement)</h1>
@@ -112,38 +108,56 @@
 <div id="measuring-performance-new-v-old" class="section level2">
 <h2 class="hasAnchor">
 <a href="#measuring-performance-new-v-old" class="anchor"></a>Measuring Performance New V Old</h2>
+<div id="both-approaches-advocate" class="section level3">
+<h3 class="hasAnchor">
+<a href="#both-approaches-advocate" class="anchor"></a>Both approaches advocate:</h3>
+<ul>
+<li>Planning &amp; Scheduling: On time delivery is important</li>
+<li>Budgeting: performance to budget - financial planning</li>
+<li>You can only budget once you have a plan and a schedule in place</li>
+<li>Performance measurement:</li>
+<li>Time standards</li>
+</ul>
+</div>
 <div id="traditional-approach" class="section level3">
 <h3 class="hasAnchor">
 <a href="#traditional-approach" class="anchor"></a>Traditional Approach</h3>
-<p>Both - Planning &amp; Scheduling: On time delivery is important - Budgeting: performance to budget - financial planning - You can only budget once you have a plan and a schedule in place - Performance measurement: - Time standards - Efficiency - Cost accounting standards - job order &amp; product costing</p>
+<p>Everything is costed according to a schedule and incentives are used to drive efficiency (quotas).</p>
+<ul>
+<li>Efficiency</li>
+<li>Cost accounting standards</li>
+<li>job order &amp; product costing</li>
+</ul>
 </div>
 <div id="new-philosophies" class="section level3">
 <h3 class="hasAnchor">
 <a href="#new-philosophies" class="anchor"></a>New Philosophies</h3>
+<p>Emphasis on quality over quantity. Raw materials are the only true variable cost.</p>
 <ul>
-<li>Performance measurement</li>
-<li>Efficiency: New philosophy says to not bother looking at the output. Focus on what the schedule calls requires.</li>
+<li>Performance measurement: Must consider output/ quality of good produced.</li>
+<li>Efficiency: New philosophy says to not bother looking at the quantity of output. Focus on what the schedule calls requires.</li>
 <li>Cost accounting principles &amp; efficiency do not help make better decisions.</li>
-<li>Thru put accounting - the only true variable cost is raw materials</li>
+<li>Thru-put accounting: the only true variable cost is raw materials</li>
 </ul>
 </div>
 </div>
 <div id="standard-time" class="section level2">
 <h2 class="hasAnchor">
 <a href="#standard-time" class="anchor"></a>Standard Time</h2>
-<p>The amount of time it should take a normal qualified worker at a normal place to complete a spcific task.</p>
+<p>The amount of time it should take a normal qualified worker at a normal place to complete a specific task.</p>
 <div id="time-study" class="section level3">
 <h3 class="hasAnchor">
 <a href="#time-study" class="anchor"></a>Time study</h3>
 <ol style="list-style-type: decimal">
-<li>Stop watch studies - process shop</li>
+<li>
+<em>Stop watch studies</em>: useful for mass production or process shop</li>
 </ol>
 <ul>
 <li>Observed time: OT = sum(x) / n (simple average)</li>
 <li>Normal time (Performance rate): NT = OT * PR</li>
 <li>Standard time (Allowance factor): ST = NT * (1+AF)</li>
 </ul>
-<p>Purpose of time study is to:</p>
+<p>Purpose of <em>time study</em> is to:</p>
 <ul>
 <li>Eliminate unnecessary work</li>
 <li>Improve process (Find the bottle neck- look for the weakest point)</li>
@@ -151,7 +165,7 @@
 <li>Develop the time standards - feeds into master production schedule</li>
 <li>Reduce risk of injury</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Worker is a bit faster than average (Performance Rate)</span>
 <span class="va">PR</span> <span class="op">=</span> <span class="fl">1.10</span> 
 <span class="co"># Allowance factor </span>
@@ -160,15 +174,17 @@
 
 <span class="va">NormalTime</span> <span class="op">=</span> <span class="va">ObservedTime</span> <span class="op">*</span> <span class="va">PR</span>
 <span class="va">StandardTime</span> <span class="op">=</span> <span class="va">NormalTime</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">+</span> <span class="va">AF</span><span class="op">)</span></code></pre></div>
-<ol style="list-style-type: decimal">
-<li>Historical times - building a home; referred to standard elemental times<br>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<em>Historical times</em>: project work - building a home; referred to standard elemental times<br>
 </li>
 </ol>
 <ul>
 <li>How long does it normally take to complete?</li>
 </ul>
-<ol style="list-style-type: decimal">
-<li>Work sampling - non repetitive office jobs where the work is unique</li>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<em>Work sampling</em>: project work - non repetitive office jobs where the work is unique.</li>
 </ol>
 <ul>
 <li>ratio- delay studies</li>
@@ -179,9 +195,9 @@
 <h4 class="hasAnchor">
 <a href="#compensation---related-to-work-sampling---input-to-compensation" class="anchor"></a>Compensation - related to work sampling - input to compensation</h4>
 <ul>
-<li><p>Time base systems</p></li>
-<li><p>Hourly &amp; salary compensation - time based systems allows to match what the market.</p></li>
-<li><p>Output based - incentive based or a sales type job</p></li>
+<li>Time base systems</li>
+<li>Hourly &amp; salary compensation - time based systems allows to match what the market.</li>
+<li>Output based - incentive based or a sales type job</li>
 </ul>
 <p>** Emphasizes that quotas and output targets are not good because they do not take into consideration quality **</p>
 </div>
@@ -198,22 +214,21 @@
 <li>Job shops - mix of both</li>
 <li>Projects - custom projects (houses, bridges, computer network, audit)</li>
 </ul>
-<p>Project evaluation Review Technique</p>
-<div id="project-management-projects" class="section level2">
+<div id="project-management-projects-pert" class="section level2">
 <h2 class="hasAnchor">
-<a href="#project-management-projects" class="anchor"></a>Project management (projects)</h2>
+<a href="#project-management-projects-pert" class="anchor"></a>Project management (projects) PERT</h2>
 <ul>
 <li>Graphical display PERT diagrams</li>
 <li>Estimate the time length</li>
 <li>Identify milestones - important events</li>
 <li>How long an activity can be delayed without delaying the project</li>
 </ul>
-<div id="critical-path" class="section level3">
+<div id="critical-path-method-cpm" class="section level3">
 <h3 class="hasAnchor">
-<a href="#critical-path" class="anchor"></a>Critical path</h3>
+<a href="#critical-path-method-cpm" class="anchor"></a>Critical path method CPM</h3>
 <p>Series of events that takes the longest amount of time - will determine how long the project will take.</p>
 <p>The task from node 1 to node 3 is the longest task. Both activity from 1 to 2, and activity from 1 to 3 occur at the same time. The activity from node 2 to 3 can not begin until the activity from node 1 to 2 is completed.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Project evaluation review technique</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://datastorm-open.github.io/visNetwork/">visNetwork</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span>
@@ -238,9 +253,9 @@
   <span class="fu"><a href="https://rdrr.io/pkg/visNetwork/man/visEdges.html">visEdges</a></span><span class="op">(</span>
     arrows <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>enabled <span class="op">=</span> <span class="cn">TRUE</span>, scaleFactor <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>,
     color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"lightblue"</span>, highlight <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-470477700a8eea0a5917" style="width:700px;height:432.632880098888px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-470477700a8eea0a5917">{"x":{"nodes":{"id":[1,2,3],"label":[1,2,3],"shape":["ellipse","ellipse","ellipse"]},"edges":{"from":[1,2,1],"to":[2,3,3],"label":[8,3,14]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":{"enabled":true,"scaleFactor":1}},"color":{"color":"lightblue","highlight":"red"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":{"text":"PERT","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script><p>Generally minimum time units are hours.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div id="htmlwidget-e439e2abdb7e4b89323d" style="width:700px;height:432.632880098888px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e439e2abdb7e4b89323d">{"x":{"nodes":{"id":[1,2,3],"label":[1,2,3],"shape":["ellipse","ellipse","ellipse"]},"edges":{"from":[1,2,1],"to":[2,3,3],"label":[8,3,14]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":{"enabled":true,"scaleFactor":1}},"color":{"color":"lightblue","highlight":"red"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":{"text":"PERT","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script><p>Generally minimum time units are hours.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Calculate TE time estimates for measuring critical paths </span>
 
 <span class="co"># Most optimistic time </span>
@@ -266,7 +281,7 @@
 <h3 class="hasAnchor">
 <a href="#pert-project-evaluation-review-technique" class="anchor"></a>PERT Project evaluation review technique</h3>
 <p>Multiple beginning and ending events</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
   nodes <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
@@ -295,8 +310,8 @@
   <span class="fu"><a href="https://rdrr.io/pkg/visNetwork/man/visEdges.html">visEdges</a></span><span class="op">(</span>
     arrows <span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>enabled <span class="op">=</span> <span class="cn">TRUE</span>, scaleFactor <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span>,
     color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"lightblue"</span>, highlight <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-3fcabae747022b568b82" style="width:700px;height:432.632880098888px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3fcabae747022b568b82">{"x":{"nodes":{"id":["a","b","c","d","e","f","g","h","i","j","k","l"],"label":["a","b","c","d","e","f","g","h","i","j","k","l"],"shape":["ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse"]},"edges":{"from":["a","b","b","c","f","f","g","g","h","h","j","d","e","i","k"],"to":["b","c","d","e","g","h","i","j","i","j","k","k","k","k","l"],"label":[15,12,12,6,8,8,8,8,9,9,14,5,3,7,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":{"enabled":true,"scaleFactor":1}},"color":{"color":"lightblue","highlight":"red"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":{"text":"PERT","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script><p>Things with more critical paths will be more vulnerable to delaying the project.</p>
+<div id="htmlwidget-63bc9ac7f473b8f69011" style="width:700px;height:432.632880098888px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-63bc9ac7f473b8f69011">{"x":{"nodes":{"id":["a","b","c","d","e","f","g","h","i","j","k","l"],"label":["a","b","c","d","e","f","g","h","i","j","k","l"],"shape":["ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse","ellipse"]},"edges":{"from":["a","b","b","c","f","f","g","g","h","h","j","d","e","i","k"],"to":["b","c","d","e","g","h","i","j","i","j","k","k","k","k","l"],"label":[15,12,12,6,8,8,8,8,9,9,14,5,3,7,7]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":{"to":{"enabled":true,"scaleFactor":1}},"color":{"color":"lightblue","highlight":"red"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":{"text":"PERT","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script><p>Things with more critical paths will be more vulnerable to delaying the project.</p>
 <ul>
 <li>It is rare that a project will have more than one critical path in reality</li>
 </ul>
@@ -316,12 +331,14 @@
 <div id="problem-example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#problem-example" class="anchor"></a>Problem Example</h2>
-<p>Company makes two products - activity based costing - throughput</p>
-<p>We want to maximize contribution - what is the selling price minus the cost to make the product.</p>
-<p>Maximize: 2car+2truck Subject to: - 2car+1truck&lt;=400 Mold department - 1car+2truck&lt;=600 Paint department - 1car+1truck&lt;=500 Pack department</p>
-<p>You can’t use more time that you don’t have.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">setup</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+<p>Company makes two products: activity based costing.</p>
+<ul>
+<li>Theory of constraints approach: throughput - costing is done only using the inputs that can be tied directly to the output ie: raw materials.</li>
+</ul>
+<p>We want to maximize contribution - what is the selling price minus the cost to make the product. What is the proper mix of products.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># inputs </span>
+<span class="va">setup</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
   product <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'car'</span>, <span class="st">'truck'</span><span class="op">)</span>, 
   mold <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span>, 
   paint <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, 
@@ -331,24 +348,284 @@
   <span class="fu">gather</span><span class="op">(</span><span class="st">'department'</span>, <span class="st">'time'</span>, <span class="op">-</span><span class="va">product</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">left_join</span><span class="op">(</span>
     <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
-  capacity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">400</span>, <span class="fl">600</span>, <span class="fl">500</span><span class="op">)</span>, 
-  department <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'mold'</span>, <span class="st">'paint'</span>, <span class="st">'pack'</span><span class="op">)</span>
-<span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+      capacity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">400</span>, <span class="fl">600</span>, <span class="fl">500</span><span class="op">)</span>, 
+      department <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'mold'</span>, <span class="st">'paint'</span>, <span class="st">'pack'</span><span class="op">)</span>
+    <span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
     output <span class="op">=</span> <span class="va">capacity</span> <span class="op">/</span> <span class="va">time</span>
   <span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/rownames.html">rowid_to_column</a></span><span class="op">(</span><span class="op">)</span> 
 <span class="co">#&gt; Joining, by = "department"</span>
 
-<span class="va">setup</span> <span class="op">%&gt;%</span> 
+<span class="va">setup</span>
+<span class="co">#&gt; # A tibble: 6 x 6</span>
+<span class="co">#&gt;   rowid product department  time capacity output</span>
+<span class="co">#&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     1 car     mold           2      400    200</span>
+<span class="co">#&gt; 2     2 truck   mold           1      400    400</span>
+<span class="co">#&gt; 3     3 car     paint          1      600    600</span>
+<span class="co">#&gt; 4     4 truck   paint          2      600    300</span>
+<span class="co">#&gt; 5     5 car     pack           1      500    500</span>
+<span class="co">#&gt; 6     6 truck   pack           1      500    500</span></code></pre></div>
+<p>Maximize: 2car+2truck Subject to: - 2car+1truck&lt;=400 Mold department - 1car+2truck&lt;=600 Paint department - 1car+1truck&lt;=500 Pack department</p>
+<p>You can’t use more time that you don’t have.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">setup</span> <span class="op">%&gt;%</span> 
   <span class="fu">spread</span><span class="op">(</span><span class="va">product</span>, <span class="va">output</span>, fill <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">car</span>, <span class="va">truck</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">product</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_path</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Everything in the shaded region is workable'</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">facet_wrap</span><span class="op">(</span><span class="fu">vars</span><span class="op">(</span><span class="va">department</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="exam3-ops-online_files/figure-html/unnamed-chunk-6-1.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="exam3-ops-online_files/figure-html/unnamed-chunk-7-1.png" width="700" style="display: block; margin: auto;"></p>
 <p>The best possible combinations are the corner points - all of one product or a combination of both that achieves the maximum profit (corner point).</p>
 <p>The recommended solution will be the combination that achieves the maximum output.</p>
+<p>SLACK variable - your constraints will always be less than or equal to the maximum capacity allowed for a specific process or activity. Slack is the residual capacity between what is required and the max capacity. Not all activities will have slack.</p>
+<ul>
+<li>Slack variables will always be constraints &lt;=</li>
+<li>You cannot have slack if there is a minimum requirement.</li>
+</ul>
+<div id="maximization-example-3-products" class="section level3">
+<h3 class="hasAnchor">
+<a href="#maximization-example-3-products" class="anchor"></a>Maximization Example 3 Products</h3>
+<p>We want to maximize the contribution given a list of products. Anything problem that contains three or more products cannot be graphed so we will solve using an equation.</p>
+<p>Contribution for each product:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/lpSolve">lpSolve</a></span><span class="op">)</span>
+<span class="co"># Product C provides the highest contribution </span>
+<span class="va">A</span> <span class="op">=</span> <span class="fl">2.4</span>
+<span class="va">B</span> <span class="op">=</span> <span class="fl">2.5</span>
+<span class="va">C</span> <span class="op">=</span> <span class="fl">3.0</span></code></pre></div>
+<p>Next we set up our constraints - the requirements to produce one unit of a given product.</p>
+<p>Subject to: Each coefficient is the required units it takes to produce the given product.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Mill: has a max capacity of 1200 </span>
+<span class="co"># 12A + 10B + 8C &lt;= 1200</span>
+<span class="va">mill_constraint</span> <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">10</span>, <span class="fl">8</span><span class="op">)</span> 
+<span class="co"># Inspect</span>
+<span class="co"># 5A + 4B + 4C &lt;= 900</span>
+<span class="va">inspect_constraint</span> <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">4</span><span class="op">)</span>
+<span class="co"># Drill</span>
+<span class="co"># 10A + 8B + 16C &lt;= 1440</span>
+<span class="va">drill_constraint</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">8</span>, <span class="fl">16</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Problem setup </span>
+<span class="va">f.type</span> <span class="op">&lt;-</span> <span class="st">'max'</span>
+<span class="co"># contribution of each product </span>
+<span class="va">f.products</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span>, <span class="va">C</span><span class="op">)</span> 
+<span class="co"># Requirements for each department</span>
+<span class="va">f.constraints</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">mill_constraint</span>, <span class="va">inspect_constraint</span>, <span class="va">drill_constraint</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span>
+<span class="co"># Constraints will always be &lt;= for maximazation </span>
+<span class="va">f.direction</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'&lt;='</span>, <span class="st">'&lt;='</span>, <span class="st">'&lt;='</span><span class="op">)</span>
+<span class="co"># Capacity per department </span>
+<span class="va">f.capacity</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1200</span>, <span class="fl">900</span>, <span class="fl">1440</span><span class="op">)</span>
+
+<span class="va">resp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lpSolve/man/lp.html">lp</a></span><span class="op">(</span><span class="va">f.type</span>, <span class="va">f.products</span>, <span class="va">f.constraints</span>, <span class="va">f.direction</span>, <span class="va">f.capacity</span><span class="op">)</span>
+<span class="co"># Answer 0A + 80B + 50C </span>
+<span class="co"># Payoff: 350 in contribution </span>
+<span class="va">resp</span><span class="op">$</span><span class="va">solution</span>
+<span class="co">#&gt; [1]  0 80 50</span>
+<span class="va">resp</span><span class="op">$</span><span class="va">constraints</span>
+<span class="co">#&gt;               [,1] [,2] [,3]</span>
+<span class="co">#&gt;                 12    5   10</span>
+<span class="co">#&gt;                 10    4    8</span>
+<span class="co">#&gt;                  8    4   16</span>
+<span class="co">#&gt; const.dir.num    1    1    1</span>
+<span class="co">#&gt; const.rhs     1200  900 1440</span>
+<span class="va">resp</span>
+<span class="co">#&gt; Success: the objective function is 350</span></code></pre></div>
+<p>We can calculate there will be <em>380 slack</em> in the inspection department:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">inspect_req</span> <span class="op">=</span> <span class="fl">50</span> <span class="op">*</span> <span class="fl">4</span> <span class="op">+</span> <span class="fl">80</span> <span class="op">*</span> <span class="fl">4</span> 
+<span class="co"># Inspection capacity - solution requirements</span>
+<span class="va">SLACK</span> <span class="op">=</span> <span class="fl">900</span> <span class="op">-</span> <span class="va">inspect_req</span>
+<span class="va">SLACK</span> 
+<span class="co">#&gt; [1] 380</span></code></pre></div>
 </div>
+<div id="diet-problem-two-different-constraints" class="section level3">
+<h3 class="hasAnchor">
+<a href="#diet-problem-two-different-constraints" class="anchor"></a>Diet problem two different constraints</h3>
+<p>Using minimum and maximum constraints. Solving for the number of pounds of each product that gives the lowest cost and meets a caloric, starch, and protein requirements.</p>
+<p><img src="../inst/course-files/linear-programming-problem.png" width="366" style="display: block; margin: auto;"></p>
+<p>Contribution: We want to minimize the contribution to our spend.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">FOOD_A</span> <span class="op">=</span> <span class="fl">.75</span>
+<span class="va">FOOD_B</span> <span class="op">=</span> <span class="fl">.15</span></code></pre></div>
+<p>Subject to (requirements): Capacity or requirements for each input starch, protein, calories, pounds product a.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Starch 200A + 700B &lt;= 1400</span>
+<span class="va">starch</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">200</span>, <span class="fl">700</span><span class="op">)</span>
+<span class="co"># Protein 400A + 100B &gt;= 400 </span>
+<span class="va">protein</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">400</span>, <span class="fl">100</span><span class="op">)</span>
+<span class="co"># Maximum product a in lbs 1A &lt;= 2</span>
+<span class="va">lbs_a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">0</span><span class="op">)</span>
+<span class="co"># Calories 600A + 900B &lt;= 3600</span>
+<span class="co"># Calories 600A + 900B &gt;= 1800</span>
+<span class="va">upper_calorie</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">600</span>, <span class="fl">900</span><span class="op">)</span>
+<span class="va">lower_calorie</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">600</span>, <span class="fl">900</span><span class="op">)</span>
+
+<span class="co"># Capacity for each </span>
+<span class="va">capacity_starch</span> <span class="op">=</span> <span class="fl">1400</span>
+<span class="va">min_protein</span> <span class="op">=</span> <span class="fl">400</span> 
+<span class="va">capacity_a</span> <span class="op">=</span> <span class="fl">2</span>
+<span class="va">capacity_calorie</span> <span class="op">=</span> <span class="fl">3600</span>
+<span class="va">min_calorie</span> <span class="op">=</span> <span class="fl">1800</span> </code></pre></div>
+<p>Solving the promblem:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/lpSolve">lpSolve</a></span><span class="op">)</span>
+
+<span class="co"># Minimization problem </span>
+<span class="va">direction</span> <span class="op">=</span> <span class="st">"min"</span>
+<span class="co"># Contribution for each product towards total spend </span>
+<span class="va">p.contribution</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">FOOD_A</span>, <span class="va">FOOD_B</span><span class="op">)</span>
+<span class="co"># Capacity/ min of each product </span>
+<span class="va">p.products</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">starch</span>, <span class="va">protein</span>, <span class="va">lbs_a</span>, <span class="va">upper_calorie</span>, <span class="va">lower_calorie</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">5</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span>
+<span class="co"># Direction - is it min or max </span>
+<span class="va">p.direction</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'&lt;='</span>, <span class="st">'&gt;='</span>, <span class="st">'&lt;='</span>, <span class="st">'&lt;='</span>, <span class="st">'&gt;='</span><span class="op">)</span>
+<span class="co"># Capacity right hand side </span>
+<span class="va">p.capacity</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">capacity_starch</span>, <span class="va">min_protein</span>, <span class="va">capacity_a</span>, <span class="va">capacity_calorie</span>, <span class="va">min_calorie</span><span class="op">)</span>
+
+<span class="va">resp_food</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lpSolve/man/lp.html">lp</a></span><span class="op">(</span>
+  direction <span class="op">=</span> <span class="va">direction</span>, objective.in <span class="op">=</span> <span class="va">p.contribution</span>, 
+  const.mat <span class="op">=</span> <span class="va">p.products</span>, const.dir <span class="op">=</span> <span class="va">p.direction</span>, const.rhs <span class="op">=</span> <span class="va">p.capacity</span>
+<span class="op">)</span>
+<span class="co"># Answer: 0.5384 pound A, 1.8461 pounds B will give the least expensive required meal. </span>
+<span class="co"># Contribution will be the total cost in this scenario: 0.68076</span>
+<span class="co"># We can calculate the slack and surplus for each variable by multiplying the </span>
+<span class="co"># payoff coefficient variable for the answer by the product matrix coefficient, and </span>
+<span class="co"># subtracting from the capacity or limit. </span>
+<span class="va">resp_food</span><span class="op">$</span><span class="va">solution</span>
+<span class="co">#&gt; [1] 0.5384615 1.8461538</span>
+<span class="va">resp_food</span>
+<span class="co">#&gt; Success: the objective function is 0.6807692</span></code></pre></div>
+<p>Surplus variables:</p>
+<ul>
+<li>If the inequality is greater than or equal to then it is a surplus variable.</li>
+</ul>
+</div>
+<div id="example-4-multi-product-constraint" class="section level3">
+<h3 class="hasAnchor">
+<a href="#example-4-multi-product-constraint" class="anchor"></a>Example 4 Multi product/ constraint</h3>
+<p>Multiple products same as above.</p>
+<p><img src="../inst/course-files/linear-programming-4.2.png" width="381" style="display: block; margin: auto;"></p>
+<p><img src="../inst/course-files/linear-programming-4.1.png" width="336" style="display: block; margin: auto;"></p>
+<p>The key here is that the maximum number of products that can be sold of product three by sales is 80. This is a normal constraint just like each other capacity limit.</p>
+<p>Contribution or payoff for each of the products: Maximization - achieve the best product mix that will give the highest profit.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Contribution </span>
+<span class="va">X1</span> <span class="op">=</span> <span class="fl">20</span>
+<span class="va">X2</span> <span class="op">=</span> <span class="fl">6</span>
+<span class="va">X3</span> <span class="op">=</span> <span class="fl">8</span></code></pre></div>
+<p>Constrains: Subject to (requirements): Constraint matrix</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># milling 8X1 + 2X2 + 3X3 &lt;= 800</span>
+<span class="va">milling</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>
+<span class="co"># lathe 4X1 + 3X2 + 0X3 &lt;= 480</span>
+<span class="va">lathe</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">0</span><span class="op">)</span>
+<span class="co"># grinder 2X1 + 0X2 + 1X3 &lt;= 320</span>
+<span class="va">grinder</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>
+<span class="co"># x3_produxtion 0X1 + 0X2 + 1X3 &lt;= 80</span>
+<span class="va">x3_production</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p>Capacity for each unity, activity, constraint. <code>But the sales potential for X3 is limited to 80 units per week.</code></p>
+<ul>
+<li>We need to add a capacity that limits the production of X3.</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">cap_milling</span> <span class="op">=</span> <span class="fl">800</span>
+<span class="va">cap_lathe</span> <span class="op">=</span> <span class="fl">480</span>
+<span class="va">cap_grinder</span> <span class="op">=</span> <span class="fl">320</span>
+<span class="va">cap_x3</span> <span class="op">=</span> <span class="fl">80</span></code></pre></div>
+<p>Solve the problem</p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/lpSolve">lpSolve</a></span><span class="op">)</span>
+<span class="co"># Maximize profit </span>
+<span class="va">z.direction</span> <span class="op">=</span> <span class="st">'max'</span>
+<span class="co"># Contribution of each product </span>
+<span class="va">z.contribution</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">X1</span>, <span class="va">X2</span>, <span class="va">X3</span><span class="op">)</span>
+<span class="co"># Subject to capacity matrix </span>
+<span class="va">z.subject_to</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">milling</span>, <span class="va">lathe</span>, <span class="va">grinder</span>, <span class="va">x3_production</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">4</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span>
+<span class="va">z.directions</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'&lt;='</span>, <span class="st">'&lt;='</span>, <span class="st">'&lt;='</span>, <span class="st">'&lt;='</span><span class="op">)</span>
+<span class="va">z.capacity</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">cap_milling</span>, <span class="va">cap_lathe</span>, <span class="va">cap_grinder</span>, <span class="va">cap_x3</span><span class="op">)</span>
+
+<span class="va">z.resp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lpSolve/man/lp.html">lp</a></span><span class="op">(</span>
+  direction <span class="op">=</span> <span class="va">z.direction</span>, objective.in <span class="op">=</span> <span class="va">z.contribution</span>, 
+  const.mat <span class="op">=</span> <span class="va">z.subject_to</span>, const.dir <span class="op">=</span> <span class="va">z.directions</span>, const.rhs <span class="op">=</span> <span class="va">z.capacity</span>
+<span class="op">)</span>
+<span class="co"># Answer: Production is 45X1, 100X2, and 80X3 which will produce a payoff of </span>
+<span class="co"># 2,140. </span>
+<span class="va">z.resp</span><span class="op">$</span><span class="va">solution</span>
+<span class="co">#&gt; [1]  45 100  80</span>
+<span class="va">z.resp</span>
+<span class="co">#&gt; Success: the objective function is 2140</span></code></pre></div>
+</div>
+<div id="problem-12" class="section level3">
+<h3 class="hasAnchor">
+<a href="#problem-12" class="anchor"></a>Problem 12</h3>
+<p><img src="../inst/course-files/linear-programming-12.1.png" width="334" style="display: block; margin: auto;"></p>
+<p><img src="../inst/course-files/linear-programming-12.2.png" width="343" style="display: block; margin: auto;"></p>
+<p>The problem is asking what is the correct combination of drinks that will produce the highest payoff. There is a capacity on one type of drink, Martinis. The contribution of all drinks is the same, 2.50.</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/lpSolve">lpSolve</a></span><span class="op">)</span>
+<span class="co"># Contribution is 2.50 for all drinks</span>
+<span class="va">drink.direction</span> <span class="op">=</span> <span class="st">'max'</span>
+
+<span class="co"># Subject to: capacity for each input </span>
+<span class="va">gin</span> <span class="op">=</span> <span class="fl">120</span>
+<span class="va">bourbon</span> <span class="op">=</span> <span class="fl">108</span>
+<span class="va">vermouth</span> <span class="op">=</span> <span class="fl">60</span>
+<span class="va">scotch</span> <span class="op">=</span> <span class="fl">72</span>
+<span class="va">vodka</span> <span class="op">=</span> <span class="fl">48</span>
+<span class="va">Martini</span> <span class="op">=</span> <span class="fl">60</span>
+
+<span class="co"># not all drinks require an input - transpose </span>
+<span class="co"># need the ingredients as parts of each output, a drink. </span>
+<span class="va">drink.matrix</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+    <span class="co"># S,     M,    AB,  SD,  KC,  SR</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,   <span class="fl">1.5</span>,  <span class="fl">0</span>,   <span class="fl">0</span>,   <span class="fl">0</span>,   <span class="fl">2</span><span class="op">)</span>, <span class="co"># gin</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,   <span class="fl">0</span>,    <span class="fl">0</span>,   <span class="fl">2</span>,   <span class="fl">2</span>,   <span class="fl">0</span><span class="op">)</span>, <span class="co"># bourbon</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,   <span class="fl">.25</span>,  <span class="fl">0</span>,   <span class="fl">0</span>,   <span class="fl">1</span>,   <span class="fl">0</span><span class="op">)</span>, <span class="co"># vermouth</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,   <span class="fl">0</span>,    <span class="fl">1.5</span>, <span class="fl">0</span>,   <span class="fl">0</span>,   <span class="fl">.5</span><span class="op">)</span>, <span class="co"># scotch</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,   <span class="fl">0</span>,    <span class="fl">1.5</span>, <span class="fl">0</span>,   <span class="fl">0</span>,   <span class="fl">1</span><span class="op">)</span>, <span class="co"># vodka</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,   <span class="fl">1</span>,    <span class="fl">0</span>,   <span class="fl">0</span>,   <span class="fl">0</span>,   <span class="fl">0</span><span class="op">)</span> <span class="co"># Martini</span>
+  <span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">6</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span>
+
+<span class="co"># Contribution is 2.50 </span>
+<span class="va">drink.contribution</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2.50</span>, <span class="fl">6</span><span class="op">)</span>
+
+<span class="co"># Direction - capacity &lt;=</span>
+<span class="va">drink.direction_capacity</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">'&lt;='</span>, <span class="fl">6</span><span class="op">)</span>
+
+<span class="co"># Drink capacity - right hand side </span>
+<span class="co"># [spirits, drinks]</span>
+<span class="co"># g, b, v, s, v</span>
+<span class="va">drink.capacity</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">gin</span>, <span class="va">bourbon</span>, <span class="va">vermouth</span>, <span class="va">scotch</span>, <span class="va">vodka</span>, <span class="va">Martini</span><span class="op">)</span>
+
+<span class="va">drink.resp</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lpSolve/man/lp.html">lp</a></span><span class="op">(</span>
+  direction <span class="op">=</span> <span class="va">drink.direction</span>, objective.in <span class="op">=</span> <span class="va">drink.contribution</span>, 
+  const.mat <span class="op">=</span> <span class="va">drink.matrix</span>, const.dir <span class="op">=</span> <span class="va">drink.direction_capacity</span>, 
+  const.rhs <span class="op">=</span> <span class="va">drink.capacity</span>
+<span class="op">)</span>
+<span class="co"># The payoff is 426.47 - </span>
+<span class="va">drink.resp</span>
+<span class="co">#&gt; Success: the objective function is 416.875</span>
+<span class="va">drink.resp</span><span class="op">$</span><span class="va">solution</span>
+<span class="co">#&gt; [1] 15.75 60.00 22.00 54.00  0.00 15.00</span></code></pre></div>
+<p>Should always be able to calculate the slack variable.</p>
+<p>If a constraint is that the solution must equal four ounces, then take the sum of all inputs <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> to four.</p>
+<div class="line-block">    <code>A + B + C + D = 4</code>
+</div>
+</div>
+</div>
+</div>
+<div id="product-inventory-control-video-productinventorycontrol" class="section level1">
+<h1 class="hasAnchor">
+<a href="#product-inventory-control-video-productinventorycontrol" class="anchor"></a>Product Inventory Control (video: productinventorycontrol)</h1>
 </div>
   </div>
 
