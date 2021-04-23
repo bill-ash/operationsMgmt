@@ -642,5 +642,255 @@ of all inputs `=` to four.
 |     `A + B + C + D = 4` 
 
 
-
 # Product Inventory Control (video: productinventorycontrol)
+
+Coordination of activities around producing a product (carrying inventory). 
+
+Someone has to coordinate the flow of product and the transformation from 
+raw material, to work in process, to a final produt. Raw materials get through 
+the supply chain to where they are supposed to be and consumed by the end customer. 
+
+
+## Primary activities: 
+
+- Routing: sequence and the time to build a product 
+  - Pre-determined in a mass production environment
+  - Job shop: planned by a project manager 
+  
+- Master Production Scheduling (MPS)
+- Dispatching: order release, when activities take place 
+- Follow-up or expediting (customer success): relay information to end customer 
+enquiry as to the status of the order are answered by this individual 
+
+
+## MPS
+
+Uses the routing document
+
+- Backward scheduling: every order has a due date - working backwards from the 
+due date using the routing. 
+  - Work your way backwards on the calendar from the due date. 
+  - Way to determine the start date considering all shipping and routing 
+  requirements.
+- Forward scheduling: Map out the order of operations using the routing schedule
+to determine when the product will be finished. 
+  - Mos common way to add capacity is overtime.
+
+
+## Infinite Vs. Finite Scheduling 
+
+- Infinite capacity: *assumes sufficient capacity&*
+  - Really doesn't make sense - we talk about it because of MRP. 
+  
+- Finite capacity: recognizes capacity limitations - can only fit a finite number 
+of people in a room. 
+  - Dr. Goldrat - wrote a program that could identify the finite capacity in a 
+  build system. Optimized Production Technology (OPT) 
+  - Need to reduce lead time to create competitive 
+  
+## Material Requirements Planning Assumptions (MRP) 
+
+Plan production inventory control. (pie in the sky)
+
+- Assumes infinite capacity: What they are really saying is do what you have to 
+complete the project. 
+- Fixed lead time: There is always variation in lead time
+- Batches move in full (lots): depending on the distance or time it takes to 
+get to the next station, you may or may not have batches that move in full. 
+  - We can collapse or shrink lead time if we split and overlap batches (we 
+  transfer parts as soon as they are completed rather than all at once). 
+
+
+## Two Major functions Production Control 
+
+1. Master Production Schedule (MPS) Scheduling people, reseources 
+- More short term (year or less generally)
+
+2. Planning: more long term
+- Where we will build a factory 
+
+### Marketing 
+
+Relationship between sales and marketing
+
+- Will often make promises that cannot be achieved by production 
+  - Can we build with new features 
+- Customers changes their mind 
+  - Motor example for oil well - sales promised same due date with no extra cost 
+  on a custom motor. 
+  
+### Design Engineering 
+
+Designers of products. 
+- Make new products
+- Features 
+- Constantly looking to imporve and change the quality of the product
+- Disrupts the production flow and can create conflict 
+
+### Human Resources HR 
+
+Dealing with people and insurance and training
+- Communicate personell needs to hr department - need to higher the right people. 
+
+
+**Move from production control to inventory control.**
+
+## Inventory Control 
+
+### Purchasing 
+
+As soon as the (MPS) master production schedule is outlined, we need to begin 
+ordering parts and equipment. 
+
+- Purchasing communicate material needs to purchasing 
+- What are the needs for the product: 
+  - What: what the product is 
+  - How many: quanityt
+  - When: just in time 
+  
+### Bill of material (BOM)
+
+Material planning 
+
+Graphical representation of the build of materials. 
+
+Parent node - level 0 is the final finished product. 
+
+```     
+     0
+    /\ \
+    1 1  1 # Built in house | Built in house | Purchased 
+  /\  /\
+2 2  2 2
+```
+
+Parts with child nodes are built by the manufacturer - we know this because the 
+parent node has a bill of material. 
+
+### Indented Bill of Materials 
+
+Referred to as indented because the product level indicates how the product is 
+built and which parts are purchased and manufactured. 
+
+Will usually come as a report instead of a graphic with a: 
+- Program number: how to run the report 
+- Part item number: uuid 
+- Engineering drawing 
+- UOM/ UM unit of measure 
+- Description 
+
+- Sub assembly: sub part of the main product being manufactured. Will have their 
+own Bill of Materials meaning they are comprised of purchased materials that are 
+assembled/ manufacutrered in house and used in the production of a final product. 
+  - Sub assembly is derived demand from the finished product ie: the greater the 
+  demand for the final product, the more sub assemblies we need to purchase or 
+  produce.
+
+## Demand 
+
+- Independent - finished products 
+- Dependent (derived): raw matierals, sub assemblies, components. 
+  - Level 1, 2, and 3 products 
+  
+## Classifying inventory 
+
+- Raw materials: fiberglass, steel, plastic
+- Work in process (WIP): partially completed product (shop floor). 
+- Finished goods: warehouse with final goods 
+  - Mass production more finished goods inventory on hand - project based will 
+  have fewer finished goods inventory on hand. 
+  
+## Desired level of inventory
+
+- Varies 
+
+Products can grow old sitting in storage. Just in time 
+Sales and marketing will want more goods in inventory - what if the demand never
+materializes?
+
+- Finished goods: risky to hold 
+- Raw material: purchasing can get better prices for quantity discounts (bulk)
+  - Can be good or bad for cash flow reasons 
+- Work in process: production worker like higher levels of WIP
+  - Smaller batches moving faster is better - don't carry as much inventory 
+  - Just in time is king 
+  
+Selling more product while holding less inventory
+
+## Inventory classification 
+
+- Dollar usage: calculate products cost and how many we expect to sell
+   - Highest dollar usage - we always want to have a sufficient inventory 
+   - Lowest dollar usage - less concerned how well they are stocked 
+ 
+ - Pareto Principle: (1848-1923) 80/20 rule - small percentage that accounts for 
+ majority of the whole. 
+  - Small percentage controls the majority of the wealth 
+  - Not all items are equally important 
+  - Top 10% of our inventory accounts for the majority of our dollar usage. 
+  
+  - Velocity of inventory in retail - items on a menu that don't sell quite as 
+  frequently.
+
+- Percentage of inventory that accounts for the majority of our sales are high 
+dollar usage products (this does not necessarily mean they are the most
+profitable). 
+
+`Dollar usage - the quantity we sell or used multiplied by the price`
+
+## Inventory Counting 
+
+Very expensive to do and usually done on an annual basis. Actual count
+replaces what's in the inventory system. 
+
+- Physical Inventory: reconcile the amount in inventory vs what's in the database. 
+  - Human error/ software problems 
+  - Theft 
+  - Closes the plant 
+- Cycle Count
+  - Do not close the facility 
+  - Count a small number of items frequently 
+  - Done throughout the year 
+  - Smaller version of physical inventory 
+  - Reconcile the actual account with the computer 
+  - Counts more important items - focus on what's important
+  
+- Shrinkage: when the actual count < computer count 
+- Floor stock - warehouse is the most secure 
+
+## Inventory Cost 
+
+Three components: 
+
+- Product cost - the cost of the product itself - traditional way, activity based
+costing, throughput or theory of constraints (the only real cost is the cost
+of raw material). 
+- Order Cost (Cost of procurement): paying for the order 
+  - primarily focus on transportation costs 
+  - shipping costs have a huge impact on order costs 
+- Carry costs (holding): 
+  - storage - opportunity cost of the stroage area 
+  - payroll - correlated with the amount of inventory 
+  - Depreciation - market value 
+  - Insurance - *should* have insurance 
+  - Taxes - Value of the business is tied to value of assets and inventory 
+  - Interest/ Opportunity cost- Money that could be used for something more 
+  productive. 
+
+### Inventory questions: 
+
+- Why switch from FIFO to LIFO?
+
+Using the most recent purchases prices to reduce margins and reduce taxes - 
+higher cost for more recent purchases. 
+
+- How would you count floor stock items?
+
+Different sampling techniques - weighing common parts, estimates. 
+
+- If you could control Obsolescence to occur?
+
+Raw materials since they could be returned to the vendor or re-purposed for some 
+other product or activity. 
+Do not want obsolescence to occur on finished goods. 
+
