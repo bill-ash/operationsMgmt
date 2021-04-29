@@ -3,11 +3,12 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   exam3-ops-online: exam3-ops-online.html
+  exam4-ops-online: exam4-ops-online.html
   operationsMgmt: operationsMgmt.html
   week-1-ops-online: week-1-ops-online.html
   week-2-ops-online: week-2-ops-online.html
   week-3-ops-online: week-3-ops-online.html
-last_built: 2021-04-23T04:07Z
+last_built: 2021-04-29T03:54Z
 urls:
   reference: https://bill-ash.com/operationsMgmt//reference
   article: https://bill-ash.com/operationsMgmt//articles

@@ -1,0 +1,305 @@
+---
+title: "Exam 4"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Exam 4}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>", 
+  fig.align = 'center'
+)
+library(operationsMgmt)
+library(tidyverse)
+theme_set(theme_light())
+```
+
+
+# Master Production Schedule (video:masterproductionsscheduling)
+
+- MPS represents an anticipated build schedule of finished goods (level 0)
+- Finished goods represented by 
+- Forecast
+- Actual orders 
+
+## MPS Considerations 
+
+### Constraints 
+
+Can be less than or greater than or equal to constraints. 
+
+Anything that limits us (time most precious, always a less than or equal to 
+constraint). 
+
+- Available inventory Time 
+- Inventory 
+- Money 
+- Market - 
+- Seasonal demand 
+
+
+### MPS Environments 
+
+Different types of orders. 
+
+- Make to stock (mass production)
+- Make to order (project)
+- Assemble to order: HP choose your configuration / cars
+
+Black, white, silver, grey, most popular car colors. Red sports car. 
+
+
+### MPS 
+
+- What is the part number: level zero part - Build of materials will dictate 
+how many products we will need for the finished good. 
+- How many: Bill of materials 
+- When: when does the finished good need to be delivered by 
+
+### MPS Scheduling in Job Shops 
+
+Questions to ask when building the Master Production Schedule for job shops. 
+Can be visualized with a gantt chart. 
+
+- How to distribute the load -- assignment of jobs to work centers 
+- Work center: worker and machine
+- How to sequence the jobs to the processing
+- Order of operations - what is first, second, third. 
+
+Gantt charts can be drawn as a PERT diagram. 
+
+- Resource assignment: planning 
+
+Unleveled (infinite capacity system): means we are building a time budget with
+unlimited constraints - will be shown as 104% 
+
+- Level the schedule by pushing different jobs/ activities to where there is 
+capacity. 
+- Alternative to a leveled (finite capacity) schedule. 
+
+### Drum-Buffer-Rope
+
+- Drum - the pace of the slowest machine. 
+- Everyone works to the same beat. 
+- Buffer: time or inventory. Where WIP goods are stored inbetween stages. 
+- building extra time or product for when everything goes wrong 
+- Rope: tie the (constraint) back to the first resource. 
+- Wharehouse for the release of material 
+
+Link the rope to the bottle neck (drum) - never want the herby to be idle since
+it is the longest running process. 
+
+
+### Sequencing Rules 
+
+- FIFO: First in firs out 
+- SPT: Shortest processing time 
+- DD: due date 
+- S/O: slack per operation
+
+
+Processing on time delivery: 
+
+- Job: name of the job 
+- Process time: time the job will take 
+- Due date: date the job will be due 
+- Flow time: jobs must be completed in order - cumulative time it takes to 
+do all previous job plus the current job. 
+- Days late: Flow time - Due date 
+
+|     `total_days_late = sum(days_late)`
+
+Better KPI is the percentage of jobs delivered on time. 
+
+- Shortest Process Time: 
+  - Using SPT we can sort the jobs by the shortest process time
+  - This will reduce the total days late
+  - Percentage on time is not improved 
+  - Lack capacity to complete work 
+
+- DD: Sort by earliest due date
+  - Using DD we sort the jobs by the earliest due date 
+  - Slight improvement over SPT 
+  - Percentage on time is slightly improved 
+
+- Slack per operation (SPO)
+  - Slack = Due Date - Process Time 
+  
+- Critical Ratio = Slack / Number of open Operations (given number) 
+  - Used for ranking - the lowest critical ratio is the order we should 
+  order the jobs. 
+  
+
+### Johnson method of sequencing 
+
+Algorithm - two steps (with a bottle neck) bottle neck controls the pace. 
+
+1. List jobs and times they will take 
+2. Select job with the shortest processing time: 
+  - If the job is at the first job center, push the job to the front of the 
+  schedule. 
+  - If the job is in work center two (two job sequence), push the job to the 
+  end of the schedule. 
+  - Break ties arbitrarily
+  - Repeat step two until all jobs are scheduled. 
+  
+Sorting algo that orders the jobs by where they are located (work center one 
+or work center two). 
+
+Some times jobs will have to wait in buffers if job center two is not ready for 
+the part. 
+
+- Three things that can happen with parts moving through a plant: 
+1. Parts arrive at second work center just as workers capacity becomes 
+available. 
+  - Like a relay team (not likely)
+2. Parts arrive at second work stations and workers are idle (waiting for 
+incoming work). 
+3. Parts arrive at second work station and must wait in the buffer until there 
+is available capacity. 
+  - There is a queue or line of parts that need to be completed before the new 
+  part can be processed. 
+
+
+
+### Service System Sceheduling 
+
+- Reservation or appointment system
+- Variability in both service time and arrival time 
+  - Buffer is the waiting room (emergency room) 
+
+### Special projects (CPM)
+
+The tools that we use are PERT and critical path 
+
+## MPS Problem 
+
+- There is an order for 2,000 units with four operations to complete a unit. 
+- How many clock hours will it take to process if four hours are allowed 
+between operations (buffer)?
+- How many parts need to be started in order to complete 2,000 units. 
+
+```{r}
+
+# Time to set up the machine 
+# The scrap that results from processing (not all parts pass inspection) 
+# Operation time/ unit (how long the process takes)
+# Operator lost time due to breaks etc. 
+setup <- tibble::tibble(
+  service_set_up_time = c(40, 28, 17, 44), # Minutes 
+  percent_scrap = c(1, 2.5, 1.5, 3), 
+  operation_time_unit = c(2.41, 6.20, .76, 1.37), 
+  operator_lost_time = c(.5, .5, .6, .4) # Hours 
+)
+
+# Scrap Factor Analysis 
+
+# 2000 is the number of finished goods we want - start in reverse order. 
+scrap_4 = 2000 / (1 - .03) 
+scrap_3 = scrap_4 / (1 - .015) 
+scrap_2 = scrap_3 / (1 - .025) 
+scrap_1 = scrap_2 / (1 - .01) 
+# We need to start at least 2169 products in order to produce 2,000 finished 
+# goods. Don't forget to round up! Would rather have to many than not enough. 
+
+
+# Operating Time 
+# Operation 1: 40 mins + .5 hours 
+# This is the time that no work is done: 
+operation_1 = (40/60) + .5 # Hours 
+operation_2 = (28/60) + .5 # Hours 
+operation_3 = (17/60) + .6 # Hours 
+operation_4 = (44/60) + .4 # Hours 
+
+# This is the time available after setuptime and breaks are subtracted
+# Work is done in 8 hour shifts.
+op1 = 8 - operation_1
+op2 = 8 - operation_2
+op3 = 8 - operation_3
+op4 = 8 - operation_4
+# There is 6.87 hours to complete operation 4 
+```
+
+Progblem: Putting it all together.
+
+```{r}
+library(magrittr)
+
+answer <- tibble::tibble(
+  # Operation 
+  operation = c(1, 2, 3, 4), 
+  
+  # time to complete a unit 
+  minutes_per_unit = setup$operation_time_unit, 
+  
+  # minimum units to start
+  quantity_required = c(scrap_1, scrap_2, scrap_3, scrap_4), 
+  
+  # Total minutes 
+  total_minutes_required = minutes_per_unit * quantity_required, 
+  
+  # Convert to hours
+  total_hours_required = total_minutes_required / 60, 
+  
+  # Amount of time available after breaks and setup time 
+  operating_hours_per_day = c(op1, op2, op3, op4),
+  
+  # Total days to complete 2000 units 
+  total_days = total_hours_required / operating_hours_per_day,
+  
+  # 8 Hours in a working day - Since my final number is recorded in days (total 
+  # hours required / operating hours in a day), multiply by the number of working 
+  # hours in the day to get the final answer.
+  total_hours = total_days * 8
+)
+answer %>% 
+  knitr::kable(digits = 2, format.args = list(big.mark = ','))
+
+```
+
+Add back the amount of time it takes to transfer goods between operations. 
+
+```{r}
+# We have four hours between each operation: 3 delays at 4 hours 
+# 4 * 3 = 12 
+sum(answer$total_hours) + 12 
+
+```
+
+
+## Master Production Schedule Time Phased Record 
+
+Calculating whats available and what's available to promise. 
+
+- Available = previous available + MPS schedule receipts (if any) minus larger
+of forecast vs. orders. 
+- Available to Promise = MPS (scheduled receipts) - sum of actual orders up to 
+but not include the next MPS. 
+
+**Continue to carry the available into the subsequent weeks.**
+```
+Available = Initial Value (starting inventory) + MPS scheduled receipts - 
+  larger of Forecast or Orders. 
+
+Available = 5 (starting value) + 50 (MPS) - 20 (Forecast)
+Available = 35 
+```  
+
+Available to promise we only calculate for weeks where we have a MPS scheduled 
+receipt (there is a value for MPS). 
+  - When there are no orders, all MPS scheduled receipt (the final goods being
+  produced/ deliverd can be promised). 
+```
+Available To Promise = MPS - Total Actual Orders up to the next MPS 
+Available To Promise = 50 - 12 (orders week 1) - 6 (orders week 2)
+Available To Promise = 32
+```
+
+
+# Inventory Control Models (video: eoqreorder)
+
+# Materials Requirement Planning MRP (video: MRP)
