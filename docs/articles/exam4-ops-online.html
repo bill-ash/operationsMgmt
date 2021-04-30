@@ -90,7 +90,7 @@
 
       
 
-      </header><script src="exam4-ops-online_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
+      </header><script src="exam4-ops-online_files/header-attrs-2.7/header-attrs.js"></script><script src="exam4-ops-online_files/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="exam4-ops-online_files/es6shim-0.35.6/es6shim.js"></script><script src="exam4-ops-online_files/es7shim-6.0.0/es7shim.js"></script><script src="exam4-ops-online_files/graphre-0.1.3/graphre.js"></script><script src="exam4-ops-online_files/nomnoml-1.3.1/nomnoml.js"></script><script src="exam4-ops-online_files/nomnoml-binding-0.2.3/nomnoml.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Exam 4</h1>
@@ -107,25 +107,32 @@
 <h1 class="hasAnchor">
 <a href="#master-production-schedule-videomasterproductionsscheduling" class="anchor"></a>Master Production Schedule (video:masterproductionsscheduling)</h1>
 <ul>
-<li>MPS represents an anticipated build schedule of finished goods (level 0)</li>
-<li>Finished goods represented by</li>
-<li>Forecast</li>
-<li>Actual orders</li>
+<li>MPS represents an anticipated build schedule of finished goods (level 0 in the build of materials (BOM)).</li>
+<li>Finished goods represented by
+<ul>
+<li>Forecast: what sales think we will do</li>
+<li>Actual orders: actual commitments for product</li>
+</ul>
+</li>
 </ul>
 <div id="mps-considerations" class="section level2">
 <h2 class="hasAnchor">
 <a href="#mps-considerations" class="anchor"></a>MPS Considerations</h2>
+<ul>
+<li>Constraints</li>
+<li>Environments: mass production, job shop, project</li>
+</ul>
 <div id="constraints" class="section level3">
 <h3 class="hasAnchor">
 <a href="#constraints" class="anchor"></a>Constraints</h3>
-<p>Can be less than or greater than or equal to constraints.</p>
-<p>Anything that limits us (time most precious, always a less than or equal to constraint).</p>
+<p>Can be less than, greater than, or equal to constraints.</p>
+<p>Anything that limits the ability to produce (time most precious, always a less than or equal to constraint).</p>
 <ul>
-<li>Available inventory Time</li>
-<li>Inventory</li>
-<li>Money</li>
-<li>Market -</li>
-<li>Seasonal demand</li>
+<li>Available time (capacity) machine hours</li>
+<li>Inventory: product on hand - can only sell what is available</li>
+<li>Money: capital to produce finished good (raw materials, labor, equipment)</li>
+<li>Market: could be a less than or greater than constraint - no demand or demand out strips the ability to produce.</li>
+<li>Seasonal demand: matching production with demand (trying to hit a moving target).</li>
 </ul>
 </div>
 <div id="mps-environments" class="section level3">
@@ -137,17 +144,18 @@
 <li>Make to order (project)</li>
 <li>Assemble to order: HP choose your configuration / cars</li>
 </ul>
-<p>Black, white, silver, grey, most popular car colors. Red sports car.</p>
+<p><strong>Most popular car colors</strong>:<br>
+Black, white, silver, gray, most popular car colors. Red sports car.</p>
 </div>
-<div id="mps" class="section level3">
-<h3 class="hasAnchor">
-<a href="#mps" class="anchor"></a>MPS</h3>
+</div>
+<div id="master-production-schedule-mps-inputs" class="section level2">
+<h2 class="hasAnchor">
+<a href="#master-production-schedule-mps-inputs" class="anchor"></a>Master Production Schedule (MPS) Inputs</h2>
 <ul>
-<li>What is the part number: level zero part - Build of materials will dictate how many products we will need for the finished good.</li>
-<li>How many: Bill of materials</li>
-<li>When: when does the finished good need to be delivered by</li>
+<li>What is the part number: level zero part - Bill of materials will dictate how many products we will need for the finished good.</li>
+<li>How many: Bill of materials (raw materials needed)</li>
+<li>When: when does the finished good need to be delivered by (forward/ reverse scheduling).</li>
 </ul>
-</div>
 <div id="mps-scheduling-in-job-shops" class="section level3">
 <h3 class="hasAnchor">
 <a href="#mps-scheduling-in-job-shops" class="anchor"></a>MPS Scheduling in Job Shops</h3>
@@ -162,28 +170,42 @@
 <ul>
 <li>Resource assignment: planning</li>
 </ul>
-<p>Unleveled (infinite capacity system): means we are building a time budget with unlimited constraints - will be shown as 104%</p>
+<p><strong>Un-leveled</strong> (infinite capacity system): means we are building a time budget with unlimited constraints - will be shown as 104%</p>
 <ul>
 <li>Level the schedule by pushing different jobs/ activities to where there is capacity.</li>
+</ul>
+<p><strong>Leveled</strong> (finite capacity) schedule:</p>
+<ul>
 <li>Alternative to a leveled (finite capacity) schedule.</li>
 </ul>
 </div>
 <div id="drum-buffer-rope" class="section level3">
 <h3 class="hasAnchor">
 <a href="#drum-buffer-rope" class="anchor"></a>Drum-Buffer-Rope</h3>
+<p>Dr. Goldratt example for managing MPS</p>
 <ul>
-<li>Drum - the pace of the slowest machine.</li>
+<li>Drum: the pace of the slowest machine.
+<ul>
 <li>Everyone works to the same beat.</li>
-<li>Buffer: time or inventory. Where WIP goods are stored inbetween stages.</li>
+</ul>
+</li>
+<li>Buffer: time or inventory. Where WIP goods are stored in-between stages.
+<ul>
 <li>building extra time or product for when everything goes wrong</li>
-<li>Rope: tie the (constraint) back to the first resource.</li>
+</ul>
+</li>
+<li>Rope: tie the (constraint) back to the first resource.
+<ul>
 <li>Wharehouse for the release of material</li>
+</ul>
+</li>
 </ul>
 <p>Link the rope to the bottle neck (drum) - never want the herby to be idle since it is the longest running process.</p>
 </div>
 <div id="sequencing-rules" class="section level3">
 <h3 class="hasAnchor">
 <a href="#sequencing-rules" class="anchor"></a>Sequencing Rules</h3>
+<p>How to order the sequence for building the product to minimize delay.</p>
 <ul>
 <li>FIFO: First in firs out</li>
 <li>SPT: Shortest processing time</li>
@@ -195,12 +217,15 @@
 <li>Job: name of the job</li>
 <li>Process time: time the job will take</li>
 <li>Due date: date the job will be due</li>
-<li>Flow time: jobs must be completed in order - cumulative time it takes to do all previous job plus the current job.</li>
+<li>Flow time: Job due date - cumulative time to complete previous work</li>
 <li>Days late: Flow time - Due date</li>
 </ul>
-<div class="line-block">    <code>total_days_late = sum(days_late)</code>
+<div class="line-block">    <code>Total Days Late = sum(days_late)</code>
 </div>
-<p>Better KPI is the percentage of jobs delivered on time.</p>
+<ul>
+<li>Better KPI is the percentage of jobs delivered on time.</li>
+</ul>
+<p>Re-order the jobs using different strategies to improve the days late/ ratio of jobs completed on time.</p>
 <ul>
 <li>Shortest Process Time:
 <ul>
@@ -210,7 +235,7 @@
 <li>Lack capacity to complete work</li>
 </ul>
 </li>
-<li>DD: Sort by earliest due date
+<li>DD: Sort by earliest due date/
 <ul>
 <li>Using DD we sort the jobs by the earliest due date</li>
 <li>Slight improvement over SPT</li>
@@ -224,7 +249,8 @@
 </li>
 <li>Critical Ratio = Slack / Number of open Operations (given number)
 <ul>
-<li>Used for ranking - the lowest critical ratio is the order we should order the jobs.</li>
+<li>Used for ranking</li>
+<li>The lowest critical ratio is the order we should order the jobs.</li>
 </ul>
 </li>
 </ul>
@@ -246,8 +272,9 @@
 <p>Sorting algo that orders the jobs by where they are located (work center one or work center two).</p>
 <p>Some times jobs will have to wait in buffers if job center two is not ready for the part.</p>
 <ul>
-<li>Three things that can happen with parts moving through a plant:</li>
+<li>Consider there might be time to transfer goods between work center one and two.</li>
 </ul>
+<p>Three things that can happen with parts moving through a plant:</p>
 <ol style="list-style-type: decimal">
 <li>Parts arrive at second work center just as workers capacity becomes available.</li>
 </ol>
@@ -320,7 +347,7 @@
 <span class="va">operation_3</span> <span class="op">=</span> <span class="op">(</span><span class="fl">17</span><span class="op">/</span><span class="fl">60</span><span class="op">)</span> <span class="op">+</span> <span class="fl">.6</span> <span class="co"># Hours </span>
 <span class="va">operation_4</span> <span class="op">=</span> <span class="op">(</span><span class="fl">44</span><span class="op">/</span><span class="fl">60</span><span class="op">)</span> <span class="op">+</span> <span class="fl">.4</span> <span class="co"># Hours </span>
 
-<span class="co"># This is the time available after setuptime and breaks are subtracted</span>
+<span class="co"># This is the time available after set up time and breaks are subtracted</span>
 <span class="co"># Work is done in 8 hour shifts.</span>
 <span class="va">op1</span> <span class="op">=</span> <span class="fl">8</span> <span class="op">-</span> <span class="va">operation_1</span>
 <span class="va">op2</span> <span class="op">=</span> <span class="fl">8</span> <span class="op">-</span> <span class="va">operation_2</span>
@@ -453,7 +480,7 @@
 
 Available = 5 (starting value) + 50 (MPS) - 20 (Forecast)
 Available = 35 </code></pre>
-<p>Available to promise we only calculate for weeks where we have a MPS scheduled receipt (there is a value for MPS). - When there are no orders, all MPS scheduled receipt (the final goods being produced/ deliverd can be promised).</p>
+<p>Available to promise we only calculate for weeks where we have a MPS scheduled receipt (there is a value for MPS). - When there are no orders, all MPS scheduled receipt (the final goods being produced/ delivered can be promised).</p>
 <pre><code>Available To Promise = MPS - Total Actual Orders up to the next MPS 
 Available To Promise = 50 - 12 (orders week 1) - 6 (orders week 2)
 Available To Promise = 32</code></pre>
@@ -462,10 +489,953 @@ Available To Promise = 32</code></pre>
 <div id="inventory-control-models-video-eoqreorder" class="section level1">
 <h1 class="hasAnchor">
 <a href="#inventory-control-models-video-eoqreorder" class="anchor"></a>Inventory Control Models (video: eoqreorder)</h1>
+<p>JIT is the way we run organizations today</p>
+<div id="classic-inventory-control-models" class="section level2">
+<h2 class="hasAnchor">
+<a href="#classic-inventory-control-models" class="anchor"></a>Classic Inventory Control Models</h2>
+<ul>
+<li>Economic Order Quantity (EOQ):
+<ul>
+<li>Answers how many we should order at a time</li>
+<li>Trade off between constantly re-stocking and maximizing shipping and carry costs</li>
+</ul>
+</li>
+<li>Reorder point: when do we place an order
+<ul>
+<li>Max, min model of how much inventory we should carry at once</li>
+</ul>
+</li>
+<li>When considering either strategy for managing inventory we assume:
+<ul>
+<li>Demand is known: supermarket - soap, butter
+<ul>
+<li>Stock quantity you expect to sell</li>
+</ul>
+</li>
+<li>Demand is constant: relatively constant (smooth)</li>
+<li>Orders are received on time: goods are delivered on time</li>
+<li>Orders are received in full: complete orders</li>
+<li>Product cost does not vary: recalucalting cost is not a big deal now</li>
+<li>No system constraints: there is extra capacity available</li>
+</ul>
+</li>
+</ul>
+<p>If there are items that meet these considerations than Economic order Quantity, and Reorder point may be valid methods for managing inventory.</p>
+<div id="max-min-model-eoqreorder" class="section level3">
+<h3 class="hasAnchor">
+<a href="#max-min-model-eoqreorder" class="anchor"></a>Max-Min Model (EOQ/Reorder)</h3>
+<p>Resembles a saw tooth - meets the assumptions defined above.</p>
+<ul>
+<li>goods are ordered at time t where the fulfillment period (lead time) is equal to the number of goods on hand.</li>
+<li>Demand is constant</li>
+<li>Reorder point (ROP): when lead time is equal to the remaining products on hand.</li>
+<li>Orders must come in on time</li>
+<li>Orders must be complete</li>
+<li>Stock out: we run out of inventory</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  product <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>,
+  time <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">'2020-01-01'</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">'day'</span>, length.out<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">product</span><span class="op">)</span><span class="op">)</span>
+<span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">time</span>, <span class="va">product</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">scale_x_date</span><span class="op">(</span>date_labels <span class="op">=</span> <span class="st">'%b. %d\n%Y'</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Max-Min Model'</span>, subtitle <span class="op">=</span> <span class="st">'EOQ/Reorder'</span><span class="op">)</span></code></pre></div>
+<p><img src="exam4-ops-online_files/figure-html/unnamed-chunk-5-1.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="inventory-cost-model" class="section level3">
+<h3 class="hasAnchor">
+<a href="#inventory-cost-model" class="anchor"></a>Inventory cost model</h3>
+<p>Order cost and carry cost</p>
+<ul>
+<li>Carry cost: goal is maximize the benefit of getting the best price while managing the costs associated with received larger orders. (balance bluk pricing with carry costs).
+<ul>
+<li>
+<p>Small orders: when the order is low, there are fewer costs associated with taking custody of the order.</p>
+<ul>
+<li>Large orders require staff, insurance, storage, opportunity cost, etc.</li>
+</ul>
+</li>
+<li><p>Large orders: better unit economics - unit cost is better (cheaper)</p></li>
+<li><p>More frequent small orders will incurr more shipping costs</p></li>
+<li><p>Goal is minimize the total <code>costs = order cost + carry cost</code></p></li>
+</ul>
+</li>
+<li>EOQ: Minimum cost is the intersection of order cost and carry cost
+<ul>
+<li>Economic Order Quantity</li>
+<li>Lead time is not included in EOQ problems.</li>
+</ul>
+</li>
+</ul>
+<p><img src="../inst/course-files/4_2-inventory-cost-model.png" width="304" style="display: block; margin: auto;"></p>
+</div>
+<div id="inventory-problem" class="section level3">
+<h3 class="hasAnchor">
+<a href="#inventory-problem" class="anchor"></a>Inventory Problem</h3>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">annual_useage</span> <span class="op">=</span> <span class="fl">24000</span>
+<span class="va">product_cost</span> <span class="op">=</span> <span class="fl">10</span> 
+<span class="co"># Orders per year </span>
+<span class="va">order_annual</span> <span class="op">=</span> <span class="fl">6</span>
+<span class="co"># Units per order per year </span>
+<span class="va">units_per_order</span> <span class="op">=</span> <span class="va">annual_useage</span> <span class="op">/</span> <span class="va">order_annual</span>
+<span class="co"># Calculate the average amount of inventory on hand to determine </span>
+<span class="co"># the average cost of inventory</span>
+<span class="va">max_inventory</span> <span class="op">=</span> <span class="fl">4000</span>
+<span class="va">min_inventory</span> <span class="op">=</span> <span class="fl">0</span> 
+<span class="va">avg_inventory</span> <span class="op">=</span> <span class="op">(</span><span class="va">max_inventory</span> <span class="op">+</span> <span class="va">min_inventory</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>
+<span class="co"># Average dollar investment </span>
+<span class="va">avg_inventory</span> <span class="op">*</span> <span class="va">product_cost</span>
+<span class="co">#&gt; [1] 20000</span></code></pre></div>
+</div>
+<div id="calculating-inventory-cost-at-eoq" class="section level3">
+<h3 class="hasAnchor">
+<a href="#calculating-inventory-cost-at-eoq" class="anchor"></a>Calculating Inventory Cost at EOQ</h3>
+<p>Economic order quantity is the point that minimizes the carry cost and order cost. It is the number (quantity) of products to order.</p>
+<ul>
+<li>Calculating inventory cost is made of:
+<ul>
+<li>EOQ: the optimal quantity to order</li>
+<li>Order cost: cost of the order</li>
+<li>Carry cost: the carry cost of the inventory</li>
+</ul>
+</li>
+<li>Variables for calculating EOQ:
+<ul>
+<li>OC: Order Cost</li>
+<li>AU: Annual Usage</li>
+<li>Price</li>
+<li>Carry Cost (percentage of price)</li>
+<li>Lead time is not included in EOQ problems.</li>
+</ul>
+</li>
+</ul>
+<div class="line-block"><code>EOQ = sqrt((2 * OC * AU) / (P * CC))</code></div>
+</div>
+<div id="calculate-inventory-cost" class="section level3">
+<h3 class="hasAnchor">
+<a href="#calculate-inventory-cost" class="anchor"></a>Calculate inventory cost</h3>
+<p>At EOQ, order cost and carry cost will be equal (rounding might change result).</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Total annual order cost = (AU / EOQ) * OC </span>
+<span class="co"># Quantity </span>
+<span class="va">annual_useage</span> <span class="op">=</span> <span class="fl">15000</span>
+<span class="va">EOQ</span> <span class="op">=</span> <span class="fl">600</span> 
+<span class="co"># Order cost per unit (given)</span>
+<span class="va">order_cost</span> <span class="op">=</span> <span class="fl">15</span>
+<span class="co"># Number of orders per year </span>
+<span class="va">annual_useage</span> <span class="op">/</span> <span class="va">EOQ</span>
+<span class="co">#&gt; [1] 25</span>
+<span class="co"># Total annual order cost </span>
+<span class="va">total_annual_order</span> <span class="op">=</span> <span class="op">(</span><span class="va">annual_useage</span> <span class="op">/</span> <span class="va">EOQ</span><span class="op">)</span> <span class="op">*</span> <span class="va">order_cost</span>
+
+<span class="co"># Total annual carry cost = ((EOQ * Price) /2) * Carry Cost </span>
+<span class="co"># Dollars </span>
+<span class="va">price</span> <span class="op">=</span> <span class="fl">5</span>
+<span class="co"># Percent 25% </span>
+<span class="va">carry_cost</span> <span class="op">=</span> <span class="fl">.25</span>
+<span class="co"># Total annual carry cost - divide by 2 to get average dollar investment </span>
+<span class="va">total_annual_order_cost</span> <span class="op">=</span> <span class="op">(</span><span class="op">(</span><span class="va">EOQ</span> <span class="op">*</span> <span class="va">price</span> <span class="op">)</span> <span class="op">/</span> <span class="fl">2</span><span class="op">)</span> <span class="op">*</span> <span class="fl">.25</span>
+<span class="va">TotalCost</span> <span class="op">=</span> <span class="va">total_annual_order</span> <span class="op">+</span> <span class="va">total_annual_order_cost</span></code></pre></div>
+<p>What happens when we order some qunatity other than EOQ?</p>
+<ul>
+<li>Inventory cost will increase</li>
+<li>EOQ gives the quantity to order that minimzes total inventory cost.</li>
+</ul>
+</div>
+<div id="quantity-discounts-problem" class="section level3">
+<h3 class="hasAnchor">
+<a href="#quantity-discounts-problem" class="anchor"></a>Quantity Discounts Problem</h3>
+<p>Should we pass on the discount or take it? Will the disocunt increase are carry costs greater than the amount of the discount?</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">order_cost</span> <span class="op">=</span> <span class="fl">15</span>
+<span class="va">carry_cost_pct</span> <span class="op">=</span> <span class="fl">.3</span>
+<span class="va">annual_useage</span> <span class="op">=</span> <span class="fl">36000</span>
+
+<span class="co"># Price is we order 6,000 or more units (volume discount)</span>
+<span class="va">price_disc</span> <span class="op">=</span> <span class="fl">9.8</span>
+<span class="va">price</span> <span class="op">=</span> <span class="fl">10</span> 
+<span class="co"># Quantity to order </span>
+<span class="va">EOQ</span> <span class="op">=</span> <span class="fl">600</span> 
+<span class="va">discount_quantity</span> <span class="op">=</span> <span class="fl">6000</span>
+
+<span class="co"># Product A - No discount - EOQ </span>
+<span class="va">material</span> <span class="op">=</span> <span class="va">annual_useage</span> <span class="op">*</span> <span class="va">price</span> 
+<span class="va">order_cost</span> <span class="op">=</span> <span class="op">(</span><span class="va">annual_useage</span> <span class="op">/</span> <span class="va">EOQ</span><span class="op">)</span> <span class="op">*</span> <span class="fl">15</span> 
+<span class="va">orders_per_year</span> <span class="op">=</span> <span class="va">annual_useage</span> <span class="op">/</span> <span class="va">EOQ</span> 
+<span class="va">carry_cost</span> <span class="op">=</span> <span class="op">(</span><span class="op">(</span><span class="va">EOQ</span> <span class="op">*</span> <span class="va">price</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span> <span class="op">)</span> <span class="op">*</span> <span class="va">carry_cost_pct</span>
+<span class="va">total_a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">material</span>, <span class="va">order_cost</span>, <span class="va">carry_cost</span><span class="op">)</span>
+
+<span class="co"># Product B - Discount - Discount Quantity  </span>
+<span class="va">material</span> <span class="op">=</span> <span class="va">annual_useage</span> <span class="op">*</span> <span class="va">price_disc</span> 
+<span class="co"># Order cost will decrease because of the discount </span>
+<span class="va">order_cost</span> <span class="op">=</span> <span class="op">(</span><span class="va">annual_useage</span> <span class="op">/</span> <span class="va">discount_quantity</span><span class="op">)</span> <span class="op">*</span> <span class="fl">15</span> 
+<span class="va">orders_per_year</span> <span class="op">=</span> <span class="va">annual_useage</span> <span class="op">/</span> <span class="va">discount_quantity</span>
+<span class="va">carry_cost</span> <span class="op">=</span> <span class="op">(</span><span class="op">(</span><span class="va">discount_quantity</span> <span class="op">*</span> <span class="va">price_disc</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span> <span class="op">)</span> <span class="op">*</span> <span class="va">carry_cost_pct</span>
+<span class="va">total_b</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">material</span>, <span class="va">order_cost</span>, <span class="va">carry_cost</span><span class="op">)</span>
+
+<span class="co"># We should take the discount - savings of $90.</span>
+<span class="fu">waldo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/waldo/man/compare.html">compare</a></span><span class="op">(</span><span class="va">total_a</span>, <span class="va">total_b</span><span class="op">)</span>
+<span class="co">#&gt; `old`: 361800</span>
+<span class="co">#&gt; `new`: 361710</span></code></pre></div>
+<p>The average dollar investment for EOQ will be smaller than the average dollar investment for bulk purchases (saw tooth graph on top of discount chart with much lower inventory turn).</p>
+</div>
+<div id="calculating-the-roi-from-taking-the-disocunt" class="section level3">
+<h3 class="hasAnchor">
+<a href="#calculating-the-roi-from-taking-the-disocunt" class="anchor"></a>Calculating the ROI from taking the disocunt</h3>
+<p><code>ROI = Savings (from taking discount) / Investment (outlay for product purchase)</code></p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">savings</span> <span class="op">=</span> <span class="fl">90</span> 
+<span class="co"># Dollars spent to make purchase at discount price </span>
+<span class="va">discount_average_investment</span> <span class="op">=</span> <span class="va">discount_quantity</span> <span class="op">*</span> <span class="va">price_disc</span> <span class="op">/</span> <span class="fl">2</span>
+<span class="va">eoq_average_investment</span> <span class="op">=</span> <span class="va">EOQ</span> <span class="op">*</span> <span class="va">price</span> <span class="op">/</span> <span class="fl">2</span>
+
+<span class="co"># Bulk purchasing requires greater up front capital expenditure </span>
+<span class="va">extra_investment_required</span> <span class="op">=</span> <span class="va">discount_average_investment</span> <span class="op">-</span> <span class="va">eoq_average_investment</span>
+
+<span class="co"># ROI is calculated as the savings / the additional capital requirement for </span>
+<span class="co"># making the bulk purchase </span>
+<span class="va">ROI</span> <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_percent.html">percent</a></span><span class="op">(</span><span class="va">savings</span> <span class="op">/</span> <span class="va">extra_investment_required</span>, accuracy <span class="op">=</span> <span class="fl">.01</span><span class="op">)</span></code></pre></div>
+<p>This ROI calculation is the opportunity cost of giving up $26,400 to bulk purchase the inventory.</p>
+<p>We can ask the vendor to modify the minimum purchase order for the discount in order to reduce the carry cost (greater number of orders in the year) to boost the ROI.</p>
+</div>
+</div>
+<div id="re-order-point" class="section level2">
+<h2 class="hasAnchor">
+<a href="#re-order-point" class="anchor"></a>Re-order point</h2>
+<p>The point at which we need to order new product so we don’t stock out.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Total cost of the order - includes shipping, tarriffs, etc.</span>
+<span class="va">order_cost</span> <span class="op">=</span> <span class="fl">12</span>
+<span class="co"># 20%</span>
+<span class="va">carry_cost</span> <span class="op">=</span> <span class="fl">.2</span>
+<span class="va">annual_useage</span> <span class="op">=</span> <span class="fl">3000</span>
+<span class="va">price</span> <span class="op">=</span> <span class="fl">4</span>
+<span class="co"># Three weeks: Average lead time </span>
+<span class="va">lead_time</span> <span class="op">=</span> <span class="fl">3</span>
+<span class="co"># $20  stock out - opportunity cost: when you hit zero and cannot fill an order </span>
+<span class="co"># Do you lose the sale and future business. </span>
+<span class="va">stock_out_cost</span> <span class="op">=</span> <span class="fl">20</span>
+<span class="va">weeks_of_operation</span> <span class="op">=</span> <span class="fl">50</span> 
+<span class="va">orders_per_year</span> <span class="op">=</span> <span class="fl">10</span>
+
+<span class="co"># The reorder point will be somewhere greater than zero </span>
+<span class="co"># Step 1: The minimum quantity to keep on hand </span>
+<span class="co"># Average Lead Time Usage = (annual usage / weeks ) * average lead time </span>
+<span class="va">average_lead_time_usage</span> <span class="op">=</span> <span class="op">(</span><span class="va">annual_useage</span> <span class="op">/</span> <span class="va">weeks_of_operation</span><span class="op">)</span> <span class="op">*</span> <span class="va">lead_time</span>
+
+<span class="co"># Safety Stock: is the difference in current stock and reorder point </span>
+<span class="co"># Stock on hand: 200 </span>
+<span class="co"># Reorder point: 180 </span>
+<span class="co"># Safety Stock: 20</span></code></pre></div>
+<p>Distribution for product orders: shows the distrubtion for quantity demanded during average lead times.</p>
+<ul>
+<li>Max units sold: 260</li>
+<li>Min units sold: 100</li>
+</ul>
+<p><img src="../inst/course-files/4_2-inventory-prob-dist.png" width="331" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>
+  q_demand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">260</span>, <span class="fl">20</span><span class="op">)</span>, 
+  q_freq <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">10</span>, <span class="fl">18</span>, <span class="fl">32</span>, <span class="fl">70</span>, <span class="fl">28</span>, <span class="fl">20</span>, <span class="fl">12</span>, <span class="fl">6</span><span class="op">)</span>
+<span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">q_demand</span>, <span class="va">q_freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_col</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p><img src="exam4-ops-online_files/figure-html/unnamed-chunk-13-1.png" width="700" style="display: block; margin: auto;"></p>
+<p>If we set the reorder point at 260 - the probability of a stock out is zero since we have never sold more than 260 units.</p>
+<ul>
+<li>To calculate the probability of a stock out we calculate the cumulative probability of <code>arrange(desc(order_point)) %&gt;% cumsum(prob_q_demanded)</code>.
+<ul>
+<li>By choosing a reorder point with a lower probability of stock out, we reduce the stock out cost incurred.</li>
+<li>We need to balance the carry cost, with the cost associated with stock outs.</li>
+</ul>
+</li>
+</ul>
+<p>We have calculated that the reorder point is 180, but has a 33% chance of stock out according to historical data. We should set a higher reorder point to reduce the chance of stock out.</p>
+<p><strong>WE minimize the <code>total cost = stock out cost + carry cost</code></strong></p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Calculate the Stock Out Cost </span>
+<span class="co"># As we raise the reorder point, the stock out cost will be reduced. </span>
+<span class="va">stock_outt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  reorder_point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">180</span>, <span class="fl">260</span>, <span class="fl">20</span><span class="op">)</span>, 
+  probability_stock_out <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.33</span>, <span class="fl">.19</span>, <span class="fl">.09</span>, <span class="fl">.03</span>, <span class="fl">.0</span><span class="op">)</span>, 
+  stockoutcost <span class="op">=</span> <span class="op">(</span><span class="va">orders_per_year</span> <span class="op">*</span> <span class="va">probability_stock_out</span><span class="op">)</span> <span class="op">*</span> <span class="va">stock_out_cost</span>
+<span class="op">)</span>
+<span class="va">stock_outt</span> <span class="op">%&gt;%</span> 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="right">reorder_point</th>
+<th align="right">probability_stock_out</th>
+<th align="right">stockoutcost</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">180</td>
+<td align="right">0.33</td>
+<td align="right">66</td>
+</tr>
+<tr class="even">
+<td align="right">200</td>
+<td align="right">0.19</td>
+<td align="right">38</td>
+</tr>
+<tr class="odd">
+<td align="right">220</td>
+<td align="right">0.09</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="right">240</td>
+<td align="right">0.03</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="right">260</td>
+<td align="right">0.00</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Calculate the Carry Cost </span>
+<span class="co"># As inventory increases, so does the carry cost </span>
+<span class="va">carry_costt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  reorder_point <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">180</span>, <span class="fl">260</span>, <span class="fl">20</span><span class="op">)</span>, 
+  <span class="co"># reorder point - average_lead_time_usage = safety stock level </span>
+  carrycost <span class="op">=</span> <span class="op">(</span><span class="op">(</span><span class="va">reorder_point</span> <span class="op">-</span> <span class="va">average_lead_time_usage</span><span class="op">)</span> <span class="op">*</span> <span class="va">price</span><span class="op">)</span> <span class="op">*</span> <span class="va">carry_cost</span>
+<span class="op">)</span> 
+<span class="va">carry_costt</span> <span class="op">%&gt;%</span> 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="right">reorder_point</th>
+<th align="right">carrycost</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">180</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">200</td>
+<td align="right">16</td>
+</tr>
+<tr class="odd">
+<td align="right">220</td>
+<td align="right">32</td>
+</tr>
+<tr class="even">
+<td align="right">240</td>
+<td align="right">48</td>
+</tr>
+<tr class="odd">
+<td align="right">260</td>
+<td align="right">64</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Choose the lowest total cost that minimizes the carry cost / stock out cost </span>
+<span class="va">stock_outt</span> <span class="op">%&gt;%</span> 
+  <span class="fu">left_join</span><span class="op">(</span><span class="va">carry_costt</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>totalcost <span class="op">=</span> <span class="va">stockoutcost</span> <span class="op">+</span> <span class="va">carrycost</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Joining, by = "reorder_point"</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="right">reorder_point</th>
+<th align="right">probability_stock_out</th>
+<th align="right">stockoutcost</th>
+<th align="right">carrycost</th>
+<th align="right">totalcost</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">180</td>
+<td align="right">0.33</td>
+<td align="right">66</td>
+<td align="right">0</td>
+<td align="right">66</td>
+</tr>
+<tr class="even">
+<td align="right">200</td>
+<td align="right">0.19</td>
+<td align="right">38</td>
+<td align="right">16</td>
+<td align="right">54</td>
+</tr>
+<tr class="odd">
+<td align="right">220</td>
+<td align="right">0.09</td>
+<td align="right">18</td>
+<td align="right">32</td>
+<td align="right">50</td>
+</tr>
+<tr class="even">
+<td align="right">240</td>
+<td align="right">0.03</td>
+<td align="right">6</td>
+<td align="right">48</td>
+<td align="right">54</td>
+</tr>
+<tr class="odd">
+<td align="right">260</td>
+<td align="right">0.00</td>
+<td align="right">0</td>
+<td align="right">64</td>
+<td align="right">64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="simulation-long-problem" class="section level2">
+<h2 class="hasAnchor">
+<a href="#simulation-long-problem" class="anchor"></a>Simulation (LONG PROBLEM)</h2>
+<p>Order cost == shipping: the extra cost associated with processing the order. - There is no carry cost if there is no inventory - If there is 0 units there is no stock out costs - If there is 0 units and we sell a unit there IS A stock out cost.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Simulation problem: start with no open orders</span>
+
+<span class="co"># $1/ Unit / Week on the ending balance </span>
+<span class="va">order_cost</span> <span class="op">=</span> <span class="fl">10</span> 
+
+<span class="co"># $3/ Unit/ Week </span>
+<span class="va">carry_cost</span> <span class="op">=</span> <span class="fl">1</span>
+
+<span class="va">stock_out_cost</span> <span class="op">=</span> <span class="fl">3</span>
+
+<span class="co"># Current stock Units </span>
+<span class="va">balance_on_hand</span> <span class="op">=</span> <span class="fl">12</span>
+
+<span class="co"># Reorder point </span>
+<span class="va">order_point</span> <span class="op">=</span> <span class="fl">7</span>
+
+<span class="co"># EOQ</span>
+<span class="va">order_quantity</span> <span class="op">=</span> <span class="fl">8</span> </code></pre></div>
+<p><strong>Lead time analysis</strong> - <em>the lead time is not constant</em></p>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Simulate the various lead times</span>
+<span class="va">lead_times</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  lead_time <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, 
+  lead_frequency <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">6</span>, <span class="fl">11</span>, <span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span>, 
+  <span class="co"># probability the lead time will be 1 week or 5 weeks.</span>
+  lead_probability <span class="op">=</span> <span class="va">lead_frequency</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">lead_frequency</span><span class="op">)</span>, 
+  lead_cdf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">lead_probability</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="va">lead_times</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">lead_time</span>, <span class="va">lead_cdf</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_percent.html">percent_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">'75% of all lead times were three weeks or less'</span><span class="op">)</span></code></pre></div>
+<p><img src="exam4-ops-online_files/figure-html/unnamed-chunk-18-1.png" width="700" style="display: block; margin: auto;"></p>
+<p><strong>Demand analysis</strong>: <em>Demand is not always constant</em></p>
+<ul>
+<li>Have we ever had a situation in which we sold zero units: once</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Historical data </span>
+<span class="va">demand_analysis</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  <span class="co"># Units sold in a given week </span>
+  demand_week <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">6</span>, 
+  demand_frequency <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">6</span>, <span class="fl">9</span>, <span class="fl">19</span>, <span class="fl">8</span>, <span class="fl">5</span>, <span class="fl">2</span><span class="op">)</span>, 
+  demand_probability <span class="op">=</span> <span class="va">demand_frequency</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">demand_frequency</span><span class="op">)</span>, 
+  demand_cdf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">demand_probability</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="va">demand_analysis</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">demand_week</span>, <span class="va">demand_cdf</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="fu"><a href="https://scales.r-lib.org/reference/label_percent.html">percent_format</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">'Probability three or more units\nsold in a given week is &lt;= 70%'</span>, 
+  x <span class="op">=</span> <span class="st">'Quantity demanded / week'</span>, y <span class="op">=</span> <span class="st">'Probability'</span><span class="op">)</span></code></pre></div>
+<p><img src="exam4-ops-online_files/figure-html/unnamed-chunk-19-1.png" width="700" style="display: block; margin: auto;"></p>
+<p><strong>Reorder point question</strong></p>
+<p>How many do we have on hand / on order</p>
+<ul>
+<li>
+<code>quantity on hand + quantity on order &lt;= Reorder Point</code>
+<ul>
+<li>Yes, place an order</li>
+<li>No, don’t place an order</li>
+</ul>
+</li>
+</ul>
+<p><strong>SIMULATION EXPLANATION</strong></p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Order point is 7: the point at which we need to order new product </span>
+<span class="co"># Starting quantity on hand is 12.</span>
+<span class="co"># Week one we do not need to order. </span>
+
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  week <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, 
+  <span class="co"># Randomly chosen lead time 1:5 weeks </span>
+  <span class="co"># LeadTimeRandom = hash function for choosing the lead time </span>
+  <span class="co"># Randomly chosen demand 0:6 units / week </span>
+  <span class="co"># DemandNumberRandom = hash function for choosing quantity demanded</span>
+  QuantityDemanded <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>,
+  <span class="co"># Starting quantity of 12 - 1 = 11 for week one </span>
+  QuantityOnHand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">11</span>, <span class="fl">8</span>, <span class="fl">6</span>, <span class="fl">2</span>, <span class="fl">0</span>, <span class="op">-</span><span class="fl">1</span>, <span class="fl">4</span>, <span class="fl">1</span>, <span class="fl">9</span>, <span class="fl">5</span><span class="op">)</span>,
+  <span class="co"># Order when TotalQuantity &lt;= 7</span>
+  QuantityOrdered <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">8</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">8</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, 
+  
+  <span class="co"># Lead time probability is used to determine how long the order is in transit</span>
+    <span class="co"># Could be a value 1:6. </span>
+          OnOrder <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">8</span>, <span class="fl">8</span>, <span class="fl">0</span>, <span class="fl">8</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, 
+  <span class="co"># Product is received two weeks later </span>
+  QuantityReceived <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">8</span>, <span class="fl">0</span>, <span class="fl">8</span>, <span class="fl">0</span><span class="op">)</span>,
+  TotalQuantity <span class="op">=</span> <span class="va">QuantityOnHand</span> <span class="op">+</span> <span class="va">QuantityOrdered</span> <span class="op">+</span> <span class="va">OnOrder</span>,
+  OrderCost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">QuantityOrdered</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="fl">10</span>, <span class="fl">0</span><span class="op">)</span>, 
+  <span class="co"># Carry cost is $1/ unit on ending balance </span>
+  CarryCost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">QuantityOnHand</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="va">QuantityOnHand</span> <span class="op">*</span> <span class="va">carry_cost</span>, <span class="fl">0</span><span class="op">)</span>, 
+  StockOutCost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">QuantityOnHand</span> <span class="op">&lt;</span> <span class="fl">0</span>, <span class="fl">3</span>, <span class="fl">0</span><span class="op">)</span>,
+  TotalCost <span class="op">=</span> <span class="va">OrderCost</span> <span class="op">+</span> <span class="va">StockOutCost</span> <span class="op">+</span> <span class="va">CarryCost</span>, 
+  CumulativeCost <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span><span class="va">TotalCost</span><span class="op">)</span>
+<span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; Rows: 10</span>
+<span class="co">#&gt; Columns: 12</span>
+<span class="co">#&gt; $ week             &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</span>
+<span class="co">#&gt; $ QuantityDemanded &lt;dbl&gt; 1, 3, 2, 4, 2, 1, 3, 3, 0, 4</span>
+<span class="co">#&gt; $ QuantityOnHand   &lt;dbl&gt; 11, 8, 6, 2, 0, -1, 4, 1, 9, 5</span>
+<span class="co">#&gt; $ QuantityOrdered  &lt;dbl&gt; 0, 0, 0, 8, 0, 0, 8, 0, 0, 0</span>
+<span class="co">#&gt; $ OnOrder          &lt;dbl&gt; 0, 0, 0, 0, 8, 8, 0, 8, 0, 0</span>
+<span class="co">#&gt; $ QuantityReceived &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 8, 0, 8, 0</span>
+<span class="co">#&gt; $ TotalQuantity    &lt;dbl&gt; 11, 8, 6, 10, 8, 7, 12, 9, 9, 5</span>
+<span class="co">#&gt; $ OrderCost        &lt;dbl&gt; 0, 0, 0, 10, 0, 0, 10, 0, 0, 0</span>
+<span class="co">#&gt; $ CarryCost        &lt;dbl&gt; 11, 8, 6, 2, 0, 0, 4, 1, 9, 5</span>
+<span class="co">#&gt; $ StockOutCost     &lt;dbl&gt; 0, 0, 0, 0, 0, 3, 0, 0, 0, 0</span>
+<span class="co">#&gt; $ TotalCost        &lt;dbl&gt; 11, 8, 6, 12, 0, 3, 14, 1, 9, 5</span>
+<span class="co">#&gt; $ CumulativeCost   &lt;dbl&gt; 11, 19, 25, 37, 37, 40, 54, 55, 64, 69</span></code></pre></div>
+<ul>
+<li>If the Total Quantity is less than or equal to 7, place an order.
+<ul>
+<li>The order will have a lead time based on the lead time analysis done</li>
+</ul>
+</li>
+</ul>
+<p>Purpose is to balance stock outs, reorder point, and carry costs to reduce the cumulative total cost of managing inventory.</p>
+<p><strong>End simulation</strong></p>
+</div>
 </div>
 <div id="materials-requirement-planning-mrp-video-mrp" class="section level1">
 <h1 class="hasAnchor">
 <a href="#materials-requirement-planning-mrp-video-mrp" class="anchor"></a>Materials Requirement Planning MRP (video: MRP)</h1>
+<ul>
+<li>MRP I: Material Requirements Planning</li>
+<li>MRP II: Manufacturing Resource Planning:
+<ul>
+<li>More comprehensive planning solution including labor, products, inputs, etc.</li>
+</ul>
+</li>
+</ul>
+<div id="mrp-assumptions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#mrp-assumptions" class="anchor"></a>MRP Assumptions</h2>
+<ul>
+<li>Assumes infinite capacity: meaning that you will figure out a way to correctly allocate resources.</li>
+<li>Fixed lead times: constant lead times</li>
+<li>Parts move in full batches: things will be delivered in full
+<ul>
+<li>Remember splitting or back filling a batch with partially completed parts can dramatically reduce lead times
+<ul>
+<li>Filling in idle spots</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="bill-of-materials" class="section level3">
+<h3 class="hasAnchor">
+<a href="#bill-of-materials" class="anchor"></a>Bill of materials</h3>
+<ul>
+<li>Independent demand: market demand - our finished good.</li>
+<li>Derived demand: the parts needed based on how many finished goods are sold.</li>
+</ul>
+</div>
+<div id="key-elements-materials-requirement-planning-mrp" class="section level3">
+<h3 class="hasAnchor">
+<a href="#key-elements-materials-requirement-planning-mrp" class="anchor"></a>Key elements Materials Requirement Planning (MRP)</h3>
+<p>We can build to the forecast or to actual order: (right) side is the market</p>
+<ul>
+<li>Primary input to MPS program are orders/ forecast.
+<ul>
+<li>Job Shop: build to order</li>
+<li>Mass Production: forecast</li>
+</ul>
+</li>
+<li>Inventory file (top) is what we have available to complete the orders
+<ul>
+<li>What needs to be ordered/ managed - resource planning</li>
+<li>Changes are happening all the time to meet demand/ manage costs (carry, order, stock out costs).</li>
+</ul>
+</li>
+<li>Bill of materials (bottom): what is needed to complete the finished goods
+<ul>
+<li>List of requirements</li>
+<li>Engineering changes - the improvements made over time (product cycle)</li>
+</ul>
+</li>
+<li>Primary output (Right): tells purchasing what we need to buy to meet the needs of the (MPS) Master production schedule
+<ul>
+<li>Work orders: what is built internally as part of the BOM</li>
+<li>Purchase orders: purchases from outside vendors (raw materials).</li>
+<li>MPS changes: feedback loop to meet the needs of the market</li>
+</ul>
+</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">nomnoml</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/nomnoml/man/nomnoml.html">nomnoml</a></span><span class="op">(</span>
+  <span class="st">"# direction: right
+[inventory changes] --&gt; [inventory file]
+[inventory file] --&gt; [mrp program]
+
+[mps] --&gt; [mrp program]
+[bill of material] --&gt; [mrp program]
+[engineer changes] --&gt; [bill of material] 
+[mrp program] --&gt; [work orders]
+[mrp program] --&gt; [mps change]
+[mrp program] --&gt; [purchase orders]
+
+[orders] --&gt; [mps]
+[forecast] --&gt; [mps]
+"</span><span class="op">)</span></code></pre></div>
+<div id="htmlwidget-9930c02be6baa021d519" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9930c02be6baa021d519">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n# direction: right\n[inventory changes] --> [inventory file]\n[inventory file] --> [mrp program]\n\n[mps] --> [mrp program]\n[bill of material] --> [mrp program]\n[engineer changes] --> [bill of material] \n[mrp program] --> [work orders]\n[mrp program] --> [mps change]\n[mrp program] --> [purchase orders]\n\n[orders] --> [mps]\n[forecast] --> [mps]\n","svg":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="bills-of-materials" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bills-of-materials" class="anchor"></a>Bills of Materials</h2>
+<ul>
+<li>Single level Bill: Shows each part individually required to build a finished good.</li>
+<li>Indented Bill of Material: More descriptive, shows how all the materials to build the finished good</li>
+<li>Summarized Bill of material: summarizes the total number of parts required</li>
+<li>Where Used Bill of material: shows the heirarchy of where all sub-parts are used to make the parent part.</li>
+</ul>
+</div>
+<div id="mrp-schedule" class="section level2">
+<h2 class="hasAnchor">
+<a href="#mrp-schedule" class="anchor"></a>MRP Schedule</h2>
+<p>Parts and there respective lead times.</p>
+<ul>
+<li>
+<strong>Time Phased MRP Record</strong>:
+<ul>
+<li>Start with the sub-assemblies, and order parts as needed so they arrive at the same time.</li>
+<li>As soon as the sub-assembles are built, we can start the finished product.</li>
+<li>We can shrink the lead times and total time to completion by building things concurrently <strong>OR</strong> as they are completed.</li>
+<li>We can also speed up the process by purchasing goods from outside vendors when possible to free resources internally.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="just-in-time-schedule" class="section level2">
+<h2 class="hasAnchor">
+<a href="#just-in-time-schedule" class="anchor"></a>Just In Time Schedule</h2>
+<p>We order goods for when they are needed based on requirement for sub-assemblies and the lead time.</p>
+</div>
+<div id="example-mrp-scheduling-problem" class="section level2">
+<h2 class="hasAnchor">
+<a href="#example-mrp-scheduling-problem" class="anchor"></a>Example MRP scheduling problem</h2>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">nomnoml</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/nomnoml/man/nomnoml.html">nomnoml</a></span><span class="op">(</span><span class="st">'
+# direction:down
+[a]
+[a] --&gt; [C]
+[a] --&gt; [b(2)]
+[b(2)] --&gt; [c]
+'</span><span class="op">)</span></code></pre></div>
+<div id="htmlwidget-ea7f15d2f1b148167cce" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ea7f15d2f1b148167cce">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n# direction:down\n[a]\n[a] --> [C]\n[a] --> [b(2)]\n[b(2)] --> [c]\n","svg":false},"evals":[],"jsHooks":[]}</script><p>What is the projected available balance in week number 1?</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Batch Size when placing orders </span>
+<span class="va">q</span> <span class="op">=</span> <span class="fl">20</span>
+<span class="co"># Lead time </span>
+<span class="va">lead_time</span> <span class="op">=</span> <span class="fl">1</span>
+<span class="co"># Safety Stock </span>
+<span class="va">safety_stock</span> <span class="op">=</span> <span class="fl">0</span>
+<span class="co"># Starting balance </span>
+<span class="va">starting_balance</span> <span class="op">=</span> <span class="fl">21</span> 
+
+<span class="co"># Work problem </span>
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  product <span class="op">=</span> <span class="st">'parta'</span>,
+  week <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, 
+  <span class="co"># Given part of the problem </span>
+  gross_requirements <span class="op">=</span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">15</span>, <span class="fl">18</span>, <span class="fl">8</span>, <span class="fl">12</span>, <span class="fl">22</span><span class="op">)</span>,
+  <span class="co"># Starting balance (21) - gross requirements </span>
+  ProjectedAvailableBalance <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">16</span>, <span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">15</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span>, 
+  <span class="co"># Need to cover the gross requirements for the subsequent week </span>
+  PlannedOrder <span class="op">=</span>              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">20</span>, <span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">0</span><span class="op">)</span>,
+  <span class="co"># One week lead time stated in problem </span>
+  ScheduledReceived <span class="op">=</span>         <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">20</span>, <span class="fl">0</span>, <span class="fl">20</span><span class="op">)</span>
+<span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="8%">
+<col width="5%">
+<col width="21%">
+<col width="29%">
+<col width="14%">
+<col width="20%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">product</th>
+<th align="right">week</th>
+<th align="right">gross_requirements</th>
+<th align="right">ProjectedAvailableBalance</th>
+<th align="right">PlannedOrder</th>
+<th align="right">ScheduledReceived</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">parta</td>
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">16</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">parta</td>
+<td align="right">2</td>
+<td align="right">15</td>
+<td align="right">1</td>
+<td align="right">20</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">parta</td>
+<td align="right">3</td>
+<td align="right">18</td>
+<td align="right">3</td>
+<td align="right">20</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">parta</td>
+<td align="right">4</td>
+<td align="right">8</td>
+<td align="right">15</td>
+<td align="right">0</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">parta</td>
+<td align="right">5</td>
+<td align="right">12</td>
+<td align="right">3</td>
+<td align="right">20</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">parta</td>
+<td align="right">6</td>
+<td align="right">22</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">20</td>
+</tr>
+</tbody>
+</table>
+<p>If we want to reduce the number of stock outs, we can increase the quantity ordered.</p>
+<p>We calculate the gross requirements for sub-assembly b by looking at the planned orders for product a.</p>
+<ul>
+<li>Sub-assemblies are derived demand from the finished product. We only need to build sub-assemblies when product a is ordered.
+<ul>
+<li>Planned order in week 2, 3, and 5 will have gross requirements of:</li>
+</ul>
+</li>
+</ul>
+<p><code>b requirements 20 (planned order a) * 2 (each a requires two b sub-assemblies)</code></p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Batch size 40 </span>
+<span class="va">q</span> <span class="op">=</span> <span class="fl">40</span> 
+<span class="co"># Two week lead timie </span>
+<span class="va">lead_time</span> <span class="op">=</span> <span class="fl">2</span> 
+
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  product <span class="op">=</span> <span class="st">'partb'</span>,
+  week <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, 
+  <span class="co"># Calculated by looking at the Planned order field. </span>
+  gross_requirements <span class="op">=</span>        <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">40</span>, <span class="fl">40</span>, <span class="fl">0</span>, <span class="fl">40</span>, <span class="fl">0</span><span class="op">)</span>,
+  <span class="co"># Starting balance (20) + scheduled to receive 32 in first week &amp; 0 gross req.</span>
+  ProjectedAvailableBalance <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">52</span>, <span class="fl">12</span>, <span class="fl">12</span>, <span class="fl">12</span>, <span class="fl">12</span>, <span class="fl">12</span><span class="op">)</span>, 
+  <span class="co"># Need to cover the gross requirements for the subsequent week </span>
+  PlannedOrder <span class="op">=</span>              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">0</span>, <span class="fl">40</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,
+  <span class="co"># Two week lead time stated in problem </span>
+  ScheduledReceived <span class="op">=</span>         <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">32</span>, <span class="fl">0</span>, <span class="fl">40</span>, <span class="fl">0</span>, <span class="fl">40</span>, <span class="fl">0</span><span class="op">)</span>
+<span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="8%">
+<col width="5%">
+<col width="21%">
+<col width="29%">
+<col width="14%">
+<col width="20%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">product</th>
+<th align="right">week</th>
+<th align="right">gross_requirements</th>
+<th align="right">ProjectedAvailableBalance</th>
+<th align="right">PlannedOrder</th>
+<th align="right">ScheduledReceived</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">partb</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">52</td>
+<td align="right">40</td>
+<td align="right">32</td>
+</tr>
+<tr class="even">
+<td align="left">partb</td>
+<td align="right">2</td>
+<td align="right">40</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">partb</td>
+<td align="right">3</td>
+<td align="right">40</td>
+<td align="right">12</td>
+<td align="right">40</td>
+<td align="right">40</td>
+</tr>
+<tr class="even">
+<td align="left">partb</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">partb</td>
+<td align="right">5</td>
+<td align="right">40</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">40</td>
+</tr>
+<tr class="even">
+<td align="left">partb</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>Part c: to get the gross requirements - multiply the planned order releases for part a and c by 1..</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Lot for lot: order what is required </span>
+<span class="va">q</span> <span class="op">=</span> <span class="st">'LotForLot'</span>
+<span class="co"># One week lead time </span>
+<span class="va">lead_time</span> <span class="op">=</span> <span class="fl">1</span>
+<span class="co"># Maintain safety stock of 10: Add 10 to gross_requirements </span>
+<span class="va">a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">20</span>, <span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">0</span><span class="op">)</span>
+<span class="va">b</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">0</span>, <span class="fl">40</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>
+<span class="va">c_gross_requirements</span>  <span class="op">=</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span>
+
+<span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>
+  product <span class="op">=</span> <span class="st">'partc'</span>,
+  week <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, 
+  <span class="co"># Calculated by looking at the Planned order field. </span>
+  gross_requirements <span class="op">=</span>  <span class="va">c_gross_requirements</span>, <span class="co"># 40, 20, 60, 0, 20, 0</span>
+  <span class="co"># Starting balance (50) + scheduled to receive 32 in first week &amp; 0 gross req.</span>
+  ProjectedAvailableBalance <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">10</span><span class="op">)</span>, 
+  <span class="co"># Need to cover the gross requirements for the subsequent week </span>
+  PlannedOrder <span class="op">=</span>              <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">60</span>, <span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>,
+  <span class="co"># Two week lead time stated in problem </span>
+  ScheduledReceived <span class="op">=</span>         <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">60</span>, <span class="fl">0</span>, <span class="fl">20</span>, <span class="fl">0</span><span class="op">)</span>
+<span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="8%">
+<col width="5%">
+<col width="21%">
+<col width="29%">
+<col width="14%">
+<col width="20%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">product</th>
+<th align="right">week</th>
+<th align="right">gross_requirements</th>
+<th align="right">ProjectedAvailableBalance</th>
+<th align="right">PlannedOrder</th>
+<th align="right">ScheduledReceived</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">partc</td>
+<td align="right">1</td>
+<td align="right">40</td>
+<td align="right">10</td>
+<td align="right">20</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">partc</td>
+<td align="right">2</td>
+<td align="right">20</td>
+<td align="right">10</td>
+<td align="right">60</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">partc</td>
+<td align="right">3</td>
+<td align="right">60</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">60</td>
+</tr>
+<tr class="even">
+<td align="left">partc</td>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">20</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">partc</td>
+<td align="right">5</td>
+<td align="right">20</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">20</td>
+</tr>
+<tr class="even">
+<td align="left">partc</td>
+<td align="right">6</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+<p>The gross requirements are given for product zero.</p>
+</div>
 </div>
   </div>
 
