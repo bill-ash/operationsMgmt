@@ -2,7 +2,7 @@
 title: "Homework Examples"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{operationsMgmt}
+  %\VignetteIndexEntry{Homework Examples}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -154,9 +154,3 @@ solution
 
 
 Maximization of profit or minimization of costs. 
-
-
-# Homework 1 (beppart2homework)
-
-The homework assignment. 
-

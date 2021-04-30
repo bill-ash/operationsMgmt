@@ -974,3 +974,41 @@ tibble(
 ```
 
 The gross requirements are given for product zero. 
+
+
+
+# The Goal 
+
+- Alex: Main character Manager of Plant  
+- Jonah: Professor 
+- Throughput = Total Revenue - Raw Materials 
+- Inventory 
+- Operating Expense = All Costs Except Raw Materials 
+- Drum - Buffer - Rope 
+
+
+- To Make Money: 
+  - Throughput up: selling price - raw materials cost 
+  - Inventory down 
+  - Operating expenses go down 
+  
+  
+- Look at the effect on 
+  - Throughput 
+  - Inventory 
+  - Expenses 
+  
+Think about how each process effects the other and look for the 
+bottleneck (Herby).
+
+- The group as a whole will never move faster than the slowest 
+component. 
+
+- Inventory management 
+- Manage orders 
+- Output of the plant is limited to the bottleneck 
+  - Reduce capacity in other places to make the bottle neck run 24/7
+  
+- Constraint moves to the market 
+
+Process of ongoing improvement  

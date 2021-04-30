@@ -1,0 +1,98 @@
+---
+title: "MGMT-3453-X20: Homework 2"
+author: "Bill Ash (5555WRA)"
+date: "2/2/2021"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  out.width = "250px",
+  out.height = "250px",
+  fig.align = 'center')
+library(tidyverse)
+```
+
+```{r packages, eval=FALSE}
+library(tidyverse)
+```
+
+
+# Problem 4 
+
+```{r echo=FALSE}
+knitr::include_graphics('../homework_files/problem4.png')
+```
+
+
+
+```{r}
+# Memphis - increase system tansit cost 50,000
+m_fixed_cost = 1400000
+# $10/ unit 
+m_variable_cost = 10
+
+#  Biloxi - increase system tansit cost 60,000
+bx_fixed_cost = 1940000
+# $6/unit
+bx_variable_cost  = 6
+
+#  Birmingham - increase system tansit cost 25,000
+b_fixed_cost = 1100000
+# $20/unit
+b_variable_cost = 20
+
+annual_volume = 60000
+```
+
+Break-Even Analysis
+
+`TotalCost = FixedCost + (VariableCost * AnnualUsage)`
+
+```{r}
+# Indifference point 
+#(m_fixed_cost + 50000) + (m_variable_cost) * x = (b_fixed_cost + 50000) + (b_variable_cost) * x 
+
+
+
+tibble::tibble(
+  location = c('memphis', 'biloxi', 'birmingham'), 
+  fixed_cost = c(1400000 + 50000, 1940000 + 60000, 1100000 + 25000), 
+  variable_cost = c(10, 6, 20), 
+) %>%  
+  group_split(location) %>% 
+  map_df(~ bind_cols(., tibble(amount = 1:5000))) %>% 
+  mutate(total_cost = fixed_cost + variable_cost * amount) %>% 
+  ggplot(aes(amount, total_cost, color = location)) + 
+  geom_line() + 
+  scale_y_continuous(labels = scales::comma_format()) + 
+  theme(legend.position = 'bottom')
+```
+
+
+
+
+
+# Problem 5
+
+```{r echo=FALSE}
+knitr::include_graphics('../homework_files/problem5.png')
+```
+
+# Problem 6
+
+```{r echo=FALSE}
+knitr::include_graphics('../homework_files/problem6.png')
+knitr::include_graphics('../homework_files/problem6.1.png')
+```
+
+# Problem 7
+
+```{r echo=FALSE}
+knitr::include_graphics('../homework_files/problem7.png')
+```
+

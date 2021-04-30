@@ -19,7 +19,7 @@ theme_set(theme_light())
 ```
 
 
-# Work Measurement (video: workmeasurement)
+# Work Measurement 
 
 Knowing how long a project or task will take to complete. 
 
@@ -112,10 +112,13 @@ market.
 take into consideration quality ** 
 
 
-# Project Evaluation Review Technique (PERT) Critical Path Method (CPM) (pert)
+# Project Management (PERT) (CPM)
 
-Project management: tools are very similar to one another - essentialy the
-same used to manage Projects.
+- Project Evaluation Review Technique (PERT) 
+- Critical Path Method (CPM) 
+
+- Project management: tools are very similar to one another 
+  - essentially the same used to manage Projects.
 
 Project types: 
 
@@ -176,7 +179,7 @@ Generally minimum time units are hours.
 
 # Most optimistic time 
 a=4
-# Most pesimistic time 
+# Most pessimistic time 
 b = 10
 # Best guess 
 m = 7 
@@ -186,10 +189,10 @@ TimeEstimate = (a + 4*m + b) / 6
 
 Critical path is based on the normal distribution.
 
-Central limit theorem - as the sample size increase, the distibution will look 
+Central limit theorem - as the sample size increase, the distribution will look 
 like the normal distribution. 
 
-Critical path is the longest route to completing the proejct - the activity or 
+Critical path is the longest route to completing the project - the activity or 
 objective that will require the most attention. 
 
 A - since it is the only beginning event, it must be on the critical path. 
@@ -198,7 +201,7 @@ K - since it is the only ending event, it must be on the critical path.
 
 Nodes 
 
-te time estimate for each point 
+The time estimate for each point 
 
 EF (TE): Expected completion for that particular point in the project - when will 
 I expect to be at various specific points throughout the project. 
@@ -267,7 +270,7 @@ Things with more critical paths will be more vulnerable to delaying the project.
 - It is rare that a project will have more than one critical path in reality
 
 
-# Linear Programming (video: linearprogrammingops)
+# Linear Programming 
 
 - Decision Making Under Certainty: value are known and there is no variation 
 - Objectives: goals (objective functions- maximization, loss functions) 
@@ -386,7 +389,7 @@ f.products <- c(A, B, C)
 f.constraints <- matrix(
   c(mill_constraint, inspect_constraint, drill_constraint), nrow = 3, byrow = TRUE
 )
-# Constraints will always be <= for maximazation 
+# Constraints will always be <= for maximization 
 f.direction <- c('<=', '<=', '<=')
 # Capacity per department 
 f.capacity <- c(1200, 900, 1440)
@@ -453,7 +456,7 @@ capacity_calorie = 3600
 min_calorie = 1800 
 ```
 
-Solving the promblem: 
+Solving the problem: 
 
 ```{r}
 library(lpSolve)
@@ -526,7 +529,7 @@ milling = c(8, 2, 3)
 lathe = c(4, 3, 0)
 # grinder 2X1 + 0X2 + 1X3 <= 320
 grinder = c(2, 0, 1)
-# x3_produxtion 0X1 + 0X2 + 1X3 <= 80
+# x3_production 0X1 + 0X2 + 1X3 <= 80
 x3_production = c(0, 0, 1)
 ```
 
@@ -642,13 +645,14 @@ of all inputs `=` to four.
 |     `A + B + C + D = 4` 
 
 
-# Product Inventory Control (video: productinventorycontrol)
+# Product Inventory Control 
 
 Coordination of activities around producing a product (carrying inventory). 
 
 Someone has to coordinate the flow of product and the transformation from 
-raw material, to work in process, to a final produt. Raw materials get through 
-the supply chain to where they are supposed to be and consumed by the end customer. 
+raw material, to work in process, to a final product. Raw materials get through 
+the supply chain to where they are supposed to be and consumed by the 
+end customer. 
 
 
 ## Primary activities: 
@@ -660,7 +664,7 @@ the supply chain to where they are supposed to be and consumed by the end custom
 - Master Production Scheduling (MPS)
 - Dispatching: order release, when activities take place 
 - Follow-up or expediting (customer success): relay information to end customer 
-enquiry as to the status of the order are answered by this individual 
+inquiry as to the status of the order are answered by this individual 
 
 
 ## MPS
@@ -703,7 +707,7 @@ get to the next station, you may or may not have batches that move in full.
 
 ## Two Major functions Production Control 
 
-1. Master Production Schedule (MPS) Scheduling people, reseources 
+1. Master Production Schedule (MPS) Scheduling people, resources 
 - More short term (year or less generally)
 
 2. Planning: more long term
@@ -724,13 +728,13 @@ Relationship between sales and marketing
 Designers of products. 
 - Make new products
 - Features 
-- Constantly looking to imporve and change the quality of the product
+- Constantly looking to improve and change the quality of the product
 - Disrupts the production flow and can create conflict 
 
 ### Human Resources HR 
 
 Dealing with people and insurance and training
-- Communicate personell needs to hr department - need to higher the right people. 
+- Communicate personnel needs to hr department - need to higher the right people. 
 
 
 **Move from production control to inventory control.**
@@ -745,7 +749,7 @@ ordering parts and equipment.
 - Purchasing communicate material needs to purchasing 
 - What are the needs for the product: 
   - What: what the product is 
-  - How many: quanityt
+  - How many: quantity
   - When: just in time 
   
 ### Bill of material (BOM)
@@ -781,7 +785,7 @@ Will usually come as a report instead of a graphic with a:
 
 - Sub assembly: sub part of the main product being manufactured. Will have their 
 own Bill of Materials meaning they are comprised of purchased materials that are 
-assembled/ manufacutrered in house and used in the production of a final product. 
+assembled/ manufactured in house and used in the production of a final product. 
   - Sub assembly is derived demand from the finished product ie: the greater the 
   demand for the final product, the more sub assemblies we need to purchase or 
   produce.
@@ -789,7 +793,7 @@ assembled/ manufacutrered in house and used in the production of a final product
 ## Demand 
 
 - Independent - finished products 
-- Dependent (derived): raw matierals, sub assemblies, components. 
+- Dependent (derived): raw materials, sub assemblies, components. 
   - Level 1, 2, and 3 products 
   
 ## Classifying inventory 
@@ -869,7 +873,7 @@ of raw material).
   - primarily focus on transportation costs 
   - shipping costs have a huge impact on order costs 
 - Carry costs (holding): 
-  - storage - opportunity cost of the stroage area 
+  - storage - opportunity cost of the storage area 
   - payroll - correlated with the amount of inventory 
   - Depreciation - market value 
   - Insurance - *should* have insurance 

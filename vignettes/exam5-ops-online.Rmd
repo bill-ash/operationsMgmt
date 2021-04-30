@@ -21,3 +21,131 @@ theme_set(theme_light())
 
 # Just in Time 
 
+JIT 
+TQM: total quality management  
+TOC: theory of constraints 
+
+- Smaller more frequent shipments - toyota production system 
+  - Elimination of waste 
+  - Time is most precious resource 
+  - energy 
+  - supplies 
+  - errors are a waste: design systems that are fail safe 
+  - inventory: reduce inventory to level that is needed 
+  
+Japanese consider inventory a waste Dr. Ohono 
+
+
+- Stockless production: reduce inventory wherever possible 
+- Pull production system: pulls in inventory WIP when the worker is ready for 
+new work. 
+  - Push system: go as fast as you can 
+- Kan ban: Signal from one worker to the next that they are ready for more material 
+
+1. Reduce batch sizes 
+2. Reduction of all inventory 
+3. Production schedules that level capacity 
+4. Visual control systems 
+5. Direct ties with vendors 
+6. Reduce eliminate setup time 
+7. Focus on continuous improvement 
+
+
+# 14 Points 
+
+America in the Global Market 
+
+Demming method of quality - professor TQM 
+
+Competitiveness is not what it should be. 
+
+We got what we wanted - the reason we are 
+
+- The American system of industrial production - Mechanical efficiency 
+- People not machines 
+- Production line 
+- Motion study expert - break big jobs into little jobs. 
+  - Mechanical efficiency 
+  
+- Ford >> Bombers 
+- Every industrial nation was hampered by WWII 
+- Endure the unendurable - suffer the insufferable 
+
+American domestic market used to be the largest market 
+- More educated than rest of world 
+- Managers were more successful 
+- Statistical quality control 
+- Enormous demand - only concern for output no reason to innovate 
+- Never innovated - never developed new solutions 
+
+- The solution to any problem will lead to another problem 
+  - Necessary to continuously improve. 
+  
+- Politics is too concerned with votes and popularity
+- Protectionism will lead to inflation and recession 
+
+- Reduce the international trade deficit 
+
+
+## The 14 points part 1 
+
+Loyd Dawbins 
+
+Basic changes 
+
+TQM Total quality management 
+We have met the ene
+- Make change - payoffs will take time 5-10 years long term 
+- Better quality and lower costs 
+- Can only be done by top management - management is super important 
+- Standard of living is improved
+
+1. Constancy of purpose: Innovation - look into the future- requires long term 
+vision 
+2. Adopt a new philosophy: quality is made in the board room - specialized 
+knowledge 
+3. Cease dependence on mass inspection: focus on producing quality parts rather 
+than inspecting poorly made products 
+4. Cease doing business on price tag: Make long term relationships with vendors 
+5. Continual improvement of processes: don't find what's wrong, fix it 
+6. Training and retraining: management and people/ labor. Everyone is a customer 
+7. Improvement of leadership
+
+The firm of tomorrow will need to create a community for itself 
+
+9. Staff areas must work together - to drive out fear 
+10. Get rid 
+11. 
+12. 
+13.
+14. 
+
+
+After WWII made in USA was a big part of success 
+
+
+
+# Jim Sinegal 
+
+Costco: founded by Jim Sinegal 
+
+- Company that's on a first name basis 
+- Working class values for corporate culture 
+- 4th largest retailer (8 countries) 
+- Caskets - painting Picasso 
+- Only sells 4000 items of better quality 
+- Make it up on volume 
+- Largest seller of fine wine
+- Often managing from the road and will visit up to 12 stores 
+- Lowest employee turnover with better pay and benefits 
+- Promote from within 
+- Doesn't spend anything on advertising/ or PR 
+- Pay high wages 
+- Keep it simple treat your customer like guests 
+
+
+
+# HP 
+
+- Stopless production 
+  - Pull production 

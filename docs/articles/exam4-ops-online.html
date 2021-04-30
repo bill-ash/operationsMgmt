@@ -63,19 +63,19 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/exam1-ops-online.html">Exam 1</a>
+    </li>
+    <li>
+      <a href="../articles/exam2-ops-online.html">Exam 2</a>
+    </li>
+    <li>
       <a href="../articles/exam3-ops-online.html">Exam 3</a>
     </li>
     <li>
       <a href="../articles/exam4-ops-online.html">Exam 4</a>
     </li>
     <li>
-      <a href="../articles/week-1-ops-online.html">Week 1</a>
-    </li>
-    <li>
-      <a href="../articles/week-2-ops-online.html">Week 2</a>
-    </li>
-    <li>
-      <a href="../articles/week-3-ops-online.html">Week 3</a>
+      <a href="../articles/exam5-ops-online.html">Exam 5</a>
     </li>
   </ul>
 </li>
@@ -1268,8 +1268,8 @@ Available To Promise = 32</code></pre>
 </ul>
 </li>
 </ul>
-<div id="htmlwidget-8b4a499583ec74f3bb73" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8b4a499583ec74f3bb73">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n# direction: right\n[inventory changes] --> [inventory file]\n[inventory file] --> [mrp program]\n\n[mps] --> [mrp program]\n[bill of material] --> [mrp program]\n[engineer changes] --> [bill of material] \n[mrp program] --> [work orders]\n[mrp program] --> [mps change]\n[mrp program] --> [purchase orders]\n\n[orders] --> [mps]\n[forecast] --> [mps]\n","svg":false},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-99ef81ed639b65a255f5" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-99ef81ed639b65a255f5">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n# direction: right\n[inventory changes] --> [inventory file]\n[inventory file] --> [mrp program]\n\n[mps] --> [mrp program]\n[bill of material] --> [mrp program]\n[engineer changes] --> [bill of material] \n[mrp program] --> [work orders]\n[mrp program] --> [mps change]\n[mrp program] --> [purchase orders]\n\n[orders] --> [mps]\n[forecast] --> [mps]\n","svg":false},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="bills-of-materials" class="section level2">
@@ -1306,8 +1306,8 @@ Available To Promise = 32</code></pre>
 <div id="example-mrp-scheduling-problem" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example-mrp-scheduling-problem" class="anchor"></a>Example MRP scheduling problem</h2>
-<div id="htmlwidget-3d72d02852a4d32f966b" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3d72d02852a4d32f966b">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n# direction:down\n[a]\n[a] --> [C]\n[a] --> [b(2)]\n[b(2)] --> [c]\n","svg":false},"evals":[],"jsHooks":[]}</script><p>What is the projected available balance in week number 1?</p>
+<div id="htmlwidget-bc0a4081d43d1ebf102f" style="width:700px;height:432.632880098888px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bc0a4081d43d1ebf102f">{"x":{"code":"\n#fill: #FEFEFF\n#lineWidth: 1\n#zoom: 4\n#direction: right\n\n\n# direction:down\n[a]\n[a] --> [C]\n[a] --> [b(2)]\n[b(2)] --> [c]\n","svg":false},"evals":[],"jsHooks":[]}</script><p>What is the projected available balance in week number 1?</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Batch Size when placing orders </span>
 <span class="va">q</span> <span class="op">=</span> <span class="fl">20</span>
@@ -1591,6 +1591,48 @@ Available To Promise = 32</code></pre>
 </table>
 <p>The gross requirements are given for product zero.</p>
 </div>
+</div>
+<div id="the-goal" class="section level1">
+<h1 class="hasAnchor">
+<a href="#the-goal" class="anchor"></a>The Goal</h1>
+<ul>
+<li><p>Alex: Main character Manager of Plant<br></p></li>
+<li><p>Jonah: Professor</p></li>
+<li><p>Throughput = Total Revenue - Raw Materials</p></li>
+<li><p>Inventory</p></li>
+<li><p>Operating Expense = All Costs Except Raw Materials</p></li>
+<li><p>Drum - Buffer - Rope</p></li>
+<li>
+<p>To Make Money:</p>
+<ul>
+<li>Throughput up: selling price - raw materials cost</li>
+<li>Inventory down</li>
+<li>Operating expenses go down</li>
+</ul>
+</li>
+<li>
+<p>Look at the effect on</p>
+<ul>
+<li>Throughput</li>
+<li>Inventory</li>
+<li>Expenses</li>
+</ul>
+</li>
+</ul>
+<p>Think about how each process effects the other and look for the bottleneck (Herby).</p>
+<ul>
+<li><p>The group as a whole will never move faster than the slowest component.</p></li>
+<li><p>Inventory management</p></li>
+<li><p>Manage orders</p></li>
+<li>
+<p>Output of the plant is limited to the bottleneck</p>
+<ul>
+<li>Reduce capacity in other places to make the bottle neck run 24/7</li>
+</ul>
+</li>
+<li><p>Constraint moves to the market</p></li>
+</ul>
+<p>Process of ongoing improvement</p>
 </div>
   </div>
 

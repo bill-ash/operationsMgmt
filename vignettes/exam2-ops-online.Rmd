@@ -1,8 +1,8 @@
 ---
-title: "Week 3"
+title: "Exam 2"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Week 3}
+  %\VignetteIndexEntry{Exam 2}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -25,17 +25,16 @@ theme_set(theme_light())
 ```
 
 
-# Capacity (capacity)
+# Capacity 
 
-Design capacity - what the product/ process designed to preform at in 
+Design capacity: what the product/ process designed to preform at in 
 ideal conditions. 
 
-Effective capacity - what is the real world operating conditions where the
+Effective capacity: what is the real world operating conditions where the
 process/design/product is profitable. 
 
 - Normal operating conditions 
-
-Actual capacity - what is the output that occurs. 
+- Actual capacity: what is the output that occurs. 
 
 ## Measurement 
 
@@ -44,10 +43,11 @@ Cost world: more traditional cost accounting based equations
 - Don't use these equations (alone) to measure the effectiveness or value of
 an employee or process. 
 
-efficiency = actual output / effective capacity (normal operating conditions) 
-utilization = actual output / design capacity 
+`efficiency = actual output / effective capacity (normal operating conditions)` 
 
-Utilization - percent of machine being used output / (max designed output)
+Utilization: percent of machine being used output / (max designed output)
+
+`utilization = actual output / design capacity`
 
 - Does not take into consideration quality. 
 - No quality and assurance component. 
@@ -66,8 +66,8 @@ Build inventory counter cyclically to demand or match inputs with demand
 
 - Turn on extra capacity to meet demand (overtime)
 - Risks: 
-- Carry costs for inventory 
-- Selling unsold inventory - might sell at a loss if not able to meet demand
+  - Carry costs for inventory 
+  - Selling unsold inventory - might sell at a loss if not able to meet demand
 
 
 ## Capacity Planning 
@@ -76,10 +76,10 @@ Build inventory counter cyclically to demand or match inputs with demand
 ## Aggregate Planning 
 
 
-## MAster Production schedule 
+## Master Production schedule 
 
 - What, how, and when are we going to produce different products 
-- Done continiously and planned for weeks or month 
+- Done continuously and planned for weeks or month 
 
 ## Factors for determining capacity 
 
@@ -90,7 +90,7 @@ Build inventory counter cyclically to demand or match inputs with demand
 - Material - customers: raw materials or people 
 - Resources: people machines 
 
-Mapping out how resources flow through the desgin process 
+Mapping out how resources flow through the design process 
 
 
 ## Theory of Constraints 
@@ -120,13 +120,16 @@ The time for each operation is not the same
 - The design takes the sum of all operations 
 - Buffer will be less as the time in operation takes longer 
 
-### Identifyign bottle necks (herby) 
+### Identifyign bottle necks (Herby) 
 
 [6] -> [4]
+
 - Will have no or low buffer because the last station will wait for the 
 first station to complete work 
 
-[4] -> [6] Will need a higher buffer because the second station will not 
+[4] -> [6] 
+
+- Will need a higher buffer because the second station will not 
 complete work as quickly as the first. 
 
 Dealing with bottle necks: 
@@ -137,78 +140,83 @@ Dealing with bottle necks:
 the entire work flow. 
 - Off-load or outsource the bottle neck (add resources/ capacity)
 
-Drum: bottle neck - constrain - herby 
+Drum: bottle neck - constrain - Hereby 
 
 - Get everyone to move at the same pace scheduling is controlled by the 
 bottleneck. 
 
-### Statistics - dependence/ independence 
+### Statistics dependence/ independence 
 
-Depndence - How each operation is dependedt on the preceeding operation in 
-supply chaing management 
-Independence - the operation is not related or dependent on another operaiton
+- Dependence: How each operation is dependent on the preceding operation in 
+supply chain management 
 
-TOC Approach to shceduling 
+Independence: the operation is not related or dependent on another operation
 
-plant WIP = sum(qtyinbuffers)
+TOC Approach to scheduling 
+
+`plant WIP = sum(qtyinbuffers)`
 
 What is measured output is what is delivered at the last workstation at the 
 end of the measurement period. 
 
-Work in process is the sum of all the work in process. 
-
-Work in process will go up over time and the promised delevires will fall 
-behind - driven by the weakest link. 
+- Work in process is the sum of all the work in process. 
+- Work in process will go up over time and the promised delivery will fall 
+behind
+  - driven by the weakest link. 
 
 ### Improve a production line 
 
 Input: 
 
-[6] [4] [7] [10] [8]
+`[6] [4] [7] [10] [8]`
 
-Product cost = labor + resources + over head 
+`Product cost = labor + resources + over head`
+
 - Cut the amount of labor and removed some costs 
 - Has the actual labor cost actually gone down? Traditional sense yes - 
 real work no. 
-
 - Traditional cost world ignores that the system can only move as fast as 
 slowest operation. 
 
 
-We will only real save time by reduing the bottle neck in the real world. 
-[7] [6] [7] [9] [8] 
+We will only real save time by reducing the bottle neck in the real world. 
 
-- minus one from the bottle neck 
+`[7] [6] [7] [9] [8]`
+
+- Minus one from the bottle neck 
 - We increased our throughput by increasing the pace of the slowest 
 operation. 
 
 
 ### Two types of time 
 
-- Setup time - preparation time - time it takes to setup a machine 
+- Setup time: preparation time - time it takes to setup a machine 
 - Saving 50 minutes at a non bottle neck point compared to saving two minutes
 at a bottle neck is superior. 
 
 ### Product Costs 
 
 Traditional:
-- Product cost = Raw material + Direct labor + factory overhead 
 
-New Philosophies: (Theory of contains, Just in Time, Total Quality Mgmt)
+`Product cost = Raw material + Direct labor + factory overhead`
 
-Product cost = raw material (variable costs)
+New Philosophies: (Theory of contains, Just in Time, Total Quality Management)
+
+`Product cost = raw material (variable costs)`
 
 ### Problem example 
 
-per unit == variable cost 
+Cost per unit is the variable cost.
+
 If we consider labor to be fixed, the cost of labor is fixed and what 
-it would be calculated at if we operate at 100% cpaacity 
+it would be calculated at if we operate at 100% capacity 
 
 If there is any kind of decline - it reduces output or revenue but will not 
 effect costs. The productivity drops but the associated costs do not. 
 
 1,200 * .98 -> two percent decline 
-Will not effect costs - paid out as if completed 120% 
+
+- Will not effect costs - paid out as if completed 120% 
 
 
 ### Problem Capacity (Number of machines)
@@ -219,54 +227,59 @@ Divided by the number of hours you are running your factory on.
 
 Total number of hours / number of hours (period) == Number of machines 
 
-- How many machines (capcity) we need to meet demand.
+- How many machines (capacity) we need to meet demand.
 - Lot/batch - how many we produce/ process at a given time. 
 
 
-Number of Setups = Quantity need for each process / batch size(ROUND UP)
+`Number of Setups = Quantity need for each process / batch size` (ROUND UP)
 
 Calculate the number of setups 
 Calculate the time in machine (batch) 
 Total time for machine 
 
-Total Time for machine per unit * number of products = Total time 
+`Total Time for machine per unit * number of products = Total time` 
 
 total time / time running machine per month == Number of machine needed 
 
 ### Problem Capacity 2 
 
-Setup time is not mentioned == no setup time 
-
+Setup time is not mentioned then there is no setup time.
 
 (percent of time) load on machine / available capacity 
 number of units * time required / capacity (in hours) == load 
-- Required machine = load / available capacity 
 
-3,000 units * .17 hours / 160 hours capacity = 3.2 # Need 4 machine 
+`Required machine = load / available capacity` 
+
+`3,000 units * .17 hours / 160 hours capacity = 3.2` >> Need 4 machine 
 
 #### Utilization 
 
 If it's only able to be utilized 80% of the time but workers are 
 105% efficient: 
 
-3,000 units * .17 hours / 160 * .08 * 1.05 = 3.8 # need 4 machines 
+`3,000 units * .17 hours / 160 * .08 * 1.05 = 3.8` >> need 4 machines 
 
 #### Scrap means not every unit is useable 
+
 If the scrap rate is 7%
 
-3000/.93 == Number of units we need to start into production 
-3226 (ROUND UP!!) 
+`3000/.93` == Number of units we need to start into production 
 
+- Answer: 3226 (ROUND UP!!) 
+
+```
 (3,226 include scrap factor) * .17 hours / hours in production 160 * .08 * 
-1.05 = 4.08 machines ## round up to 5 
+1.05 = 4.08 machines 
+```
+- round up to 5 
 
 
 
 # Location 
 
-Existing facility and increase the capacity by expanding 
-- Increase the size and add capacity 
+Existing facility and increase the capacity by expanding.
 
+- Increase the size and add capacity 
 
 ## Location process 
 
@@ -274,10 +287,9 @@ Determine the criteria
 Critical factors 
 Alternatives 
 
-
 ### Regional Factors 
 
-Industrial belt  - great lakes region 
+Industrial belt: great lakes region 
 
 - Raw materials: Input output - being close to your raw materials 
 - Customers: being close to your customers 
@@ -296,30 +308,30 @@ Industrial belt  - great lakes region
 - Productivity 
 - Union strength 
 
-## Robert Kaplan - Author - Activty Based Costing 
+## Robert Kaplan - Activty Based Costing 
 
 Relevance Lost: The rise and fall of management accounting 
 
 History of cost accounting. Traditional labor base accounting is not as 
 relevant as it was in the past. 
 
-ABC - Activity based costing - most labor has been automated by machines.
+Activity based costing (ABC) - most labor has been automated by machines.
 
 - Activity base management drives cost 
 
 ## Components of Costs 
 
-- Raw material, Direct Labor, Overhead 
+Raw material, Direct Labor, Overhead 
 
-1920 -1930 
-- Raw material - 45-50% 
-- DL - 45-50% 
-- Overhead - < 10% 
+- 1920 -1930:
+  - Raw material - 45-50% 
+  - DL - 45-50% 
+  - Overhead - < 10% 
 
-Today: 
-- Raw material - 35-40% 
-- DL - <10% 
-- Overhead - < 50-55% 
+- Today: 
+  - Raw material - 35-40% 
+  - DL - <10% 
+  - Overhead - < 50-55% 
 
 ## Taft Hartley Act 1947 
 
@@ -333,16 +345,18 @@ employees.
 - Right to work - whether you need to pay fee to be apart of the 
 employee union. 
 
-Supporters 
+Supporters:
 
 - Freedom of choice - choice to join a union or not 
 
-Opponents 
+Opponents:
 
 - Free rider - receive the benefits but not paying the dues. 
 
-right-to-work laws prohibit union security agreements, or agreements between 
-employers and labor unions, that govern the extent to which an established union can require employees' membership, payment of union dues, or fees as a condition of employment, either before or after hiring. 
+Right-to-work laws prohibit union security agreements, or agreements between 
+employers and labor unions, that govern the extent to which an established 
+union can require employees' membership, payment of union dues, or fees as a 
+condition of employment, either before or after hiring. 
 
 
 ### Other regional factors 
@@ -354,7 +368,7 @@ employers and labor unions, that govern the extent to which an established union
 
 ## Multi- national company 
 
-Facilites/ Operations in more than one country 
+Facilities/ Operations in more than one country 
 
 Types of operations: 
 
@@ -367,24 +381,25 @@ Types of operations:
 
 Tariffs and quotas (protectionism)
 
-- Tariff - a tax imposed a country on an imported good 
-- Quota - limit imposed by a country on the quantity of goods that can be 
-imported 
-
 Both tarries and quotas will in general raise prices and result 
 in fewer options for consumers. 
 
+- Tariff: a tax imposed a country on an imported good 
+- Quota: limit imposed by a country on the quantity of goods that can be 
+imported 
+
+
 ## Multi National Locations 
 
-Because of markets 
+To meet the expectations of markets.
 
 - Free trade - NAFTA 
 - Comparative advantage coffee vs. wheat and grain (specialization)
 
 - Other issues: 
-- Exchange rates - fluctuations 
-- Political stability - is the government stable?
-- Tax system - how complicated is it
+  - Exchange rates - fluctuations 
+  - Political stability - is the government stable?
+  - Tax system - how complicated is it
 
 
 ### Community Factors important for business 
@@ -399,13 +414,13 @@ Because of markets
 - railroad  
 - water 
 - Religious diversity 
-- Qulaity of public safety 
-- Size of comminity 
+- Quality of public safety 
+- Size of community 
 - Site availability 
 
 ### Industrial parks 
 
-Segregating industry from residential - gives a community an advantage 
+Segregating industry from residential: gives a community an advantage 
 in attracting new business. 
 
 Factory and work force are already in place. 
@@ -415,7 +430,7 @@ Factory and work force are already in place.
 
 Location  - Total fixed costs - Variable cost per unit 
 
-BEP = Fixed cost of operations / Variable Costs 
+`BEP = Fixed cost of operations / Variable Costs` 
 
 If we plan to exceed the expected units, we should go with the lower variable
 cost option. The greater the variable cost will be more expensive if the 
@@ -428,49 +443,52 @@ is planned, go with the lower variable cost option.
 
 ### Transportation problem 2x2 matrix 
 
-From/to 
-- Rows = supply points 
-- Cols = demand / destination points 
-
 Rows && Cols are equal == Balance problem 
 
+- From/to:
+  - Rows = supply points 
+  - Cols = demand / destination points 
+
 What is the shipping schedule that we minimize the shipping costs?
+
 - Classic cost minimization problem 
 - Linear programming 
 
-
-### Unbalance problem 
+### Unbalanced problem 
 
 An unbalanced problem means that there is no enough capacity to meet demand. 
 
 Demand > Supply - add a dummy row that is equal to the imbalance. 
 
-Demand < Supply - add a dummy column to represent another customer - This 
-means that you are building inventory or you don't produce the capacity 
-and reduce production 
+Demand < Supply - add a dummy column to represent another customer 
 
-- Laying people off 
+- This means that you are building inventory or you don't produce the capacity 
+and reduce production.
+  - Laying people off 
 
-supply - rows (locations shipping points )
-demand - columns (customers)
-
+Supply: rows (locations shipping points)
+Demand: columns (customers)
 
 
 # Global Solutions Film 
 
-Product Cost = Raw material + labor + OH  does not work in today's world. 
+`Product Cost = Raw material + labor + OH`  
 
-Dr. Kaplan - ABC - Activity based costing school - relevance lost 
-Activity based costing 
+Does not work in today's world. 
+
+Dr. Kaplan - ABC - Activity based costing school 
+
+- Relevance lost/ Activity based costing 
+
+
+Dr. Goldratt - Theory of Constraints 
 
 - Managing costs
+- The only true product cost is variable cost. 
 
-Dr. Goldfratt - Theory of Constraints 
+`Throughput = Total Revenue minus total raw material` 
 
-The only true product cost is variable cost. 
-
-Throughput = Total Revenue minus total raw material - same thing as 
-margin 
+- Same thing as margin 
 
 Operating expense (fixed cost) = everything we spend money on except raw 
 material 
@@ -478,34 +496,34 @@ material
 
 # Patterns of Layout 
 
-- Process layout (Most organizations) - people and machines categorized 
+Process layout (Most organizations) - people and machines categorized 
 into departments. 
-- Intermittent layout (may sit in a buffer) 
-- Job shop - common type - more common for custom products 
 
-- Product layout - assembly line 
-- Continuous movement through a factory 
+- Product layout: assembly line 
+  - Continuous movement through a factory 
 
-- Fixed Positions - special projects 
-- Product is built on location (homes) 
+- Job shop: common type - more common for custom products 
+  - Intermittent layout (may sit in a buffer) 
+
+- Fixed Positions: special projects 
+  - Product is built on location (homes) 
 
 
-## Process Layout - job shops 
+## Process Layout - Job shops 
 
 Worker skill level is moderate to high - more skills required 
 
 - FLexible: Able to handle a wide variety of products 
 - Custom built to your needs 
-- General purpose - generalists capable of doing many different things 
-- Different departments - can continue working through bottle necks or 
+- General purpose: generalists capable of doing many different things 
+- Different departments: can continue working through bottle necks or 
 break downs. 
-- Work routing- sequence and timing for each operation (instructions)
+- Work routing: sequence and timing for each operation (instructions)
 - Scheduling: defined by production schedule 
-- Bills of material - List of all the parts
+- Bills of material: List of all the parts
 - Material movement through the shop is generally slow 
-
-- Every order could be new or customized - project managers will determine 
-how a product/ project should be executed 
+- Every order could be new or customized 
+  - project managers will determine how a product/ project should be executed 
 
 ## Product layout 
 
@@ -539,7 +557,7 @@ Large complex and often unique products: homes, airports, bridges, etc.
 
 ## Balanced line 
 
-[5][5][5][5][5]
+`[5][5][5][5][5]`
 
 Even on a balanced line you are still going to fall behind
 
@@ -547,36 +565,35 @@ Even on a balanced line you are still going to fall behind
 - Statistical fluctuations - there will be some variance 
 - Statistically dependent events - departments do not work in isolation 
 
-Cycle Time = time interval between units coming off the line 
-Longest task time = minimum possible cycle time ( the longest task in the
-process)
-Sum of task times = maximum cycle time 
-Daily capacity = operating time / cycle time 
+`Cycle Time = time interval between units coming off the line `
+`Longest task time = minimum possible cycle time (longest running task)`
+`Sum of task times = maximum cycle time `
+`Daily capacity = operating time / cycle time `
 
+Don't build if you're not going to sell it 
 
-### Don't build if you're not going to sell it 
-
+```
 Operating time = 480 minutes 
 Cycle time = 1 minute (longest task) 
 Daily capacity = 480 / 1 = 480 units 
-
+```
 
 ### Minimum Number of Work Stations 
 
-N = Desired Output * Sum(task time) / Operating time 
+`N = Desired Output * Sum(task time) / Operating time`
 
 ROUND UP! Can't have 1.2 work stations 
 
-Cycle time = Operating Time / Desired Output 
+`Cycle time = Operating Time / Desired Output `
 
 Minimum Work Stations = Desired Output * Sum of task Time / Operating Time
 
 CHOOSE THE LONGEST TASK TIME FIRST! 
 Rule in industry - Tie Breaker - Choose the task that requires the most time 
 
-(Dependendent work stations)
+(Dependent work stations)
 
-Keep in mind what the cumulative capacity/ Time is for a particular cycle 
+Keep in mind what the cumulative capacity/ time is for a particular cycle 
 time. Each work station has a time component that must not be exceeded.
 
 - Cannot exceed cycle time 
@@ -585,5 +602,13 @@ time. Each work station has a time component that must not be exceeded.
 # Location Vehicles 
 
 Ford F-series most popular 
-Best selling car: Honda civic and  Camry
-Corolla best selling world wide W
+
+- Best selling car: 
+  - Honda civic and  Camry
+  - Corolla best selling world wide 
+  
+  
+# Global Solutions 
+
+
+  
