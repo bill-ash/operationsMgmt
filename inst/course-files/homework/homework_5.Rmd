@@ -1,0 +1,86 @@
+---
+title: "MGMT-3453-X20: Homework 5"
+author: "Bill Ash (5555WRA)"
+date: "2/2/2021"
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+
+Name _________________________________________
+Operations Homework # 13
+INPUT
+Order Cost _______________________________
+Carry Cost _______________________________
+Annual Usage ___________________________
+Price (no discount) ________________________
+Discount Price ____________________________
+Qty for Discount __________________________
+EOQ Discount
+Material Cost ________________________________________________________
+Order Cost ___________________________________________________________
+Carry Cost ___________________________________________________________
+Total Cost ___________________________________________________________
+Savings ____________________________________
+Extra Investment ____________________________
+ROI ______________________________________
+Name _________________________________________
+Operations Homework # 14
+Order Cost __________________________________
+Carry Cost _________________________________
+Annual Usage _______________________________
+Price (no discount) ___________________________
+Discount Price ______________________________
+Qty Discount _______________________________
+EOQ Discount
+Material Cost _______________ _________________
+Order Cost _______________ _________________
+Carry Cost _______________ _________________
+Total Cost _______________ _________________
+Savings ________________________
+Extra Investment __________________________
+ROI _________________________________
+Name _________________________________________
+Operations Homework # 15, 16, 17
+First Simulation
+Order Cost ____________________________________
+Annual Forecasted Usage _____________________________
+Price ____________________________________________
+Carry Cost _________________________________________
+SOLUTION
+EOQ ______________________________________
+INPUT
+QTY Discount ?____NO
+______________________
+Enter the Demand During Average Lead Time Here (when complete -after the 130, enter a -1)
+SOLUTION
+Reorder Stockout Carry Total
+100 _______ _______ ________
+110 _______ _______ ________
+120 _______ _______ ________
+130 _______ _______ ________
+Recommended Reorder Point ________________
+Safety Stock ___________________________
+enter YES when the program ask if you wish to run the simulation
+Enter the lead time distribution here
+Enter the demand during average lead time here
+# of weeks to simulate _50___
+ORDER QUANTITY _______________
+ORDER POINT_____________________
+CUMULATIVE COST ____________________
+2ND SIMULATION (#16)
+ORDER QTY __________________________
+ORDER POINT__________________________
+CUMULATIVE COST____________________
+3RD SIMULATION (17)
+ORDER QTY __________________________
+ORDER POINT ________________________
+CUMULATIVE COST _____________________

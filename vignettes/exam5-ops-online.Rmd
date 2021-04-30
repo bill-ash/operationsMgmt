@@ -1,0 +1,23 @@
+---
+title: "Exam 5"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Exam 5}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>", 
+  fig.align = 'center'
+)
+library(operationsMgmt)
+library(tidyverse)
+theme_set(theme_light())
+```
+
+
+# Just in Time 
+
