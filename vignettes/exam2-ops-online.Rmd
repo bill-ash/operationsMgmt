@@ -116,6 +116,7 @@ Output gap will increase the total work in process
 ## Unbalanced Line 
 
 The time for each operation is not the same 
+
 - The line can only move as fast as the slowest operation 
 - The design takes the sum of all operations 
 - Buffer will be less as the time in operation takes longer 

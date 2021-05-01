@@ -1,7 +1,7 @@
 ---
-title: "MGMT-3453-X20: Homework 4"
+title: "MGMT-3453-X20: Homework 10-12"
 author: "Bill Ash (5555WRA)"
-date: "2/2/2021"
+date: "4/20/2021"
 output:
   pdf_document: default
   word_document: default
@@ -15,55 +15,190 @@ library(tidyverse)
 
 
 
-Name _________________________________________
-Operations Homework # 10
-OBJECTIVE FUNCTION _____________________________________________
-SUBJECT TO: ___________________________________________ upper calorie limit
-____________________________________________ starch
-_____________________________________________ limit on A
-_____________________________________________ lower calorie limit
-_____________________________________________ protein
-SOLUTION
-PAYOFF __________________________________________
-B ____________________________________________
-A ______________________________________________
-UPPER CALORIE LIMIT ____________________________________
-LOWER CALORIE LIMIT ___________________________________
-LIMIT ON A ________________________________________________
-STARCH __________________________________________________
-PROTEIN __________________________________________________
-Name _________________________________________
-Operations Homework # 11
-OBJECTIVE FUNCTION ________________________________________________
-SUBJECT TO
-____________________________________________________ Mill
-___________________________________________________ Lathe
-___________________________________________________ Grind
-___________________________________________________ Market X-3
-SOLUTION
-PAYOFF__________________________________________
-X1 ______________________________________________
-X2 _____________________________________________
-X3 ______________________________________________
-GRIND __________________________________________
-MILL ___________________________________________
-LATHE __________________________________________
-Name _________________________________________
-Operations Homework # 12
-OBJECTIVE FUNCTION ________________________________________________________
-SUBJECT TO:
-_________________________________________________________Gin
-__________________________________________________________Bourbon
-________________________________________________________Vermouth
-________________________________________________________Scotch
-_________________________________________________________ Vodka
-___________________________________________________________ Martini
-SOLUTION
-PAYOFF _______________________________________________________
-Scotch on the Rocks _________________________
-Martini ____________________________________
-Atomic Bomb ____________________________
-Snowdrift________________________________
-Kentucky Colonel ___________________________
-Steamroller _________________________________
-Slack variables
+# Problem 10 
+
+```{r}
+FOOD_A = .75
+FOOD_B = .15
+
+# Starch 200A + 700B <= 1400
+starch = c(200, 700)
+# Protein 400A + 100B >= 400 
+protein = c(400, 100)
+# Maximum product a in lbs 1A <= 2
+lbs_a = c(2, 0)
+# Calories 600A + 900B <= 3600
+# Calories 600A + 900B >= 1800
+upper_calorie = c(600, 900)
+lower_calorie = c(600, 900)
+
+# Capacity for each 
+capacity_starch = 1400
+min_protein = 400 
+capacity_a = 2
+capacity_calorie = 3600
+min_calorie = 1800 
+```
+
+```{r}
+library(lpSolve)
+
+# Minimization problem 
+direction = "min"
+# Contribution for each product towards total spend 
+p.contribution = c(FOOD_A, FOOD_B)
+# Capacity/ min of each product 
+p.products = matrix(
+  c(starch, protein, lbs_a, upper_calorie, lower_calorie), nrow = 5, byrow = TRUE
+)
+# Direction - is it min or max 
+p.direction = c('<=', '>=', '<=', '<=', '>=')
+# Capacity right hand side 
+p.capacity = c(capacity_starch, min_protein, capacity_a, capacity_calorie, min_calorie)
+
+resp_food = lp(
+  direction = direction, objective.in = p.contribution, 
+  const.mat = p.products, const.dir = p.direction, const.rhs = p.capacity
+)
+```
+
+## Answer 10: 
+
+0.5384 pound A, 1.8461 pounds B will give the least expensive required meal. 
+Contribution will be the total cost in this scenario: 0.68076
+We can calculate the slack and surplus for each variable by multiplying the 
+payoff coefficient variable for the answer by the product matrix coefficient, and 
+subtracting from the capacity or limit. 
+
+```{r}
+resp_food$solution
+
+resp_food
+```
+
+
+# Problem 11
+
+
+The key here is that the maximum number of products that can be sold of product 
+three by sales is 80. This is a normal constraint just like each other capacity
+limit.
+
+Contribution or payoff for each of the products: 
+
+- Maximization: achieve the best product mix that will give the highest profit.
+
+
+```{r}
+# Contribution 
+X1 = 20
+X2 = 6
+X3 = 8
+```
+
+
+```{r}
+# milling 8X1 + 2X2 + 3X3 <= 800
+milling = c(8, 2, 3)
+# lathe 4X1 + 3X2 + 0X3 <= 480
+lathe = c(4, 3, 0)
+# grinder 2X1 + 0X2 + 1X3 <= 320
+grinder = c(2, 0, 1)
+# x3_production 0X1 + 0X2 + 1X3 <= 80
+x3_production = c(0, 0, 1)
+
+cap_milling = 800
+cap_lathe = 480
+cap_grinder = 320
+cap_x3 = 80
+```
+
+
+
+```{r}
+library(lpSolve)
+# Maximize profit 
+z.direction = 'max'
+# Contribution of each product 
+z.contribution = c(X1, X2, X3)
+# Subject to capacity matrix 
+z.subject_to = matrix(
+  c(milling, lathe, grinder, x3_production), nrow = 4, byrow = TRUE
+)
+z.directions = c('<=', '<=', '<=', '<=')
+z.capacity = c(cap_milling, cap_lathe, cap_grinder, cap_x3)
+
+z.resp = lp(
+  direction = z.direction, objective.in = z.contribution, 
+  const.mat = z.subject_to, const.dir = z.directions, const.rhs = z.capacity
+)
+```
+
+
+## Answer 11: Production is 45X1, 100X2, and 80X3 which will produce a payoff of: 
+
+```{r}
+z.resp$solution
+
+z.resp
+```
+
+
+
+# Problem 12 
+
+```{r}
+library(lpSolve)
+# Contribution is 2.50 for all drinks
+drink.direction = 'max'
+
+# Subject to: capacity for each input 
+gin = 120
+bourbon = 108
+vermouth = 60
+scotch = 72
+vodka = 48
+Martini = 60
+
+# not all drinks require an input - transpose 
+# need the ingredients as parts of each output, a drink. 
+drink.matrix = matrix(
+  c(
+    # S,     M,    AB,  SD,  KC,  SR
+    c(0,   1.5,  0,   0,   0,   2), # gin
+    c(0,   0,    0,   2,   2,   0), # bourbon
+    c(0,   .25,  0,   0,   1,   0), # vermouth
+    c(2,   0,    1.5, 0,   0,   .5), # scotch
+    c(0,   0,    1.5, 0,   0,   1), # vodka
+    c(0,   1,    0,   0,   0,   0) # Martini
+  ), nrow = 6, byrow = TRUE
+)
+
+# Contribution is 2.50 
+drink.contribution = rep(2.50, 6)
+
+# Direction - capacity <=
+drink.direction_capacity = rep('<=', 6)
+
+# Drink capacity - right hand side 
+# [spirits, drinks]
+# g, b, v, s, v
+drink.capacity = c(gin, bourbon, vermouth, scotch, vodka, Martini)
+
+drink.resp = lp(
+  direction = drink.direction, objective.in = drink.contribution, 
+  const.mat = drink.matrix, const.dir = drink.direction_capacity, 
+  const.rhs = drink.capacity
+)
+```
+
+
+## Answer 12 
+
+```{r}
+# The payoff is: 
+drink.resp
+
+drink.resp$solution
+```
+
